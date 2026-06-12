@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  --text: #6B7280;
+  --text-success:#00A63E;
+  --text-h: #111827;
+  --text-mute:#6B7280;
+  --text-info:#DC2626;
+  --text-high:#1A73E8;
+  --text-action:#F97316;
+  --border: #0000001A;
+  --action-border:#F97316;
+  --container-bg: #F8F9FA;
+  --main-bg:#1A73E8;
+  --content-bg:#F3F4F6;
+  --input-bg:#F3F4F6;
+  --success-bg:#F0FDF4;
+  --info-bg:#DC2626;
+  --action-bg: #F97316;
+  --accent-border: rgba(170, 59, 255, 0.5);
+  --social-bg: rgba(244, 243, 236, 0.5);
+  --shadow:rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--container-bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+h1,
+h2, h3, h4, h5 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 30px;
+  letter-spacing: -1.68px;
+  margin: 15px 0;
+  @media (max-width: 1024px) {
+    font-size: 30px;
+    margin: 15px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+p {
+  margin: 0;
+}
+
+span {
+  font-size: 12px;
+}
