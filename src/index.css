@@ -8,16 +8,20 @@
   --text-info:#DC2626;
   --text-high:#1A73E8;
   --text-action:#F97316;
+  --text-accent:#99A1AF;
+  --text-light:#ffff;
   --border: #0000001A;
   --action-border:#F97316;
+  --accent-border:#364153;
   --container-bg: #F8F9FA;
   --main-bg:#1A73E8;
+  --primary-bg:#111827;
   --content-bg:#F3F4F6;
   --input-bg:#F3F4F6;
   --success-bg:#F0FDF4;
   --info-bg:#DC2626;
   --action-bg: #F97316;
-  --accent-border: rgba(170, 59, 255, 0.5);
+  --accent-bg: #1A73E833;
   --social-bg: rgba(244, 243, 236, 0.5);
   --shadow:rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
@@ -84,4 +88,52 @@ p {
 
 span {
   font-size: 12px;
+}
+
+/*------------------ main only use for wrapping children layout -------------------*/
+main {
+  width: 83%;
+}
+
+
+/* ---------------------------- Utilities css -----------------------------------*/
+
+.main-bg{
+  background-color: var(--main-bg);
+}
+
+.accent-bg{
+  background-color: var(--accent-bg);
+}
+
+.primary-bg{
+  background-color: var(--primary-bg);
+}
+
+.text-light {
+  color: var(--text-light);
+}
+
+.text-accent {
+  color: var(--text-accent);
+}
+
+.text-h {
+  color: var(--text-h);
+}
+
+.input-bg {
+  background-color: var(--input-bg);
+}
+
+.border-light {
+  border: 1px solid var(--border);
+}
+
+.border-b-light {
+  border-bottom: 1px solid var(--border);
+}
+
+.border-b-accent {
+  border-bottom: 1px solid var(--accent-border);
 }

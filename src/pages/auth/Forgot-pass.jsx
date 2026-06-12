@@ -1,7 +1,7 @@
 export default function ForgotPass(){
-    return(
-        <>
+  return(
+    <>
         
-        </>
-    )
+    </>
+  )
 }
