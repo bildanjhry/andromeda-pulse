@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Inter';
+  src: url('./assets/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 400 700 900;
+}
+
 :root {
   --text: #6B7280;
   --text-success:#00A63E;
@@ -24,14 +30,11 @@
   --accent-bg: #1A73E833;
   --social-bg: rgba(244, 243, 236, 0.5);
   --shadow:rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --sans-serif: 'Inter', sans-serif;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
-  color-scheme: light dark;
+  font-weight: 500;
+  font-size: 14px;
   color: var(--text);
   background: var(--container-bg);
   font-synthesis: none;
@@ -52,6 +55,7 @@ body {
   width: 100%;
   max-width: 100%;
   min-height: 100svh;
+  font-family: 'Inter', sans-serif;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -60,14 +64,15 @@ body {
 h1,
 h2, h3, h4, h5 {
   font-family: var(--heading);
-  font-weight: 500;
+  font-weight: 700;
   color: var(--text-h);
 }
 
 h1 {
-  font-size: 30px;
-  letter-spacing: -1.68px;
+  font-size: 32px;
+  letter-spacing: -0.68px;
   margin: 15px 0;
+  line-height: 115%;
   @media (max-width: 1024px) {
     font-size: 30px;
     margin: 15px 0;
@@ -106,8 +111,16 @@ main {
   background-color: var(--accent-bg);
 }
 
+.action-bg{
+  background-color: var(--action-bg);
+}
+
 .primary-bg{
   background-color: var(--primary-bg);
+}
+
+.container-bg{
+  background-color: var(--container-bg);
 }
 
 .text-light {
