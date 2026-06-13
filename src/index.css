@@ -33,6 +33,7 @@
   --gradient-bg: linear-gradient(to right, #1A73E8, #193CB8);
   --gradient-regis-bg: linear-gradient(to right, #1447E6, #312C85);
   --gradient-forgot-bg: linear-gradient(to right, #4F39F6, #1C398E);
+  --gradient-herro-bg: linear-gradient(to right, #4F39F6, #8200DB);
   --shadow:rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
   --sans-serif: 'Inter', sans-serif;
 
@@ -43,7 +44,7 @@
   font-weight: 400;
   font-size: 16px;
   color: var(--text);
-  background: var(--container-bg);
+  background: var(--content-bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -69,7 +70,7 @@ body {
 }
 
 h1,
-h2, h3, h4, h5 {
+h2 {
   font-weight: 700;
   color: var(--text-h);
 }
@@ -84,8 +85,11 @@ h1 {
     margin: 15px 0;
   }
 }
-h2 {
-  font-size: 24px;
+
+h3 {
+  font-size: 20px;
+  color: var(--text-h);
+  font-weight: 500;
   line-height: 118%;
   letter-spacing: -0.24px;
   margin: 0 0 8px;
@@ -99,11 +103,6 @@ p {
 
 span {
   font-size: 12px;
-}
-
-/*------------------ main only use for wrapping children layout -------------------*/
-main {
-  width: 83%;
 }
 
 

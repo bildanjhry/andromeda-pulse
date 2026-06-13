@@ -1,0 +1,38 @@
+[
+    {
+        "id":"1el",
+        "name":"Elektronik",
+        "image":"/images/categories/electronic-cat.svg",
+        "total":7
+    },
+    {
+        "id":"2fa",
+        "name":"Fashion",
+        "image":"/images/categories/fashion-cat.svg",
+        "total":5
+    },
+    {
+        "id":"3ru",
+        "name":"Rumah & Dapur",
+        "image":"/images/categories/home-cat.svg",
+        "total":4
+    },    
+    {
+        "id":"4ke",
+        "name":"Kecantikan",
+        "image":"/images/categories/beauty-cat.svg",
+        "total":7
+    },
+    {
+        "id":"5ol",
+        "name":"Olahraga",
+        "image":"/images/categories/sport-cat.svg",
+        "total":3
+    },
+    {
+        "id":"6bu",
+        "name":"Buku & Alat Tulis",
+        "image":"/images/categories/desk-tools-cat.svg",
+        "total":2
+    }
+]

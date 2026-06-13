@@ -40,7 +40,7 @@ export default function Navbar({notifActions}) {
 
   return (
     <div className="flex flex-col w-full h-fit fixed top-0 justify-center
-		border-b-light items-center bg-white">
+		border-b-light items-center bg-white z-10">
       <section className="flex flex main-bg justify-center w-full">
         <div className="h-[28px] text-[12px] flex flex-row justify-between 
 				items-center w-[83%] text-light">
