@@ -1,8 +1,8 @@
 import { Link } from "react-router"
 import { useState, useEffect } from "react"
 
-// asset
-import ArrowRight from "@/assets/icons/arrow-right-blue.svg"
+// component
+import ArrowRightButton from "@/components/ui/ArrowLeftButton"
 
 export default function CategoriesCard(){
   const [datas, setDatas] = useState([])
@@ -14,7 +14,7 @@ export default function CategoriesCard(){
       const data = await res.json()
 
       console.log(data)
-			setDatas(data)
+      setDatas(data)
     }
 
     getCategories()
@@ -25,17 +25,12 @@ export default function CategoriesCard(){
     <div className="w-full flex flex-col gap-3 mt-4 mb-12">
       <header className="flex justify-between w-full h-[5rem] items-center">
         <h3 className="font-[200]">Belanja Berdasarkan Kategori</h3>
-        <Link 
-          className="flex gap-2"
-          to={"/browse-product"}>
-          <p className="text-sm text-(--text-high)">Lihat Semua</p>
-          <img src={ArrowRight} alt="see all" />
-        </Link>
+        <ArrowRightButton/>
       </header>
       <main className="flex flex-row gap-3 flex-wrap w-full h-fit">
         {datas?.map((item, index) => (
           <Link 
-						to={"/browse-product"}
+            to={"/browse-product"}
             key={index}
             className="rounded-lg items-center pt-2 flex flex-col border-light gap-2 
 						bg-(--container-bg) w-[198px] h-[138px] hover:-translate-y-3">

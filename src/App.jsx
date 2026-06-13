@@ -5,7 +5,8 @@ import Landing from "@/pages/Landing.jsx";
 import Login from "@/pages/auth/Login.jsx";
 import Register from "@/pages/auth/Register.jsx";
 import BrowseProduct from "@/pages/Browse-prod.jsx";
-import ForgotPass from "./pages/auth/Forgot-pass";
+import ForgotPass from "@/pages/auth/ForgotPass.jsx";
+import ProductDetails from "@/pages/details/ProductDetails.jsx"
 
 const router = createBrowserRouter([
   {
@@ -25,8 +26,12 @@ const router = createBrowserRouter([
     element: <ForgotPass/>
   },
   {
-    path:"/browse-product",
+    path:"/browse-product/:id",
     element: <BrowseProduct/>
+  },
+  {
+    path:"/details/:id",
+    element: <ProductDetails/>
   },
 ])
 

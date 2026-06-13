@@ -1,0 +1,74 @@
+[
+    {
+        "id":"1he",
+        "name":"Headphone Wireless Premium",
+        "price":0,
+        "discount":"-12%",
+        "rating":4.8,
+        "ratingTotal":"512",
+        "discountPrice":0,
+        "brand":"soundWave",
+        "isNew":false,
+        "image":"/images/",
+        "event":"flash-deals",
+        "isPopuler":false,
+        "cat":{
+            "id":"",
+            "name":""
+        }
+    },
+    {
+        "id":"1he",
+        "name":"Headphone Wireless Premium",
+        "price":0,
+        "discount":"-12%",
+        "rating":4.8,
+        "ratingTotal":"512",
+        "discountPrice":0,
+        "brand":"soundWave",
+        "isNew":false,
+        "image":"/images/",
+        "event":"flash-deals",
+        "isPopuler":false,
+        "cat":{
+            "id":"",
+            "name":""
+        }
+    },
+    {
+        "id":"1he",
+        "name":"Headphone Wireless Premium",
+        "price":0,
+        "discount":"-12%",
+        "rating":4.8,
+        "ratingTotal":"512",
+        "discountPrice":0,
+        "brand":"soundWave",
+        "isNew":false,
+        "image":"/images/",
+        "event":"flash-deals",
+        "isPopuler":false,
+        "cat":{
+            "id":"",
+            "name":""
+        }
+    },
+    {
+        "id":"1he",
+        "name":"Headphone Wireless Premium",
+        "price":0,
+        "discount":"-12%",
+        "rating":4.8,
+        "ratingTotal":"512",
+        "discountPrice":0,
+        "brand":"soundWave",
+        "isNew":false,
+        "image":"/images/",
+        "event":"flash-deals",
+        "isPopuler":false,
+        "cat":{
+            "id":"",
+            "name":""
+        }
+    }               
+]
