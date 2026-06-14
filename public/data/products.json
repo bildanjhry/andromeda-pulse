@@ -2,23 +2,25 @@
     {
         "id":"1he",
         "name":"Headphone Wireless Premium",
-        "price":0,
+        "price":450000,
         "discount":"-12%",
         "rating":4.8,
         "ratingTotal":"512",
-        "discountPrice":0,
+        "discountPrice":650000,
         "brand":"soundWave",
+        "variants":["Hitam", "Biru", "Putih"],
         "isNew":false,
-        "image":"/images/",
+        "image":"/images/products/headphone-prod.svg",
         "event":"flash-deals",
         "isPopuler":false,
+        "stocks":45,
         "cat":{
-            "id":"",
-            "name":""
+            "id":"1au",
+            "name":"Audio"
         }
     },
     {
-        "id":"1he",
+        "id":"1kt",
         "name":"Headphone Wireless Premium",
         "price":0,
         "discount":"-12%",
@@ -36,7 +38,7 @@
         }
     },
     {
-        "id":"1he",
+        "id":"1te",
         "name":"Headphone Wireless Premium",
         "price":0,
         "discount":"-12%",
@@ -54,7 +56,7 @@
         }
     },
     {
-        "id":"1he",
+        "id":"1ge",
         "name":"Headphone Wireless Premium",
         "price":0,
         "discount":"-12%",

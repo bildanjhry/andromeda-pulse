@@ -14,6 +14,7 @@
   --text-mute:#6B7280;
   --text-info:#DC2626;
   --text-high:#1A73E8;
+  --text-star:#fbcb2d;
   --text-action:#F97316;
   --text-accent:#99A1AF;
   --text-light:#ffff;
@@ -72,18 +73,22 @@ body {
 h1,
 h2 {
   font-weight: 700;
-  color: var(--text-h);
 }
 
 h1 {
   font-size: 32px;
   letter-spacing: -0.68px;
-  margin: 15px 0;
+  margin: 10px 0;
   line-height: 115%;
   @media (max-width: 1024px) {
     font-size: 30px;
-    margin: 15px 0;
+    margin: 10px 0;
   }
+}
+
+h2 {
+  font-size: 24px;
+  margin: 10px 0px;
 }
 
 h3 {
