@@ -77,7 +77,7 @@ export default function ProfileLayout({children}){
           </div>
         </aside>
 
-        <main>
+        <main className="w-[75%] flex justify-end">
           {children}
         </main>
 
