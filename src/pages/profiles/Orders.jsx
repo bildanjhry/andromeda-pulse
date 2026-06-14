@@ -15,9 +15,6 @@ export default function Orders(){
   
   },[])
 
-  console.log(checkout)
-
-
   return(
     <ProfileLayout>
       <div className="w-[95%] pt-1 h-full">

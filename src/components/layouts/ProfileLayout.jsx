@@ -44,7 +44,7 @@ export default function ProfileLayout({children}){
 
   return (
     <MainLayout>
-      <div className="w-[80%] h-[100vh] flex flex-row 
+      <div className="w-[80%] h-full flex flex-row 
         pt-12">
         <aside className="w-[256px] h-[80%]">
           <div className="flex flex-col gap-3">
