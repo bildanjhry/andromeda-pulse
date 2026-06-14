@@ -1,9 +1,26 @@
-import MainLayout from "@/components/layouts/MainLayout";
+import { Link } from "react-router";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
 import moneyFormat from "@/utils/money-format";
+
+// component
+import MainLayout from "@/components/layouts/MainLayout";
+import SubmitButton from "@/components/ui/SubmitButton.jsx"
+import ActionButton from "@/components/ui/ActionButton.jsx"
+import ProductsCard from "@/components/features/ProductsCard.jsx"
+
+// asset
+import Plus from "@/assets/icons/plus-black.svg"
+import Minus from "@/assets/icons/minus-black.svg"
+import Cart from "@/assets/icons/cart-orange.svg"
+import Wishlist from "@/assets/icons/wishlist-mute.svg"
+import Delivery from "@/assets/icons/delivery-blue.svg"
+import Return from "@/assets/icons/return.svg"
+import Safe from "@/assets/icons/safe-blue.svg"
+import ArrowRight from "@/assets/icons/bc-arrow-right-mute.svg"
+
 
 export default function ProductDetails(){
   const [data, setData] = useState({})
@@ -46,10 +63,46 @@ export default function ProductDetails(){
     
   }
 
+  function addToCart(){
+
+  }
+
+  function addToWishlist(){
+
+  }
+
   return(
     <MainLayout>
-      <div className="w-[83%] flex flex-col">
-        <div className="flex flex-row h-fit bg-[yellow] mt-7">
+      <div className="w-[83%] flex flex-col mt-3">
+        <div className="h-[4.2rem] w-full flex items-center">
+          <ul className="h-full flex items-center gap-1">
+            <li>
+              <Link to={"/"}>
+                Beranda
+              </Link>
+            </li>
+            <li>
+              <img src={ArrowRight} alt="breadcrum" className="top-[1px] relative" />
+            </li>
+            <li>
+              <Link to={"/browse-product/all"}>
+                Toko
+              </Link>
+            </li>
+            <li>
+              <img src={ArrowRight} alt="breadcrum" className="top-[1px] relative" />
+            </li>
+            <li>
+              <Link to={"/browse-product/all"}>
+                Electornics
+              </Link>
+            </li>
+            <li>
+              <img src={ArrowRight} alt="breadcrum" className="top-[1px] relative" />
+            </li>                        
+          </ul>
+        </div>
+        <div className="flex flex-row h-fit bg-[yellow] ">
           <section className="w-[48%] bg-[green] flex flex-col">
             <div className="rounded-xl overflow-hidden h-[604px] relative">
               { data.discount &&
@@ -143,26 +196,107 @@ export default function ProductDetails(){
                   ))}
                 </div>
               </div>
-              
+
               <div className="flex flex-col gap-2 mt-4">
                 <p className="text-h">Jumlah</p>
-                <div className="flex w-fit h-[2rem] rounded-lg border-light">
-                  <button
-                    className="w-[3.5rem] cursor-pointer"
-                    onClick={handleIncreastQty}
-                  >+</button>
-                  <p className="w-7 text-center">{quantity}</p>
-                  <button
-                    className="w-[3.5rem] cursor-pointer"
-                    onClick={handleDecreastQty}
-                  >-</button>
+                <div className="flex items-center gap-3">
+                  <div className="flex w-fit h-[38px] justify-center items-center rounded-xl border-light">
+                    <button
+                      className="w-[3.7rem] flex cursor-pointer justify-center items-center"
+                      onClick={handleDecreastQty}
+                    >
+                      <img src={Minus} alt="decrease qty" />
+                    </button>
+                    <p className="w-7 text-center text-sm text-h">{quantity}</p>
+                    <button
+                      className="w-[3.7rem] flex cursor-pointer flex justify-center items-center"
+                      onClick={handleIncreastQty}
+                    >
+                      <img src={Plus} alt="increase qty" />
+                    </button>
+                  </div>
+                  <p className="text-sm">Stok: {data.stocks} pcs</p>
                 </div>
               </div>
 
+              <div className="mt-3 grid grid-cols-[43%_43%_9%] w-full justify-between">
+                <ActionButton 
+                  img={Cart} 
+                  buttonText={"Tambah ke keranjang"} 
+                  color={`text-(--text-action)`} 
+                  bg={"bg-[transparent]"} 
+                  handleOnclick={addToCart}
+                  order={"left-to-right"}
+                  border={"border-(--action-border)"}
+                />
+                <SubmitButton img={null} buttonText={"Beli Sekarang"} order={"right-to-left"}/>
+                <ActionButton 
+                  img={Wishlist} 
+                  buttonText={""}
+                  color={""}
+                  bg={"bg-[transparent]"}
+                  handleOnclick={addToWishlist}
+                  order={""}
+                  border={"border-light"}
+                />
+              </div>
+
+              <div className="flex gap-2 mt-3">
+                <div className="flex flex-col items-center justify-center gap-1 h-[73px] 
+                w-[193px] bg-(--input-bg) rounded-lg text-xs">
+                  <img src={Delivery} alt="delivery" />
+                  <p className="text-h">Gratis Ongkir</p>
+                  <p>Min. Rp 100.000</p>
+                </div>
+                <div className="flex flex-col items-center justify-center gap-1 h-[73px] 
+                w-[193px] bg-(--input-bg) rounded-lg text-xs">
+                  <img src={Safe} alt="delivery" />
+                  <p className="text-h">Pembayaran Aman</p>
+                  <p>SSL Terenkripsi</p>
+                </div>
+                <div className="flex flex-col items-center justify-center gap-1 h-[73px] 
+                w-[193px] bg-(--input-bg) rounded-lg text-xs">
+                  <img src={Return} alt="delivery" />
+                  <p className="text-h">Retur 30 Hari</p>
+                  <p>Gratis retur</p>
+                </div>                                
+              </div>
             </div>
           </section>
         </div>
-        <div className="h-[40rem]">
+
+        <div className="my-20">
+          <div className="w-full bg-[white] rounded-lg h-fit flex flex-col">
+            <nav className="flex w-full h-[55px] gap-1 border-b-light text-sm">
+              <button className="border-b-2 border-(--main-border) flex px-6 justify-center items-center">
+                <p className="text-(--text-high)">Deskripsi</p>
+              </button>
+              <button className="flex px-6 justify-center items-center">
+                <p className="">Spesifikasi</p>
+              </button>
+              <button className=" flex px-6 justify-center items-center">
+                <p className="">Ulasan</p>
+              </button>
+            </nav>
+            <div className="min-h-[5rem] w-full flex justify-end items-center">
+              <article className="w-[98%]">
+                  Headphone wireless dengan teknologi noise-cancelling terdepan. Nikmati musik favoritmu tanpa gangguan dengan kualitas suara yang memukau.
+              </article>
+            </div>
+          </div>
+          
+          <div className="mb-8 w-full mt-10">
+            <header className="flex items-center justify-between mt-2">
+              <section className="h-[5rem] flex flex-row items-center gap-2">
+                <div className="flex flex-row justify-start 
+                w-fit h-full items-center gap-3">
+                  <h3 className="">Produk Terkait</h3>
+                </div>
+              </section>
+            </header>
+
+            <ProductsCard/>
+          </div> 
 
         </div>
       </div>

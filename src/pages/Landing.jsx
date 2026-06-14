@@ -35,6 +35,7 @@ export default function Landing(){
     <MainLayout>
       <div className="w-full flex flex-col items-center">
         <Herro/>
+
         <div className="w-[83%] flex flex-col justify-center items-center ">
           <CategoriesCard/>
           <div className="mb-8 w-full">
@@ -72,6 +73,7 @@ export default function Landing(){
             </header>
             <ProductsCard/>
           </div>   
+
           <div className="mb-8 w-full">
             <header className="flex items-center justify-between mt-2">
               <section className="h-[5rem] flex flex-row items-center gap-2">
@@ -85,7 +87,8 @@ export default function Landing(){
               </section>
             </header>
             <ProductsCard/>
-          </div>                 
+          </div>            
+
         </div>
       </div>
     </MainLayout>
