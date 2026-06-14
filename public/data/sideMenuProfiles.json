@@ -30,7 +30,7 @@
     {
         "id":"5pe",
         "name":"Pengaturan Profil",
-        "path":"/settings",
+        "path":"/profile-settings",
         "icon":"/images/profilesMenu/settings-mute.svg",
         "activeIcon":"/images/profilesMenu/settings-blue.svg"        
     }            

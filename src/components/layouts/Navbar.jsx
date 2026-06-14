@@ -88,7 +88,7 @@ export default function Navbar({notifActions}) {
                 </Link>
               </li>
               <li>
-                <Link to={"/profile"} className="h-[40px] min-w-[40px] justify-center cursor-pointer flex items-center 
+                <Link to={"/my-profiles"} className="h-[40px] min-w-[40px] justify-center cursor-pointer flex items-center 
 								gap-1">
                   <img src={profile} alt="profile" />
                   {userData && <p className="text-h text-sm">{userData?.fullname?.split(" ")[0]}</p>}

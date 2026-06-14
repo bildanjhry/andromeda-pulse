@@ -13,6 +13,8 @@ import ProductDetails from "@/pages/details/ProductDetails.jsx"
 import Orders from "@/pages/profiles/Orders.jsx";
 import Address from "@/pages/profiles/Address.jsx"
 import Wishlist from "@/pages/profiles/Wishlist.jsx"
+import ProfileSettings from "@/pages/profiles/ProfileSettings.jsx";
+import PaymentMethod from "@/pages/profiles/Payment-method.jsx";
 
 import Landing from "@/pages/Landing.jsx";
 
@@ -42,16 +44,24 @@ const router = createBrowserRouter([
     element: <ProductDetails/>
   },
   {
-    path:"/profiles",
+    path:"/my-profiles",
     element: <Orders/>
   },
   {
-    path:"/profile-address",
+    path:"/my-address",
     element: <Address/>
   },
   {
-    path:"/profile-wishlist",
+    path:"/wishlist",
     element: <Wishlist/>
+  },
+  {
+    path:"/profile-settings",
+    element: <ProfileSettings/>
+  },
+  {
+    path:"/payment-method",
+    element: <PaymentMethod/>
   },
 ])
 

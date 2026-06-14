@@ -1,7 +1,7 @@
 // component
 import ProfileLayout from "@/components/layouts/ProfileLayout";
 
-export default function PaymentMethod(){
+export default function ProfileSettings(){
   return(
     <ProfileLayout>
 
