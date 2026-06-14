@@ -7,8 +7,7 @@ export default function SubmitButton({img, buttonText, order = "left-to-right"})
             type="submit"
             className="rounded-xl main-bg h-[46px] w-full flex gap-2 text-light justify-center 
 					  cursor-pointer items-center"
-          >
-            <img src={img} alt="" />
+          > { img && <img src={img} alt="" />}
             <p>{buttonText}</p>
           </button> :
           <button
@@ -17,7 +16,7 @@ export default function SubmitButton({img, buttonText, order = "left-to-right"})
 						cursor-pointer items-center"
           >
             <p>{buttonText}</p>
-            <img src={img} alt="" />
+            { img && <img src={img} alt="" />}
           </button>
       }
     </>
