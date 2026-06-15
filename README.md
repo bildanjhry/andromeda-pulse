@@ -3,7 +3,14 @@
 Slicing e-commerce target (10 pages).
 
 ## First Init: Structure with Layout Components.
-Struktur tree program ini dibangun dengan layout component sehingga setiap page akan dibungkus oleh layout component sendiri yang aman terdiri dari navbar dan footer (current progress). 
+Struktur tree program ini dibangun dengan layout component sehingga setiap page akan dibungkus oleh layout component sendiri yang terdiri dari navbar dan footer (current progress). 
+### Updated
+Beberapa layout component sebagai structre:
+- MainLayout
+- ProfilesLayout
+
+## On going: Content children.
+```{children}``` content kedalam beberapa layout parent
 
 ### Tech stacks:
 - React Js v19.2.14
