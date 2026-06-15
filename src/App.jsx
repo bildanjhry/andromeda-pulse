@@ -16,6 +16,9 @@ import Wishlist from "@/pages/profiles/Wishlist.jsx"
 import ProfileSettings from "@/pages/profiles/ProfileSettings.jsx";
 import PaymentMethod from "@/pages/profiles/Payment-method.jsx";
 
+// core
+import Cart from "@/pages/core/Cart";
+
 import Landing from "@/pages/Landing.jsx";
 
 const router = createBrowserRouter([
@@ -62,6 +65,10 @@ const router = createBrowserRouter([
   {
     path:"/payment-method",
     element: <PaymentMethod/>
+  },
+  {
+    path:"/cart",
+    element: <Cart/>
   },
 ])
 
