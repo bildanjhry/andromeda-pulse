@@ -19,6 +19,7 @@ import PaymentMethod from "@/pages/profiles/Payment-method.jsx";
 // core
 import Cart from "@/pages/core/Cart";
 import CheckoutDelivery from "@/pages/core/checkout/Deliver.jsx"
+import Payment from "@/pages/core/checkout/Payment";
 
 import Landing from "@/pages/Landing.jsx";
 
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
   {
     path:"/checkout",
     element: <CheckoutDelivery/>
+  },  
+  {
+    path:"/checkout-payment",
+    element: <Payment/>
   },  
 ])
 
