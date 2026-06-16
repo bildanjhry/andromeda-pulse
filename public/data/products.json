@@ -10,6 +10,7 @@
         "brand":"soundWave",
         "variants":["Hitam", "Biru", "Putih"],
         "isNew":false,
+        "status":["Baru"],
         "image":"/images/products/headphone-prod.svg",
         "event":"flash-deals",
         "isPopuler":false,

@@ -9,6 +9,8 @@ import DashboardLayout from "@/components/layouts/DashboardLayout"
 import Plus from "@/assets/icons/plus-white.svg"
 import Search from "@/assets/icons/search-mute.svg"
 import Watch from "@/assets/icons/watch-mute.svg"
+import Edit from "@/assets/icons/edit-mute.svg"
+import Delete from "@/assets/icons/delete-mute.svg"
 
 
 export default function Products(){
@@ -118,7 +120,7 @@ export default function Products(){
                     </div>
                   </td>
                   <td className="w-[150px]">
-                    <div className="px-2 py-1 bg-(--accent-bg) w-fit rounded-full text-(--text-high) text-xs">Elektronik</div>
+                    <div className="px-2 py-[2.5px] bg-(--accent-bg) w-fit rounded-full text-(--text-high) text-xs">{item.cat.name}</div>
                   </td>
                   <td className="w-[150px]">
                     <ul>
@@ -134,28 +136,28 @@ export default function Products(){
                   </td>
                   <td className="w-[220px]">
                     <ul className="flex gap-2 items-center">
-                      {item?.status?.map((item) => (
+                      {item?.status?.map((item) => ((
                         <li className="rounded-full px-3 py-1 bg-(--accent-bg) text-(--text-high) text-xs">
                           {item}
                         </li>
-                      ))}
+                      )))}
                     </ul>
                   </td>
-                  <td className="w-[100px]">
-                    <ul className="flex gap-2 items-center">
+                  <td className="w-[120px]">
+                    <ul className="flex gap-3 items-center">
                       <li className=" text-xs">
-                        <button>
+                        <button className="cursor-pointer">
                           <img src={Watch} alt="" />
                         </button>
                       </li>
                       <li className=" text-xs">
-                        <button>
-                          <img src={Watch} alt="" />
+                        <button className="cursor-pointer">
+                          <img src={Edit} alt="" />
                         </button>
                       </li>
                       <li className=" text-xs">
-                        <button>
-                          <img src={Watch} alt="" />
+                        <button className="cursor-pointer">
+                          <img src={Delete} alt="" />
                         </button>
                       </li>
                     </ul>
