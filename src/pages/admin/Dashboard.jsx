@@ -13,7 +13,7 @@ import ArrowUpBlue from "@/assets/icons/arrow-up-blue.svg"
 export default function Dashboard(){
   return(
     <DashboardLayout>
-      <div className="px-6">
+      <div className="px-6 mb-10">
         <header className="flex flex-col gap-5 mt-6">
 					 <div className="flex justify-between h-12 items-center">
             <div className="flex flex-col justify-center gap-0">
@@ -160,7 +160,7 @@ export default function Dashboard(){
             </main>
           </div>
 
-          <div className="bg-white col-span-3 h-[435px] rounded-2xl border-light p-5">
+          <div className="bg-white col-span-3 h-[430px] rounded-2xl border-light p-5">
             <header className="flex items-center justify-between">
 						 <h4 className="text-[18px] text-h font-medium">Penjualan perkategori</h4>
 						 <Link
@@ -264,8 +264,93 @@ export default function Dashboard(){
             </main>
           </div>
 
-          <div className="bg-white col-span-3 h-[415px] rounded-2xl border-light">
-
+          <div className="bg-white col-span-3 h-[430px] rounded-2xl border-light p-5">
+            <header className="flex items-center justify-between">
+						 <h4 className="text-[18px] text-h font-medium">Produk Terlaris</h4>
+						 <Link
+						 	to={""}
+                className="flex items-center gap-1 text-sm text-(--text-high)">
+                <p>Lihat Semua</p>
+                <img src={ArrowUpBlue} alt="" />
+						 </Link>
+            </header>
+						<main className="mt-5">
+							<ul className="flex items-center justify-between text-sm py-3 border-b-light">
+								<li className="flex items-center gap-7">
+									<p>1</p>
+									<div className="flex flex-col justify-center">
+										<p className="text-h">Headphone Wireless Premium</p>
+										<div className="flex gap-1">
+											<p>156 Terjual</p>
+											<p>Stok: 45</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<p className="text-(--text-high)">Rp 70.200.000</p>
+								</li>
+							</ul>
+							<ul className="flex items-center justify-between text-sm py-3 border-b-light">
+								<li className="flex items-center gap-7">
+									<p>2</p>
+									<div className="flex flex-col justify-center">
+										<p className="text-h">Headphone Wireless Premium</p>
+										<div className="flex gap-1">
+											<p>156 Terjual</p>
+											<p>Stok: 45</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<p className="text-(--text-high)">Rp 70.200.000</p>
+								</li>
+							</ul>
+							<ul className="flex items-center justify-between text-sm py-3 border-b-light">
+								<li className="flex items-center gap-7">
+									<p>3</p>
+									<div className="flex flex-col justify-center">
+										<p className="text-h">Headphone Wireless Premium</p>
+										<div className="flex gap-1">
+											<p>156 Terjual</p>
+											<p>Stok: 45</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<p className="text-(--text-high)">Rp 70.200.000</p>
+								</li>
+							</ul>
+							<ul className="flex items-center justify-between text-sm py-3 border-b-light">
+								<li className="flex items-center gap-7">
+									<p>4</p>
+									<div className="flex flex-col justify-center">
+										<p className="text-h">Headphone Wireless Premium</p>
+										<div className="flex gap-1">
+											<p>156 Terjual</p>
+											<p>Stok: 45</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<p className="text-(--text-high)">Rp 70.200.000</p>
+								</li>
+							</ul>
+							<ul className="flex items-center justify-between text-sm py-3">
+								<li className="flex items-center gap-7">
+									<p>5</p>
+									<div className="flex flex-col justify-center">
+										<p className="text-h">Headphone Wireless Premium</p>
+										<div className="flex gap-1">
+											<p>156 Terjual</p>
+											<p>Stok: 45</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<p className="text-(--text-high)">Rp 70.200.000</p>
+								</li>
+							</ul>																												
+						</main>
           </div>
         </main>
       </div>
