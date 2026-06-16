@@ -22,6 +22,10 @@ import CheckoutDelivery from "@/pages/core/checkout/Deliver.jsx"
 import Payment from "@/pages/core/checkout/Payment";
 import Confirm from "@/pages/core/checkout/Confirm";
 
+// admin
+import Dashboard from "./pages/admin/Dashboard";
+
+
 import Landing from "@/pages/Landing.jsx";
 
 const router = createBrowserRouter([
@@ -84,7 +88,14 @@ const router = createBrowserRouter([
   {
     path:"/checkout-confirmation",
     element: <Confirm/>
+  }, 
+  
+  // admin pages
+  {
+    path:"/dashboard",
+    element: <Dashboard/>
   },    
+
 ])
 
 function App() {

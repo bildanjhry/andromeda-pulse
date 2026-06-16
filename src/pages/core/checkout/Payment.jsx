@@ -78,6 +78,7 @@ export default function Payment(){
               ))}
             </ul>
           </div>
+					
           <div className="w-full bg-(--accent-bg) mt-3 rounded-xl h-[42px] flex 
 					text-xs items-center px-4 gap-3">
             <img 
