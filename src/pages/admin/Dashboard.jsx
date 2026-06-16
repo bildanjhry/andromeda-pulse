@@ -89,7 +89,6 @@ export default function Dashboard(){
             </div>												
 					 </div>
 
-
         </header>
         <main className="w-full grid grid-cols-6 gap-4.5 mt-6">
           <div className="bg-white col-span-4 h-[401px] rounded-2xl border-light p-5">
@@ -274,83 +273,83 @@ export default function Dashboard(){
                 <img src={ArrowUpBlue} alt="" />
 						 </Link>
             </header>
-						<main className="mt-5">
-							<ul className="flex items-center justify-between text-sm py-3 border-b-light">
-								<li className="flex items-center gap-7">
-									<p>1</p>
-									<div className="flex flex-col justify-center">
-										<p className="text-h">Headphone Wireless Premium</p>
-										<div className="flex gap-1">
-											<p>156 Terjual</p>
-											<p>Stok: 45</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<p className="text-(--text-high)">Rp 70.200.000</p>
-								</li>
-							</ul>
-							<ul className="flex items-center justify-between text-sm py-3 border-b-light">
-								<li className="flex items-center gap-7">
-									<p>2</p>
-									<div className="flex flex-col justify-center">
-										<p className="text-h">Headphone Wireless Premium</p>
-										<div className="flex gap-1">
-											<p>156 Terjual</p>
-											<p>Stok: 45</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<p className="text-(--text-high)">Rp 70.200.000</p>
-								</li>
-							</ul>
-							<ul className="flex items-center justify-between text-sm py-3 border-b-light">
-								<li className="flex items-center gap-7">
-									<p>3</p>
-									<div className="flex flex-col justify-center">
-										<p className="text-h">Headphone Wireless Premium</p>
-										<div className="flex gap-1">
-											<p>156 Terjual</p>
-											<p>Stok: 45</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<p className="text-(--text-high)">Rp 70.200.000</p>
-								</li>
-							</ul>
-							<ul className="flex items-center justify-between text-sm py-3 border-b-light">
-								<li className="flex items-center gap-7">
-									<p>4</p>
-									<div className="flex flex-col justify-center">
-										<p className="text-h">Headphone Wireless Premium</p>
-										<div className="flex gap-1">
-											<p>156 Terjual</p>
-											<p>Stok: 45</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<p className="text-(--text-high)">Rp 70.200.000</p>
-								</li>
-							</ul>
-							<ul className="flex items-center justify-between text-sm py-3">
-								<li className="flex items-center gap-7">
-									<p>5</p>
-									<div className="flex flex-col justify-center">
-										<p className="text-h">Headphone Wireless Premium</p>
-										<div className="flex gap-1">
-											<p>156 Terjual</p>
-											<p>Stok: 45</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<p className="text-(--text-high)">Rp 70.200.000</p>
-								</li>
-							</ul>																												
-						</main>
+            <main className="mt-5">
+              <ul className="flex items-center justify-between text-sm py-3 border-b-light">
+                <li className="flex items-center gap-7">
+                  <p>1</p>
+                  <div className="flex flex-col justify-center">
+                    <p className="text-h">Headphone Wireless Premium</p>
+                    <div className="flex gap-1">
+                      <p>156 Terjual</p>
+                      <p>Stok: 45</p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <p className="text-(--text-high)">Rp 70.200.000</p>
+                </li>
+              </ul>
+              <ul className="flex items-center justify-between text-sm py-3 border-b-light">
+                <li className="flex items-center gap-7">
+                  <p>2</p>
+                  <div className="flex flex-col justify-center">
+                    <p className="text-h">Headphone Wireless Premium</p>
+                    <div className="flex gap-1">
+                      <p>156 Terjual</p>
+                      <p>Stok: 45</p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <p className="text-(--text-high)">Rp 70.200.000</p>
+                </li>
+              </ul>
+              <ul className="flex items-center justify-between text-sm py-3 border-b-light">
+                <li className="flex items-center gap-7">
+                  <p>3</p>
+                  <div className="flex flex-col justify-center">
+                    <p className="text-h">Headphone Wireless Premium</p>
+                    <div className="flex gap-1">
+                      <p>156 Terjual</p>
+                      <p>Stok: 45</p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <p className="text-(--text-high)">Rp 70.200.000</p>
+                </li>
+              </ul>
+              <ul className="flex items-center justify-between text-sm py-3 border-b-light">
+                <li className="flex items-center gap-7">
+                  <p>4</p>
+                  <div className="flex flex-col justify-center">
+                    <p className="text-h">Headphone Wireless Premium</p>
+                    <div className="flex gap-1">
+                      <p>156 Terjual</p>
+                      <p>Stok: 45</p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <p className="text-(--text-high)">Rp 70.200.000</p>
+                </li>
+              </ul>
+              <ul className="flex items-center justify-between text-sm py-3">
+                <li className="flex items-center gap-7">
+                  <p>5</p>
+                  <div className="flex flex-col justify-center">
+                    <p className="text-h">Headphone Wireless Premium</p>
+                    <div className="flex gap-1">
+                      <p>156 Terjual</p>
+                      <p>Stok: 45</p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <p className="text-(--text-high)">Rp 70.200.000</p>
+                </li>
+              </ul>																												
+            </main>
           </div>
         </main>
       </div>
