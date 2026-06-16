@@ -20,6 +20,7 @@ import PaymentMethod from "@/pages/profiles/Payment-method.jsx";
 import Cart from "@/pages/core/Cart";
 import CheckoutDelivery from "@/pages/core/checkout/Deliver.jsx"
 import Payment from "@/pages/core/checkout/Payment";
+import Confirm from "@/pages/core/checkout/Confirm";
 
 import Landing from "@/pages/Landing.jsx";
 
@@ -80,6 +81,10 @@ const router = createBrowserRouter([
     path:"/checkout-payment",
     element: <Payment/>
   },  
+  {
+    path:"/checkout-confirmation",
+    element: <Confirm/>
+  },    
 ])
 
 function App() {
