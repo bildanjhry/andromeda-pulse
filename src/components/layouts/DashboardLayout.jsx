@@ -19,11 +19,9 @@ import Customers from "@/assets/icons/customers-mute.svg"
 import CustomersWhite from "@/assets/icons/customers-white.svg"
 
 import Settings from "@/assets/icons/settings-mute.svg"
-import useDashboardMenu from "../../hooks/useDashboardMenu"
 
 export default function DashboardLayout(){
   const url = useLocation().pathname
-  const [menu, setMenu] = useDashboardMenu()
 
   const sideMenu = [
     {

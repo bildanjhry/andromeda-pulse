@@ -1,6 +1,7 @@
+import { Outlet } from "react-router"
+
 // component
 import MainLayout from "@/components/layouts/MainLayout.jsx"
-import { Outlet } from "react-router"
 
 export default function CheckoutLayout(){
   return(

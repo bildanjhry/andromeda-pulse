@@ -4,6 +4,7 @@
         "name":"Pesanan Saya",
         "path":"/my-profiles",
         "icon":"/images/profilesMenu/order-mute.svg",
+        "alt":"my orders",
         "activeIcon":"/images/profilesMenu/order-blue.svg"        
     },
     {
@@ -11,6 +12,7 @@
         "name":"Wishlist",
         "path":"/my-profiles/wishlist",
         "icon":"/images/profilesMenu/wishlist-mute.svg",
+        "alt":"my wishlist",
         "activeIcon":"/images/profilesMenu/wishlist-blue.svg"
     },
     {
@@ -18,6 +20,7 @@
         "name":"Alamat Saya",
         "path":"/my-profiles/address",
         "icon":"/images/profilesMenu/location-mute.svg",
+        "alt":"my address",
         "activeIcon":"/images/profilesMenu/location-blue.svg"        
     },
     {
@@ -25,6 +28,7 @@
         "name":"Metode Pembayaran",
         "path":"/my-profiles/payment-method",
         "icon":"/images/profilesMenu/payment-mute.svg",
+        "alt":"payment method",
         "activeIcon":"/images/profilesMenu/payment-mute.svg"        
     },
     {
@@ -32,6 +36,7 @@
         "name":"Pengaturan Profil",
         "path":"/my-profiles/settings",
         "icon":"/images/profilesMenu/settings-mute.svg",
+        "alt":"settings",
         "activeIcon":"/images/profilesMenu/settings-blue.svg"        
     }            
 ]

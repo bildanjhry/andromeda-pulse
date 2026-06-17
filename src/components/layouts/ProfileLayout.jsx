@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router";
 
 // component
@@ -7,40 +6,15 @@ import MainLayout from "./MainLayout";
 // asset
 import ArrowRight from "@/assets/icons/bc-arrow-right-mute.svg"
 import ArrowRightBlue from "@/assets/icons/bc-arrow-right-blue.svg"
+import useFetch from "@/hooks/useFetch";
+import useUser from "@/hooks/useUser";
 
 export default function ProfileLayout(){
-  const [initial, setInitial] = useState()
-  const [user, setUser] = useState()
-  const [dataMenu, setDataMenu] = useState()
+  const {data: menus} = useFetch("/data/sidemenu-profiles.json")
+  const {user, initial, checkout, wishlist} = useUser("user")
+
   const location = useLocation()
   const path = location.pathname
-
-  useEffect(() => {
-    function getUser(){
-      const user = JSON.parse(window.localStorage.getItem("user"))
-      if(user) setUser(user)
-      setInitial(user.fullname[0].toUpperCase())
-    }
-    getUser()
-
-  },[])
-
-  useEffect(() => {
-    async function getSideMenu(count = 3){
-      try{
-        const res = await fetch("/data/sideMenuProfiles.json")
-        const data = await res.json()
-        setDataMenu(data)
-
-      } catch(err){
-        // will retry 3 times if error happend
-        if(count >= 1) getSideMenu(count-1)
-        return console.error(err.message)
-      }
-    }
-
-    getSideMenu()
-  },[])
 
   return (
     <MainLayout>
@@ -61,18 +35,18 @@ export default function ProfileLayout(){
 
               <div className="flex flex-row gap-4 pb-2">
                 <div className="flex flex-col gap-0 items-center">
-                  <h5 className="text-h font-[600]">{user?.checkout.length}</h5>
+                  <h5 className="text-h font-[600]">{checkout.length}</h5>
                   <p className="text-sm">Pesanan</p>
                 </div>
                 <div className="flex flex-col gap-0 items-center">
-                  <h5 className="text-h font-[600]">{user?.wishlist.length}</h5>
+                  <h5 className="text-h font-[600]">{wishlist.length}</h5>
                   <p className="text-sm">Wishlist</p>
                 </div>
               </div>
             </div>
 
             <div className="w-full bg-white rounded-xl border-light overflow-hidden">
-              <ListSideMenu dataMenu={dataMenu} path={path}/>
+              <ListSideMenu dataMenu={menus} path={path}/>
             </div>
           </div>
         </aside>
@@ -87,7 +61,6 @@ export default function ProfileLayout(){
 }
 
 function ListSideMenu({dataMenu, path}){
-
   
   function handleLogout(){
     window.location.href ="/login"
@@ -104,7 +77,7 @@ function ListSideMenu({dataMenu, path}){
             <div className="flex flex-row gap-3 items-center">
               <img
                 className="w-[16px] h-[16px]" 
-                src={item.path === path ? item.activeIcon : item.icon} alt="my orders" />
+                src={item.path === path ? item.activeIcon : item.icon} alt={item.alt} />
               <p className={`${item.path === path && 'text-(--text-high)'} text-sm`}>{item.name}</p>
             </div>
             <img 

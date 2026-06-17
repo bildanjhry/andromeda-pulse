@@ -1,12 +1,12 @@
 // hooks
-import useInitial from "@/hooks/useInitial.js";
+import useUser from "@/hooks/useUser"
 
 // assets
 import Edit from "@/assets/icons/edit-blue.svg"
 
 export default function ProfileSettings(){
-  const [initial] = useInitial()
-  
+  const {initial} = useUser("user")  
+
   return(
     <div className="w-[95%] pt-1 h-full">
       <div className="flex justify-between items-center">

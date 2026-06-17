@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react"
-import getProducts from "@/services/get-products.js"
 import moneyFormat from "@/utils/money-format.js"
 
 // assets
@@ -8,17 +6,10 @@ import Search from "@/assets/icons/search-mute.svg"
 import Watch from "@/assets/icons/watch-mute.svg"
 import Edit from "@/assets/icons/edit-mute.svg"
 import Delete from "@/assets/icons/delete-mute.svg"
+import useFetch from "@/hooks/useFetch"
 
 export default function Products(){
-  const [data, setData] = useState()
-
-  useEffect(() => {
-    async function take(){
-      const data = await getProducts()
-      setData(data)
-    }
-    take()
-  },[])
+  const {data: products} = useFetch("/data/products.json")
 
   return(
     <div className="px-6 mb-10">
@@ -99,7 +90,7 @@ export default function Products(){
             </tr>
           </thead>
           <tbody className="bg-white text-sm">
-            {data?.map((item, index) => (
+            {products?.map((item, index) => (
               <tr 
                 key={index}
                 className="h-[66px] border-b-light">

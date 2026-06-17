@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function useFetch(url){
-  const [data, setData] = useState()
+  const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
@@ -16,8 +16,8 @@ export default function useFetch(url){
         const data = await res.json()
         setData(data)
       } catch(err){
-        if(count >=1) getData()  // will retry 3 times if error happend
-        else console.error(err.message)
+        if(count >=1 ) getData(count-1)  // will retry 3 times if error happend
+      	console.error(err.message)
       } finally{
         setIsLoading(false) // unmount loading
       }
@@ -25,5 +25,5 @@ export default function useFetch(url){
 	  getData()
   },[url])
 
-	 return [data, isLoading]
+	 return {data, isLoading}
 }
