@@ -9,28 +9,28 @@
     {
         "id":"2wi",
         "name":"Wishlist",
-        "path":"/wishlist",
+        "path":"/my-profiles/wishlist",
         "icon":"/images/profilesMenu/wishlist-mute.svg",
         "activeIcon":"/images/profilesMenu/wishlist-blue.svg"
     },
     {
         "id":"3al",
         "name":"Alamat Saya",
-        "path":"/my-address",
+        "path":"/my-profiles/address",
         "icon":"/images/profilesMenu/location-mute.svg",
         "activeIcon":"/images/profilesMenu/location-blue.svg"        
     },
     {
         "id":"4me",
         "name":"Metode Pembayaran",
-        "path":"/payment-method",
+        "path":"/my-profiles/payment-method",
         "icon":"/images/profilesMenu/payment-mute.svg",
         "activeIcon":"/images/profilesMenu/payment-mute.svg"        
     },
     {
         "id":"5pe",
         "name":"Pengaturan Profil",
-        "path":"/profile-settings",
+        "path":"/my-profiles/settings",
         "icon":"/images/profilesMenu/settings-mute.svg",
         "activeIcon":"/images/profilesMenu/settings-blue.svg"        
     }            

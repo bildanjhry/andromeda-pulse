@@ -1,0 +1,34 @@
+[
+    {
+      "id":"1da",
+      "name":"Dashboard",
+      "icon":"[DashboardWhite, Dashboard]",
+      "path":"/dashboard"
+    },
+    {
+      "id":"2pr",
+      "name":"Produk",
+      "icon":"[BoxWhite, Box]",
+      "path":"/dashboard/products"
+    },
+    {
+      "id":"3pe",
+      "name":"Pesanan",
+      "icon":"[CartWhite, Cart]",
+      "path":"/dashboard/orders"
+      
+    },
+    {
+      "id":"4pe",
+      "name":"Pelanggan",
+      "icon":"[CustomersWhite, Customers]",
+      "path":"/dashboard/customers"
+      
+    },
+    {
+      "id":"5pe",
+      "name":"Pengaturan",
+      "icon":"[Settings, Settings]",
+      "path":"/dashboard/settings"
+    }  
+  ]

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router";
+import { Link, Outlet, useLocation } from "react-router";
 
 // component
 import MainLayout from "./MainLayout";
@@ -8,7 +8,7 @@ import MainLayout from "./MainLayout";
 import ArrowRight from "@/assets/icons/bc-arrow-right-mute.svg"
 import ArrowRightBlue from "@/assets/icons/bc-arrow-right-blue.svg"
 
-export default function ProfileLayout({children}){
+export default function ProfileLayout(){
   const [initial, setInitial] = useState()
   const [user, setUser] = useState()
   const [dataMenu, setDataMenu] = useState()
@@ -78,7 +78,7 @@ export default function ProfileLayout({children}){
         </aside>
 
         <main className="w-[75%] flex justify-end">
-          {children}
+          <Outlet/>
         </main>
 
       </div>
@@ -109,7 +109,7 @@ function ListSideMenu({dataMenu, path}){
             </div>
             <img 
               className="w-[14px] h-[14px]"
-              src={item.path === path ? ArrowRightBlue : ArrowRight} alt="" />
+              src={item.path === path ? ArrowRightBlue : ArrowRight} alt="navigation" />
           </Link>
         </li>
       ))}

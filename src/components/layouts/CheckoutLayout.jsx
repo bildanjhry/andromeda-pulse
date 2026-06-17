@@ -1,7 +1,8 @@
 // component
 import MainLayout from "@/components/layouts/MainLayout.jsx"
+import { Outlet } from "react-router"
 
-export default function CheckoutLayout({children}){
+export default function CheckoutLayout(){
   return(
     <MainLayout>
       <div className="w-[83%] min-h-40 mt-5 mb-15 flex flex-col gap-4 items-center">
@@ -9,7 +10,7 @@ export default function CheckoutLayout({children}){
         <main className="w-full box-border mt-4 flex flex-row justify-between 
 				 min-h-[271px] relative">
           <div className="w-[70%] flex flex-col py-10 px-10 bg-white rounded-2xl border-light">
-            {children}
+            <Outlet/>
           </div>
           <Aside/>
         </main>
@@ -64,23 +65,23 @@ function Aside(){
           </div>
         </div>
       </div>
-			<div className="w-full flex flex-col gap-2 py-3  border-b-light">
-				<ul className="flex justify-between items-center">
-					<li>Subtotal</li>
-					<li>Rp 450.000</li>
-				</ul>
-				<ul className="flex justify-between items-center">
-					<li>Ongkir</li>
-					<li className="text-(--text-success)">Gratis</li>
-				</ul>
-			</div>
-			<div>
-				<ul className="flex justify-between items-center mb-5">
-					<li className="text-(--text-h)">Total</li>
-					<li className="text-(--text-high) font-semibold">Rp 450.000</li>
-				</ul>
-				<p className="text-center relative  text-xs">🔒 Pembayaran aman dan terenkripsi</p>
-			</div>
+      <div className="w-full flex flex-col gap-2 py-3  border-b-light">
+        <ul className="flex justify-between items-center">
+          <li>Subtotal</li>
+          <li>Rp 450.000</li>
+        </ul>
+        <ul className="flex justify-between items-center">
+          <li>Ongkir</li>
+          <li className="text-(--text-success)">Gratis</li>
+        </ul>
+      </div>
+      <div>
+        <ul className="flex justify-between items-center mb-5">
+          <li className="text-(--text-h)">Total</li>
+          <li className="text-(--text-high) font-semibold">Rp 450.000</li>
+        </ul>
+        <p className="text-center relative  text-xs">🔒 Pembayaran aman dan terenkripsi</p>
+      </div>
     </aside>
   )
 }

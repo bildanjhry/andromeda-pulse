@@ -1,5 +1,4 @@
-import { Link } from "react-router"
-import { useLocation } from "react-router"
+import { Link, useLocation, Outlet } from "react-router"
 
 // component
 import Logo from "@/components/ui/Logo.jsx"
@@ -20,9 +19,11 @@ import Customers from "@/assets/icons/customers-mute.svg"
 import CustomersWhite from "@/assets/icons/customers-white.svg"
 
 import Settings from "@/assets/icons/settings-mute.svg"
+import useDashboardMenu from "../../hooks/useDashboardMenu"
 
-export default function DashboardLayout({children}){
+export default function DashboardLayout(){
   const url = useLocation().pathname
+  const [menu, setMenu] = useDashboardMenu()
 
   const sideMenu = [
     {
@@ -111,7 +112,7 @@ export default function DashboardLayout({children}){
         </nav>
 
         <div>
-          {children}
+          <Outlet/>
         </div>
         
       </main>
