@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
 
-// content
-import ProfileLayout from "@/components/layouts/ProfileLayout";
-
 export default function Orders(){
   const [checkout, setCheckout] = useState()
   useEffect(() => {
     function getUser(){
       const user = JSON.parse(window.localStorage.getItem("user"))
       if(user) setCheckout(user.checkout)
-      
     }
     getUser()
   
