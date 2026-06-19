@@ -1,5 +1,8 @@
 import { Link } from "react-router"
-import { useEffect, useState } from "react"
+
+// custom hook
+import useFetch from "@/hooks/useFetch.js"
+import useUser from "@/hooks/useUser"
 
 // assets
 import location from "@/assets/icons/location-white.svg"
@@ -12,25 +15,11 @@ import search from "@/assets/icons/search-white.svg"
 
 // component
 import Logo from "@/components/ui/Logo"
-import useUser from "@/hooks/useUser"
 import AuthNavbar from "@/components/ui/Auth"
 
 export default function Navbar({notifActions}) {
-  const [userData, setUserData] = useState({})
-  const [totalCart, setTotalCart] = useState(0)
-  const { cart, user, initial, userName } = useUser("user")
-
-  console.log(user)
-
-  // useEffect(() => {
-  //   function getUser(){
-  //     const user = JSON.parse(window.localStorage.getItem("user"))
-  //     setUserData(user)
-  //     setTotalCart(user.cart.length)
-  //   }
-  //   getUser()
-  // },[setUserData, setTotalCart, notifActions])
-
+  const { cart, user, userName } = useUser("user")
+  const {data: categories} = useFetch("/data/categories.json")
 
   function handleSearch(e){
     e.preventDefault()
@@ -43,10 +32,11 @@ export default function Navbar({notifActions}) {
   }
 
   return (
-    <div className="flex flex-col w-full h-fit fixed top-0 justify-center
-		border-b-light items-center bg-white z-10">
-      <section className="flex flex main-bg justify-center w-full">
-        <div className="h-[28px] text-[12px] flex flex-row justify-between 
+    <div className="flex flex-col w-full h-fit fixed top-0 justify-center 
+      border-b-light items-center bg-white z-10">
+
+      <section className="flex main-bg justify-center w-full">
+        <div className="h-7 text-[12px] flex flex-row justify-between 
 				items-center w-[83%] text-light">
           <div className="w-fit flex gap-1 items-center">
             <img src={location} alt="location" />
@@ -62,39 +52,42 @@ export default function Navbar({notifActions}) {
           </div>
         </div>
       </section>
-      <section className="w-full h-[64px] flex justify-center border-b-light ">
+
+      <section className="w-full h-16 flex justify-center border-b-light ">
         <div className="w-[83%] h-full flex gap-3 border-b-light items-center 
 				justify-self-center">
           <Logo />
           <div id="search" className="w-[45%]">
             <form id="search-input" 
               onSubmit={(e) => handleSearch(e)}
-              action="" className="h-[40px] flex">
+              action="" className="h-10 flex">
               <input 
                 id="search"
                 type="search" 
                 name="search"
                 placeholder="Cari produk, merek, kategori..."
-                className="rounded-l-lg h-full w-[90%] input-bg pl-4 text-sm border-light"/>
+                className="rounded-l-lg h-full w-[90%]
+                input-bg pl-4 text-sm border-light"/>
               <button 
                 type="submit"
-                className="main-bg flex justify-center items-center rounded-r-lg h-full w-[10%]">
-                <img src={search} alt="" />
+                className="main-bg flex justify-center items-center rounded-r-lg 
+                h-full w-[10%]">
+                <img src={search} alt="search" />
               </button>
             </form>
           </div>
           <div className="h-full w-fit">
             <ul className="h-full flex gap-2 items-center">
               <li>
-                <Link to={""} className="w-[40px] h-[40px] cursor-pointer flex justify-center 
+                <Link to={""} className="w-10 h-10 cursor-pointer flex justify-center 
 								items-center">
                   <img src={notif} alt="notification" />
                 </Link>
               </li>
               <li>
                 { !(user) ?
-                  <Link to={"/my-profiles"} className="h-[40px] min-w-[40px] justify-center cursor-pointer flex items-center 
-								gap-1">
+                  <Link to={"/my-profiles"} className="h-10 min-w-10 justify-center 
+                  cursor-pointer flex items-center gap-1">
                     <img src={profile} alt="profile" />
                     <p className="text-h text-sm">{userName}</p>
                   </Link> :
@@ -102,17 +95,17 @@ export default function Navbar({notifActions}) {
                 }
               </li>
               <li>
-                <Link to={"/my-profiles/wishlist"} className="h-[40px] w-[40px] cursor-pointer flex items-center 
-								justify-center">
+                <Link to={"/my-profiles/wishlist"} className="h-10 w-10 cursor-pointer 
+                flex items-center justify-center">
                   <img src={wishlist} alt="wishlist" />
                 </Link>
               </li>
               <li>
-                <Link to={"/cart"} className="h-[40px] w-[40px] cursor-pointer flex items-center 
+                <Link to={"/cart"} className="h-10 w-10 cursor-pointer flex items-center 
 								justify-center relative">
                   {cart.length >= 1 && 
 									<div className="rounded-full bg-(--info-bg) flex items-center justify-center text-light 
-									text-[11px] absolute top-0 left-7 z-2 px-[6px] py-[1px]">
+									text-[11px] absolute top-0 left-7 z-2 px-1.5 py-px">
 									  {cart.length}
 									</div>}
                   <img src={Cart} alt="cart" />
@@ -122,56 +115,26 @@ export default function Navbar({notifActions}) {
           </div>
         </div>
       </section>
-      <section className="h-[41px] flex items-center gap-5 w-[83%] justify-self-center ">
+
+      <section className="h-10.25 flex items-center gap-5 w-[83%] justify-self-center ">
 		    <div className="flex gap-1 items-center h-full px-1 ">
           <img src={hamMenu} alt="category menu list" />
           <select name="cateogry" id="category" className="text-h text-sm">
             <option value=""id="category">Semua Kategori</option>
           </select>
         </div>		
-        <ul className="w-full h-full flex gap-8 text-sm">
-          <li>
-            <Link to={""} className="px-1 flex items-center h-full">
-              <p><span></span> Elektorik</p>
-            </Link>
-          </li>
-          <li>
-            <Link to={""} className="px-1 flex items-center h-full">
-              <p><span></span> Elektorik</p>
-            </Link>
-          </li>
-          <li>
-            <Link to={""} className="px-1 flex items-center h-full">
-              <p><span></span> Elektorik</p>
-            </Link>
-          </li>
-          <li>
-            <Link to={""} className="px-1 flex items-center h-full">
-              <p><span></span> Elektorik</p>
-            </Link>
-          </li>
-          <li>
-            <Link to={""} className="px-1 flex items-center h-full">
-              <p><span></span> Elektorik</p>
-            </Link>
-          </li>
-          <li>
-            <Link to={""} className="px-1 flex items-center h-full">
-              <p><span></span> Elektorik</p>
-            </Link>
-          </li>
-          <li>
-            <Link to={""} className="px-1 flex items-center h-full">
-              <p><span></span> Elektorik</p>
-            </Link>
-          </li>
-          <li>
-            <Link to={""} className="px-1 flex items-center h-full">
-              <p><span></span> Elektorik</p>
-            </Link>
-          </li>					
+        <ul className="w-full h-full flex gap-5 text-sm">
+          {categories.map((item, index) =>(
+            <li key={index}>
+              <Link to={""} className="px-1 flex gap-2 items-center h-full">
+                <span>{item.iconText}</span>
+                <p>{item.name}</p>
+              </Link>
+            </li>
+          ))}
         </ul>
       </section>
+
     </div>
   )
 }
