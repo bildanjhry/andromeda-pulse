@@ -13,11 +13,14 @@ import search from "@/assets/icons/search-white.svg"
 // component
 import Logo from "@/components/ui/Logo"
 import useUser from "@/hooks/useUser"
+import AuthNavbar from "@/components/ui/Auth"
 
 export default function Navbar({notifActions}) {
   const [userData, setUserData] = useState({})
   const [totalCart, setTotalCart] = useState(0)
-  const { cart } = useUser()
+  const { cart, user, initial, userName } = useUser("user")
+
+  console.log(user)
 
   // useEffect(() => {
   //   function getUser(){
@@ -89,11 +92,14 @@ export default function Navbar({notifActions}) {
                 </Link>
               </li>
               <li>
-                <Link to={"/my-profiles"} className="h-[40px] min-w-[40px] justify-center cursor-pointer flex items-center 
+                { !(user) ?
+                  <Link to={"/my-profiles"} className="h-[40px] min-w-[40px] justify-center cursor-pointer flex items-center 
 								gap-1">
-                  <img src={profile} alt="profile" />
-                  {userData && <p className="text-h text-sm">{userData?.fullname?.split(" ")[0]}</p>}
-                </Link>
+                    <img src={profile} alt="profile" />
+                    <p className="text-h text-sm">{userName}</p>
+                  </Link> :
+                  <AuthNavbar/>
+                }
               </li>
               <li>
                 <Link to={"/my-profiles/wishlist"} className="h-[40px] w-[40px] cursor-pointer flex items-center 
@@ -119,7 +125,7 @@ export default function Navbar({notifActions}) {
       <section className="h-[41px] flex items-center gap-5 w-[83%] justify-self-center ">
 		    <div className="flex gap-1 items-center h-full px-1 ">
           <img src={hamMenu} alt="category menu list" />
-            <select name="cateogry" id="category" className="text-h text-sm">
+          <select name="cateogry" id="category" className="text-h text-sm">
             <option value=""id="category">Semua Kategori</option>
           </select>
         </div>		

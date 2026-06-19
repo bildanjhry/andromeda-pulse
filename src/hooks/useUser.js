@@ -7,6 +7,7 @@ export default function useUser(key){
   const [checkout, setCheckout] = useState([])
   const [error, setError] = useState("")
   const [wishlist, setWishlist] = useState([])
+  const [userName, setUserName] = useState("")
 
   useEffect(() => {
     function getUser(){
@@ -15,6 +16,7 @@ export default function useUser(key){
         const newData = JSON.parse(data)
         setUser(newData)
         setInitial(newData.fullname.charAt(0).toUpperCase())
+        setUserName(newData.fullname.split(" ")[0])
         setCart(newData.cart)
         setCheckout(newData.checkout)
         setWishlist(newData.wishlist)
@@ -25,5 +27,5 @@ export default function useUser(key){
     getUser()
   },[key])
     
-  return {user, setUser, initial, cart, wishlist, checkout, error}
+  return {user, setUser, userName, initial, cart, wishlist, checkout, error}
 }
