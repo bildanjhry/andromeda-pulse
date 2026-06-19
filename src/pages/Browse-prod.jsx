@@ -1,11 +1,13 @@
 import { Link } from "react-router"
-import { useEffect, useState } from "react"
+import { Suspense, useEffect, useState, lazy } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
+import classNames from "classnames";
 
 // component
 import MainLayout from "../components/layouts/MainLayout"
-import ProductsCard from "@/components/features/ProductsCard.jsx"
+const ProductsCard = lazy(() => import("@/components/features/ProductsCard.jsx"))
+import SkeletonCard from "@/components/ui/skeleton/SkeletonCards";
 
 // asset
 import ArrowRight from "@/assets/icons/bc-arrow-right-mute.svg"
@@ -38,7 +40,10 @@ export default function BrowseProduct() {
       <FontAwesomeIcon
         key={index}
         icon={solidStar}
-        className={`${index < Math.round(rating) ? 'text-(--text-star)' : 'text-(--text-accent)'}`}
+        className={classNames(
+          {'text-(--text-star)': index < Math.round(rating) },
+          {'text-(--text-accent)': index >= Math.round(rating)}
+        )}
       />  
     ))
   }
@@ -66,6 +71,7 @@ export default function BrowseProduct() {
             <h2 className="text-h">Semua Produk</h2>
           </div>
         </header>
+        
         <main className="flex flex-row">
           <aside className="flex flex-col gap-4 w-[25%]">
             <div className="h-[5.5rem] my-4 flex flex-col justify-between">
@@ -155,7 +161,9 @@ export default function BrowseProduct() {
             </div>
 
             <div className="mt-5">
-              <ProductsCard/>
+              <Suspense fallback={<SkeletonCard count={4} total={8}/>}>
+                <ProductsCard width={"small"}/>
+              </Suspense>
             </div>
 
             <div className="w-[20rem] my-10 grid my-0 mx-auto">

@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, lazy, Suspense } from "react"
 
 // component
 import MainLayout from "@/components/layouts/MainLayout.jsx"
 import Herro from "@/components/ui/Herro.jsx"
 import CategoriesCard from "@/components/features/CategoriesCard.jsx"
-import ProductsCard from "@/components/features/ProductsCard.jsx"
+const  ProductsCard = lazy(() => import("@/components/features/ProductsCard.jsx"))
 import ArrowRightButton from "@/components/ui/ArrowLeftButton.jsx"
 import InfoCards from "@/components/ui/InfoCards"
+import SkeletonCard from "@/components/ui/skeleton/SkeletonCards"
 
 // asset
 import Flash from "@/assets/icons/flash-white.svg"
@@ -35,14 +36,17 @@ export default function Landing(){
     <MainLayout>
       <div className="w-full flex flex-col items-center">
         <Herro/>
-
         <div className="w-[83%] flex flex-col justify-center items-center ">
-          <CategoriesCard/>
+
+          <Suspense fallback={<><h1>Loading...</h1></>}>
+            <CategoriesCard/>
+          </Suspense>
+
           <div className="mb-8 w-full">
             <header className="flex items-center justify-between mt-4">
-              <section className="h-[5rem] flex flex-row items-center gap-3">
+              <section className="h-20 flex flex-row items-center gap-3">
                 <div className="rounded-lg bg-(--info-bg) text-light flex jusity-center 
-                w-[117px] h-[32px] items-center gap-1 px-2">
+                w-29.25 h-8 items-center gap-1 px-2">
                   <img src={Flash} alt="" />
                   <p className="text-sm">Flash Deals</p>
                 </div>
@@ -55,12 +59,16 @@ export default function Landing(){
                 <ArrowRightButton/>
               </section>
             </header>
-            <ProductsCard/>
+            <Suspense fallback={ <SkeletonCard count={4} total={4}/>}>
+              <ProductsCard/>
+            </Suspense>
           </div>
+
           <InfoCards/>
+
           <div className="mb-8 w-full">
             <header className="flex items-center justify-between mt-2">
-              <section className="h-[5rem] flex flex-row items-center gap-2">
+              <section className="h-20 flex flex-row items-center gap-2">
                 <div className="flex flex-row justify-start 
                 w-fit h-full items-center gap-3">
                   <img src={Escalate} alt="new product" />
@@ -71,7 +79,9 @@ export default function Landing(){
                 <ArrowRightButton/>
               </section>
             </header>
-            <ProductsCard/>
+            <Suspense fallback={ <SkeletonCard count={4} total={4}/>}>
+              <ProductsCard/>
+            </Suspense>
           </div>   
 
           <div className="mb-8 w-full">
@@ -86,7 +96,9 @@ export default function Landing(){
                 <ArrowRightButton/>
               </section>
             </header>
-            <ProductsCard/>
+            <Suspense fallback={ <SkeletonCard count={4} total={4}/>}>
+              <ProductsCard/>
+            </Suspense>
           </div>            
 
         </div>

@@ -20,12 +20,14 @@ import Wishlist from "@/assets/icons/wishlist-mute.svg"
 import Delivery from "@/assets/icons/delivery-blue.svg"
 import Return from "@/assets/icons/return.svg"
 import Safe from "@/assets/icons/safe-blue.svg"
+import useFetch from "../../hooks/useFetch";
 
 export default function ProductDetails(){
-  const [data, setData] = useState({})
   const [prodVariant, setProdVariant] = useState("")
   const [quantity, setQuantity] = useState(1)
-  const { id } = useParams()
+  const { category, slugs } = useParams()
+  const { dataBySlugs : data, dataByCategory} = 
+  useFetch("/data/products.json", category || '', slugs || '')
 
   function handleRatingStars(rating){
     return Array.from({ length: 5 }).map((_, index) => (
@@ -37,22 +39,6 @@ export default function ProductDetails(){
     ))
   }
 
-  useEffect(() => {
-    async function getProductById(count = 3){
-      try{
-        const res = await fetch(`/data/products.json`)
-        const data = await res.json()
-        const dataById = data.filter((item) => item.id === id)[0] // selecting data with matches id
-        setData(dataById)
-          
-      } catch(err){
-        // will retry 3 times if error happend (recovering)
-        if(count >= 1) getProductById(count-1)
-        return console.error(err.message)
-      }
-    }
-    getProductById()
-  },[id])
 
   function handleDecreastQty(){
 
@@ -112,7 +98,7 @@ export default function ProductDetails(){
               }
               <img 
                 className="w-full h-full bg-cover bg-center"
-                src={data.image} alt="product image" />
+                src={data.image?.path} alt={data.image?.alt} />
             </div>
             <div className="mt-4">
               <ul className="flex flex-row gap-3">
@@ -121,7 +107,7 @@ export default function ProductDetails(){
                     type="button"
                     onClick={null}
                     className="h-full w-full">
-                    <img src={data.image} alt="product image" />
+                    <img src={data.image?.path} alt={data.image?.alt} />
                   </button>
                 </li>
                 <li className="w-[64px] h-[64px] rounded-lg overflow-hidden">
@@ -129,7 +115,7 @@ export default function ProductDetails(){
                     type="button"
                     onClick={null}
                     className="h-full w-full">
-                    <img src={data.image} alt="product image" />
+                    <img src={data.image?.path} alt={data.image?.alt} />
                   </button>
                 </li>
               </ul>
@@ -294,7 +280,7 @@ export default function ProductDetails(){
               </section>
             </header>
 
-            <ProductsCard/>
+            {/* <ProductsCard/> */}
           </div> 
 
         </div>

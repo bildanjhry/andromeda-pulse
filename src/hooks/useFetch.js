@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 
-export default function useFetch(url){
+export default function useFetch(url, category, slugs){
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const [dataBySlugs, setDataBySlugs] = useState({})
+  const [dataByCategory, setDataByCategory] = useState([])
 
   useEffect(() => {
     async function getData(count = 3) {
@@ -14,6 +16,11 @@ export default function useFetch(url){
 
         const res = await fetch(url)
         const data = await res.json()
+        const slugsSelector = data.filter((item) => item.slugs === slugs)[0]
+        const categoriesSelector = data.filter((item) => item.cat?.id === category)
+        
+        setDataByCategory(categoriesSelector)
+        setDataBySlugs(slugsSelector)
         setData(data)
       } catch(err){
         if(count >=1 ) getData(count-1)  // will retry 3 times if error happend
@@ -23,7 +30,8 @@ export default function useFetch(url){
       }
     }
 	  getData()
-  },[url])
 
-	 return {data, isLoading}
+  },[url, category, slugs])
+
+	 return {data, dataBySlugs, dataByCategory, isLoading}
 }

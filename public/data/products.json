@@ -2,6 +2,7 @@
     {
         "id":"1he",
         "name":"Headphone Wireless Premium",
+        "slugs":"headphone-wireless-premum-1he",
         "price":450000,
         "discount":"-12%",
         "rating":4.8,
@@ -10,39 +11,42 @@
         "brand":"soundWave",
         "variants":["Hitam", "Biru", "Putih"],
         "isNew":false,
-        "status":["Baru"],
-        "image":"/images/products/headphone-prod.svg",
-        "event":"flash-deals",
-        "isPopuler":false,
+        "status":["Baru", "Populer"],
+        "image":{
+            "path": "/images/products/headphone-prod.svg",
+            "alt":"headphone"
+        },
         "stocks":45,
         "cat":{
-            "id":"1au",
+            "id":"1el",
             "name":"Elektronik"
         }
     },
     {
-        "id":"1he",
-        "name":"Headphone Wireless Premium",
+        "id":"2sm",
+        "name":"Smartphone x",
+        "slugs":"smarthone-x-2sm",
         "price":450000,
         "discount":"-12%",
         "rating":4.8,
         "ratingTotal":"512",
         "discountPrice":650000,
-        "brand":"soundWave",
+        "brand":"phoneX",
         "variants":["Hitam", "Biru", "Putih"],
         "isNew":false,
-        "image":"/images/products/headphone-prod.svg",
-        "event":"flash-deals",
-        "isPopuler":false,
+        "image":{
+            "path": "/images/products/smartphone-prod.svg",
+            "alt":"smartphone"
+        },
         "stocks":45,
         "cat":{
-            "id":"1au",
+            "id":"1el",
             "name":"Elektronik"
         }
     },
     {
-        "id":"1he",
-        "name":"Headphone Wireless Premium",
+        "id":"3sm",
+        "name":"Smartwatch",
         "price":450000,
         "discount":"-12%",
         "rating":4.8,
@@ -51,18 +55,19 @@
         "brand":"soundWave",
         "variants":["Hitam", "Biru", "Putih"],
         "isNew":false,
-        "image":"/images/products/headphone-prod.svg",
-        "event":"flash-deals",
-        "isPopuler":false,
+        "image":{
+            "path": "/images/products/smartwatch-prod.svg",
+            "alt":"smartwatch"
+        },
         "stocks":45,
         "cat":{
-            "id":"1au",
+            "id":"1el",
             "name":"Elektronik"
         }
     },
     {
-        "id":"1he",
-        "name":"Headphone Wireless Premium",
+        "id":"4ta",
+        "name":"Tablet",
         "price":450000,
         "discount":"-12%",
         "rating":4.8,
@@ -71,13 +76,59 @@
         "brand":"soundWave",
         "variants":["Hitam", "Biru", "Putih"],
         "isNew":false,
-        "image":"/images/products/headphone-prod.svg",
-        "event":"flash-deals",
+        "image":{
+            "path": "/images/products/tablet-prod.svg",
+            "alt":"tablet"
+        },
         "isPopuler":false,
         "stocks":45,
         "cat":{
-            "id":"1au",
+            "id":"1el",
             "name":"Elektronik"
         }
-    }              
+    },
+    {
+        "id":"5ba",
+        "name":"Backpack",
+        "price":450000,
+        "discount":"-12%",
+        "rating":4.8,
+        "ratingTotal":"512",
+        "discountPrice":650000,
+        "brand":"soundWave",
+        "variants":["Hitam", "Biru", "Putih"],
+        "isNew":false,
+        "image":{
+            "path": "/images/products/backpack-prod.svg",
+            "alt":"backpack"
+        },
+        "isPopuler":false,
+        "stocks":45,
+        "cat":{
+            "id":"2fa",
+            "name":"Fashion"
+        }
+    },
+    {
+        "id":"6de",
+        "name":"Dress White Floral",
+        "price":450000,
+        "discount":"-12%",
+        "rating":4.8,
+        "ratingTotal":"512",
+        "discountPrice":650000,
+        "brand":"soundWave",
+        "variants":["Hitam", "Biru", "Putih"],
+        "isNew":false,
+        "image":{
+            "path": "/images/products/dress-prod.svg",
+            "alt":"tablet"
+        },
+        "isPopuler":false,
+        "stocks":45,
+        "cat":{
+            "id":"2fa",
+            "name":"Fashion"
+        }
+    }                  
 ]

@@ -31,6 +31,8 @@ export default function Navbar({notifActions}) {
     }
   }
 
+  console.log(user)
+
   return (
     <div className="flex flex-col w-full h-fit fixed top-0 justify-center 
       border-b-light items-center bg-white z-10">
@@ -85,7 +87,7 @@ export default function Navbar({notifActions}) {
                 </Link>
               </li>
               <li>
-                { !(user) ?
+                { user ?
                   <Link to={"/my-profiles"} className="h-10 min-w-10 justify-center 
                   cursor-pointer flex items-center gap-1">
                     <img src={profile} alt="profile" />
