@@ -1,5 +1,8 @@
 import { Link } from "react-router"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
+import { useForm  } from "react-hook-form"
+import * as yup from "yup"
+import { yupResolver } from "@hookform/resolvers/yup"
 
 // component
 import AuthButton from "@/components/ui/AuthButton.jsx"
@@ -14,14 +17,51 @@ import Back from "@/assets/icons/arrow-left-mute.svg"
 import ShowPass from "@/assets/icons/watch-mute.svg"
 import HidePass from "@/assets/icons/watch-hide-mute.png"
 
+const schema = yup.object({
+  fullname: yup.string().required("Silahkan masukan nama anda").min(3),
+  email:yup.string().required("Silahkan masukan email anda"),
+  password:yup.string().min(8, "Minimal password 8 Karakter"),
+  confirmPassword:yup.string().min(8, "Minimal password 8 Karakter"),
+})
+
 export default function FormSection({type}){
+  
+  const { register, errors, getValues, } = useForm({
+    resolver:schema,
+    defaultValues: {
+      id:"",
+      cart:[],
+      address:[],
+      fullname:"",
+      email:"",
+      password:"",
+      bio:{
+        fullname:this?.fullname,
+        email:this?.email,
+        phone:"",
+        age:"",
+        dateBirth:"",
+        address:[],
+        picture:""
+      },
+      wishlist:[],
+      checkout:[{
+        checkoutId:"",
+        paymentMetod:"",
+        paymentStatus:"",
+        orderStatus:"",
+        product:[],
+        promo:""
+      }]
+    }
+  })
 
   function chooseForm(){
     switch(type){
     case "login":
-      return FormLogin()
+      return FormLogin(schema)
     case "register" :
-      return FormRegister()
+      return FormRegister(schema)
     case "forgot-pass" :
       return FormForgotPass()
     default :
@@ -115,13 +155,59 @@ function FormLogin(){
   )
 }
 
-function FormRegister(){
+function FormRegister(schema){
   const [hidePass, setHidePass] = useState(true)
   const [hidePassCon, setHidePassCon] = useState(true)
+  const passwordConRef = useRef()
+  const passwordRef = useRef()
 
-  function handleSubmit(e){
+  const { register, formState: { errors }, watch, getValues, handleSubmit, setError, clearErrors} = useForm({
+    resolver:yupResolver(schema),
+    defaultValues: {
+      id:"",
+      cart:[],
+      address:[],
+      fullname:"",
+      email:"",
+      password:"",
+      confirmPassword:"",
+      bio:{
+        fullname:this?.fullname,
+        email:this?.email,
+        phone:"",
+        age:"",
+        dateBirth:"",
+        address:[],
+        picture:""
+      },
+      wishlist:[],
+      checkout:[{
+        checkoutId:"",
+        paymentMetod:"",
+        paymentStatus:"",
+        orderStatus:"",
+        product:[],
+        promo:""
+      }]
+    }
+  })
+
+
+  console.log(getValues("password"))
+
+  // const confirmPass = watch("confirmPassword")
+  // const password = watch("password")
+
+  // // watching password syncs
+  // useEffect(() => {
+  //   if(confirmPass !== password){
+  //     setError("confirmPassword", { type:"custom", message:"Password tidak sesuai"})
+  //   } else { clearErrors("confirmPassword") }
+  // },[watch, setError, clearErrors, password, confirmPass])
+
+
+  function onSubmit(e){
     e.preventDefault()
-
     try{
       let userDatas = []
       let formData = {
@@ -147,6 +233,7 @@ function FormRegister(){
         }]
       }
       const data = new FormData(e.target)
+      console.log(Object.fromEntries(data.entries()))
       const formatObjData = Object.fromEntries(data.entries())
       if(data.get("password") !== data.get("confirm-password")) {
         throw new Error("Pastikan Pasword sama")
@@ -171,29 +258,31 @@ function FormRegister(){
       formData.bio.email = formData["email"]
       userDatas.push(formData)
 
-      window.localStorage.setItem("accounts", JSON.stringify(userDatas))
-      window.location.href = "/login"
+     // window.localStorage.setItem("accounts", JSON.stringify(userDatas))
+     // window.location.href = "/login"
     } catch(err){
       // handling if error happend
-      alert(err.message)
+     // alert(err.message)
     } 
   }
 
-  function handleWatchPass(e){
-    const type = document.getElementById(e).getAttribute("type")
-    if(e === "password"){
-      if(type === "password") setHidePass(false)
-      else setHidePass(true)
-    } else {
-      if(type === "password") setHidePassCon(false)
-      else setHidePassCon(true)
+
+  function handleWatchPass(e, name){
+    if(name === "password"){
+      setHidePass(!hidePass)
+      if(passwordRef.current.type === "password") passwordRef.current.type = "text"
+      else passwordRef.current.type = "password"
+    } else if(name === "confirmPassword") {
+      setHidePassCon(!hidePassCon)
+      if(passwordConRef.current.type === "password") passwordConRef.current.type = "text"
+      else passwordConRef.current.type = "password"
     }
   }
 
   return (
     <form
       className="w-[53%] flex flex-col gap-2"
-      onSubmit={(e) => {handleSubmit(e)}} 
+      onSubmit={(e) => handleSubmit(onSubmit(e))} 
       action="">
       <h1>Buat Akun Baru</h1>
       <p className="relative bottom-5 text-sm">Sudah punya akun?
@@ -216,11 +305,12 @@ function FormRegister(){
           <div className="relative">
             <img className="absolute p-4" src={Person} alt="" />
             <input
-              required 
-              className="w-full h-[46px] text-sm pl-12 border-light input-bg rounded-xl"
+              {...register("fullname")}
+              className="w-full h-11.5 text-sm pl-12 border-light input-bg rounded-xl"
               placeholder="Nama lengkap kamu"
               type="text" name="fullname" id="fullname" />
           </div>
+          {errors?.fullname && <p className="text-xs text-red-500">{errors.fullname?.message}</p>}
         </div>				
         <div className="flex flex-col gap-1">
           <label htmlFor="email" className="text-h font-(--font-medium)">Email</label>
@@ -228,6 +318,7 @@ function FormRegister(){
             <img className="absolute p-4" src={Email} alt="" />
             <input 
               required
+              {...register("email")}
               className="w-full h-[46px] text-sm pl-12 border-light input-bg rounded-xl"
               placeholder="email@contoh.com"
               type="email" name="email" id="email" />
@@ -248,32 +339,38 @@ function FormRegister(){
 							 src={hidePass ? ShowPass : HidePass} alt="show password" id="show-pass"/>
             </button>						
             <input 
-              className="w-full h-[46px] text-sm px-12 border-light input-bg rounded-xl"
-              placeholder="Minimal 6 karakter"
               required
+              {...register("password")}
+              ref={passwordRef}
+              className="w-full h-[46px] text-sm px-12 border-light input-bg rounded-xl"
+              placeholder="Minimal 8 karakter"
               type={`${hidePass ? 'password' : 'text'}`} name="password" id="password" />
           </div>
+          {errors?.password && <p className="text-xs text-red-500">{errors.password?.message}</p>}
         </div>
         <div className="flex flex-col gap-1">
           <div className="flex justify-between">
-            <label htmlFor="confirm-password" className="text-h font-(--font-medium)">Konfirmasi kata sandi</label>
+            <label htmlFor="confirmPassword" className="text-h font-(--font-medium)">Konfirmasi kata sandi</label>
           </div>
           <div className="relative">
             <img className="absolute p-4" src={Password} alt="password lock" />
             <button 
               type="button"
-              onClick={() =>{handleWatchPass("confirm-password")}}
+              onClick={() => {handleWatchPass("confirmPassword")}}
               className="absolute right-0 p-4 cursor-pointer">
               <img 
                 className="w-[16px] h-[16px]"
                 src={hidePassCon ? ShowPass : HidePass} alt="show password" id="show-pass"/>
             </button>
             <input
-              required 
+              required
+              {...register("confirmPassword")} 
+              ref={passwordConRef}
               className="w-full h-[46px] text-sm px-12 border-light input-bg rounded-xl"
-              placeholder="Minimal 6 karakter"
-              type={`${hidePassCon ? 'password' : 'text'}`} name="confirm-password" id="confirm-password" />
+              placeholder="Minimal 8 karakter"
+              type={`${hidePassCon ? 'password' : 'text'}`} name="confirmPassword" id="confrimPassword" />
           </div>
+           {errors?.confirmPassword && <p className="text-xs text-red-500">{errors.confirmPassword?.message}</p>}
         </div>				
         <div className="flex items-start gap-2 mt-2">
           <input 
