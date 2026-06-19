@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import moneyFormat from "@/utils/money-format";
@@ -8,6 +8,10 @@ import MainLayout from "@/components/layouts/MainLayout";
 import SubmitButton from "@/components/ui/SubmitButton.jsx"
 import ActionButton from "@/components/ui/ActionButton.jsx"
 import ProductsCard from "@/components/features/ProductsCard.jsx"
+
+// hook
+import useFetch from "@/hooks/useFetch";
+import useUser from "@/hooks/useUser";
 
 // asset
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -20,14 +24,15 @@ import Wishlist from "@/assets/icons/wishlist-mute.svg"
 import Delivery from "@/assets/icons/delivery-blue.svg"
 import Return from "@/assets/icons/return.svg"
 import Safe from "@/assets/icons/safe-blue.svg"
-import useFetch from "../../hooks/useFetch";
 
 export default function ProductDetails(){
   const [prodVariant, setProdVariant] = useState("")
   const [quantity, setQuantity] = useState(1)
   const { category, slugs } = useParams()
+  const { user } = useUser()
   const { dataBySlugs : data, dataByCategory} = 
   useFetch("/data/products.json", category || '', slugs || '')
+  const navigate = useNavigate()
 
   function handleRatingStars(rating){
     return Array.from({ length: 5 }).map((_, index) => (
@@ -49,7 +54,7 @@ export default function ProductDetails(){
   }
 
   function addToCart(){
-
+    navigate("/login")
   }
 
   function addToWishlist(){
@@ -102,7 +107,7 @@ export default function ProductDetails(){
             </div>
             <div className="mt-4">
               <ul className="flex flex-row gap-3">
-                <li className="w-[64px] h-[64px] rounded-lg overflow-hidden">
+                <li className="w-16 h-16 rounded-lg overflow-hidden">
                   <button
                     type="button"
                     onClick={null}
@@ -110,7 +115,7 @@ export default function ProductDetails(){
                     <img src={data.image?.path} alt={data.image?.alt} />
                   </button>
                 </li>
-                <li className="w-[64px] h-[64px] rounded-lg overflow-hidden">
+                <li className="w-16 h-16 rounded-lg overflow-hidden">
                   <button
                     type="button"
                     onClick={null}
@@ -194,7 +199,7 @@ export default function ProductDetails(){
                     </button>
                     <p className="w-7 text-center text-sm text-h">{quantity}</p>
                     <button
-                      className="w-[3.7rem] flex cursor-pointer flex justify-center items-center"
+                      className="w-[3.7rem] flex cursor-pointer justify-center items-center"
                       onClick={handleIncreastQty}
                     >
                       <img src={Plus} alt="increase qty" />
@@ -207,6 +212,7 @@ export default function ProductDetails(){
               <div className="mt-3 grid grid-cols-[43%_43%_9%] w-full justify-between">
                 <ActionButton 
                   img={Cart} 
+                  disable={true}
                   buttonText={"Tambah ke keranjang"} 
                   color={`text-(--text-action)`} 
                   bg={"bg-[transparent]"} 

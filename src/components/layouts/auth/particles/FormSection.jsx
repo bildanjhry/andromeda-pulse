@@ -70,7 +70,7 @@ function FormLogin(){
 
   // set manually email after success register
   useEffect(() => {
-    setValues({email:location.state.email})
+    if(location.state) setValues({email:location.state.email})
   },[setValues, location])
   
   function onSubmit(data){
@@ -81,7 +81,7 @@ function FormLogin(){
       })
       if(!user.length) throw new Error("Akun tidak ditemukan")
       window.localStorage.setItem("user", JSON.stringify(user[0]))
-      navigate("/") // navigate to landing
+      navigate("/", {}) // navigate to landing
     } catch(err){
       // error handling
       setErrorLogin({
@@ -130,7 +130,7 @@ function FormLogin(){
             <img className="absolute p-4" src={Email} alt="" />
             <input 
               {...register("email")}
-              className="w-full h-[46px] text-sm pl-12 border-light input-bg rounded-xl"
+              className="w-full h-11.5 text-sm pl-12 border-light input-bg rounded-xl"
               placeholder="email@contoh.com"
               type="email" name="email" id="email" />
           </div>
