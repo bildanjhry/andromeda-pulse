@@ -7,31 +7,32 @@ import hamMenu from "@/assets/icons/ham-menu-black.svg"
 import notif from "@/assets/icons/notif-mute.svg"
 import profile from "@/assets/icons/profile-mute.svg"
 import wishlist from "@/assets/icons/wishlist-mute.svg"
-import cart from "@/assets/icons/cart-mute.svg"
+import Cart from "@/assets/icons/cart-mute.svg"
 import search from "@/assets/icons/search-white.svg"
 
 // component
-import Logo from "../ui/Logo"
+import Logo from "@/components/ui/Logo"
+import useUser from "@/hooks/useUser"
 
 export default function Navbar({notifActions}) {
   const [userData, setUserData] = useState({})
   const [totalCart, setTotalCart] = useState(0)
+  const { cart } = useUser()
 
-  useEffect(() => {
-    function getUser(){
-      const user = JSON.parse(window.localStorage.getItem("user"))
-      setUserData(user)
-      setTotalCart(user.cart.length)
-    }
-    getUser()
-  },[setUserData, setTotalCart, notifActions])
+  // useEffect(() => {
+  //   function getUser(){
+  //     const user = JSON.parse(window.localStorage.getItem("user"))
+  //     setUserData(user)
+  //     setTotalCart(user.cart.length)
+  //   }
+  //   getUser()
+  // },[setUserData, setTotalCart, notifActions])
 
 
   function handleSearch(e){
     e.preventDefault()
     try{
       const inputData = new FormData(e.target).get("search")
-      // do search action here
       if(inputData) window.location.herf = "/browse-product"
     } catch(err){
       console.error(err.message)
@@ -95,7 +96,7 @@ export default function Navbar({notifActions}) {
                 </Link>
               </li>
               <li>
-                <Link to={"/wishlist"} className="h-[40px] w-[40px] cursor-pointer flex items-center 
+                <Link to={"/my-profiles/wishlist"} className="h-[40px] w-[40px] cursor-pointer flex items-center 
 								justify-center">
                   <img src={wishlist} alt="wishlist" />
                 </Link>
@@ -103,12 +104,12 @@ export default function Navbar({notifActions}) {
               <li>
                 <Link to={"/cart"} className="h-[40px] w-[40px] cursor-pointer flex items-center 
 								justify-center relative">
-                  {totalCart >= 1 && 
+                  {cart.length >= 1 && 
 									<div className="rounded-full bg-(--info-bg) flex items-center justify-center text-light 
 									text-[11px] absolute top-0 left-7 z-2 px-[6px] py-[1px]">
-									  {totalCart}
+									  {cart.length}
 									</div>}
-                  <img src={cart} alt="wishlist" />
+                  <img src={Cart} alt="cart" />
                 </Link>
               </li>
             </ul>

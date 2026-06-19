@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import useCart from "../../hooks/useCart";
+import useUser from "@/hooks/useUser";
 
 // component
 import MainLayout from "@/components/layouts/MainLayout";
@@ -13,8 +12,7 @@ import Delete from "@/assets/icons/delete-mute.svg"
 import Promo from "@/assets/icons/promo-code-blue.svg"
 
 export default function Cart(){
-  const [cart] = useCart()
-  console.log(cart)
+  const {cart} = useUser()
 
   return(
     <MainLayout>
