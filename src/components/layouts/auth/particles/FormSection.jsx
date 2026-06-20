@@ -44,7 +44,7 @@ export default function FormSection({type}){
 
 function FormLogin(){
   const location = useLocation()
-  const { accounts } = useUser("accounts")
+  const { setterUser, accounts } = useUser()
   const navigate = useNavigate()
   const [errorLogin, setErrorLogin] = useState({
     error:false,
@@ -70,9 +70,11 @@ function FormLogin(){
 
   // set manually email after success register
   useEffect(() => {
-    if(location.state) setValues({email:location.state.email})
+    if(location.pathname === "/login" && location.state){
+      setValues({email:location.state.email})
+    }
   },[setValues, location])
-  
+
   function onSubmit(data){
     try{
       // filtering if data matches
@@ -80,7 +82,8 @@ function FormLogin(){
       	return item.email === data.email && atob(item.password) === data.password
       })
       if(!user.length) throw new Error("Akun tidak ditemukan")
-      window.localStorage.setItem("user", JSON.stringify(user[0]))
+      setterUser(user[0])
+      
       navigate("/", {}) // navigate to landing
     } catch(err){
       // error handling
@@ -107,11 +110,13 @@ function FormLogin(){
       <p className="relative bottom-4 text-sm ">Belum punya akun?
         <Link to={"/register"} className="text-[blue]"> Daftar gratis</Link>
       </p>
+
       {errorLogin.error &&
       <Alert variant={"error"}>
         <p>{errorLogin.message}</p>
       </Alert>
       }
+      
       <div className="flex justify-between">
         <AuthButton buttonText={"Google"} />
         <AuthButton buttonText={"Faceboook"} />
@@ -123,6 +128,7 @@ function FormLogin(){
         </span>
         <div className="h-px flex-1 bg-gray-300"></div>
       </div>
+
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-1">
           <label htmlFor="email" className="text-h text-sm font-(--font-medium)">Email</label>
@@ -177,10 +183,10 @@ function FormRegister(){
   const passwordConRef = useRef()
   const passwordRef = useRef()
   const navigate = useNavigate()
+  const { accounts, setterAccounts } = useUser()
 
   function handleIdUser(name){
-    return `${Math.round(Math.random() * 999)}
-    ${name.slice(0, 3)}${Date.now().toString(35)}`
+    return `${Math.round(Math.random() * 100)}${name.slice(0, 3)}${Date.now().toString(35)}`
   }
 
   const schema = yup.object({
@@ -203,7 +209,6 @@ function FormRegister(){
       fullname:"",
       email:"",
       password:"",
-      confirmPassword:"",
       bio:{
         fullname:this?.fullname,
         email:this?.email,
@@ -243,24 +248,30 @@ function FormRegister(){
     } else clearErrors("confirmPassword")
     
     try{
-      let userDatas = []
-      const account = JSON.parse(window.localStorage.getItem("accounts"))
-      if(account) userDatas = [...account] // append existing accounts
-
+      let userDatas = {}
+      for(const props in data){
+        if(props !== "confirmPassword") userDatas[props] = data[props]
+      }
+      
       // manually create user's id
-      data.id = handleIdUser(data.fullname)
-     
-      data.bio.fullname = data.fullname
-      data.bio.email = data.email
-      data.password = btoa(data.password)
-      userDatas.push(data)
+      userDatas.id = handleIdUser(data.fullname)
+      userDatas.bio.fullname = data.fullname
+      userDatas.bio.email = data.email
+      userDatas.password = btoa(data.password)
 
-      window.localStorage.setItem("accounts", JSON.stringify(userDatas))
+      setterAccounts(userDatas) // updating hooks
+
+      // validation email
+      if(accounts.find((item) => item.email === userDatas.email)){
+        throw new Error("Email sudah digunakan")
+      }
+
       setRegisterEvent({
         event:true,
         status:"success",
         message:"Sukses Membuat Akun"
       })
+
       window.setTimeout(() => {
         navigate("/login", { state: { email: data.email}})
       },2000)
@@ -271,7 +282,6 @@ function FormRegister(){
         status:"error",
         message:err.message
       })
-      alert(err.message)
     } 
   }
 
@@ -291,6 +301,15 @@ function FormRegister(){
     <form
       className="w-[53%] flex flex-col gap-2"
       onSubmit={handleSubmit(onSubmit)} 
+      onFocus={() => {
+        if(registerEvent.event){
+          setRegisterEvent({
+            event:false,
+            status:"",
+            message:""
+          })
+        }
+      }}
       action="POST">
       <h1 className="text-h">Buat Akun Baru</h1>
       <p className="relative bottom-4 text-sm">Sudah punya akun?

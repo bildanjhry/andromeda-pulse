@@ -1,5 +1,8 @@
 import { createBrowserRouter, RouterProvider} from "react-router";
 
+// hook
+import UserProvider from "@/hooks/context/UserProvider";
+
 //auth
 import Login from "@/pages/auth/Login.jsx";
 import Register from "@/pages/auth/Register.jsx";
@@ -32,7 +35,6 @@ import DashboardLayout from "@/components/layouts/DashboardLayout";
 import Products from "@/pages/admin/Products.jsx";
 import Settings from "@/pages/admin/Settings.jsx";
 import CustomersOrders from "@/pages/admin/Orders.jsx"
-
 
 const router = createBrowserRouter([
   {
@@ -141,9 +143,9 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <>
+    <UserProvider>
       <RouterProvider router={router}/>
-    </>
+    </UserProvider>
   )
 }
 

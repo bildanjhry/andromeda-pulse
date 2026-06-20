@@ -29,7 +29,7 @@ export default function ProductDetails(){
   const [prodVariant, setProdVariant] = useState("")
   const [quantity, setQuantity] = useState(1)
   const { category, slugs } = useParams()
-  const { user } = useUser()
+  const { user, cart: userCart, setterCart } = useUser()
   const { dataBySlugs : data, dataByCategory} = 
   useFetch("/data/products.json", category || '', slugs || '')
   const navigate = useNavigate()
@@ -44,17 +44,24 @@ export default function ProductDetails(){
     ))
   }
 
-
   function handleDecreastQty(){
-
+    if(quantity > 1) setQuantity(quantity-1)
   }
 
   function handleIncreastQty(){
-    
+    setQuantity(quantity+1)
   }
 
   function addToCart(){
-    navigate("/login")
+    if(!user.id) {
+      navigate("/login")
+    }
+
+    setterCart({
+      ...data,
+      variants: prodVariant,
+      qty:quantity
+    })
   }
 
   function addToWishlist(){
@@ -165,7 +172,8 @@ export default function ProductDetails(){
               <div className="flex flex-col mt-3">
                 <div className="flex flex-row gap-2 ">
                   <p className="text-h">Warna:</p>
-                  <p className="text-(--text-high)">{prodVariant.charAt(0).toUpperCase() + prodVariant.slice(1)}</p>
+                  <p 
+                    className="text-(--text-high)">{prodVariant.charAt(0).toUpperCase() + prodVariant.slice(1)}</p>
                 </div>
                 <div className="flex flex-row gap-3 w-[50%] mt-2 text-sm">
                   {data?.variants?.map((item, index) => (
@@ -212,7 +220,6 @@ export default function ProductDetails(){
               <div className="mt-3 grid grid-cols-[43%_43%_9%] w-full justify-between">
                 <ActionButton 
                   img={Cart} 
-                  disable={true}
                   buttonText={"Tambah ke keranjang"} 
                   color={`text-(--text-action)`} 
                   bg={"bg-[transparent]"} 

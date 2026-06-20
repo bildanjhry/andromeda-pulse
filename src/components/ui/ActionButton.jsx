@@ -10,7 +10,6 @@ export default function SubmitButton({
 }){
   return order === "left-to-right" ?
     (<button
-      {...props}
       onClick={handleOnclick}
       type="button"
       className={`rounded-xl ${bg} ${color} h-11.5 w-full flex gap-3  justify-center 

@@ -1,8 +1,10 @@
 import { Link } from "react-router"
+import { useContext } from "react"
 
 // custom hook
 import useFetch from "@/hooks/useFetch.js"
 import useUser from "@/hooks/useUser"
+import { UserContext } from "@/hooks/context/UserContext"
 
 // assets
 import location from "@/assets/icons/location-white.svg"
@@ -18,7 +20,9 @@ import Logo from "@/components/ui/Logo"
 import AuthNavbar from "@/components/ui/Auth"
 
 export default function Navbar({notifActions}) {
-  const { cart, user, userName } = useUser("user")
+  const { cart, user, userName } = useUser()
+  const [globalCart] = useContext(UserContext)
+
   const {data: categories} = useFetch("/data/categories.json")
 
   function handleSearch(e){
@@ -30,8 +34,6 @@ export default function Navbar({notifActions}) {
       console.error(err.message)
     }
   }
-
-  console.log(user)
 
   return (
     <div className="flex flex-col w-full h-fit fixed top-0 justify-center 
@@ -87,7 +89,7 @@ export default function Navbar({notifActions}) {
                 </Link>
               </li>
               <li>
-                { user ?
+                { user.id !== undefined ?
                   <Link to={"/my-profiles"} className="h-10 min-w-10 justify-center 
                   cursor-pointer flex items-center gap-1">
                     <img src={profile} alt="profile" />
@@ -105,10 +107,10 @@ export default function Navbar({notifActions}) {
               <li>
                 <Link to={"/cart"} className="h-10 w-10 cursor-pointer flex items-center 
 								justify-center relative">
-                  {cart.length >= 1 && 
+                  {cart?.length >= 1 && 
 									<div className="rounded-full bg-(--info-bg) flex items-center justify-center text-light 
 									text-[11px] absolute top-0 left-7 z-2 px-1.5 py-px">
-									  {cart.length}
+									  {globalCart.length}
 									</div>}
                   <img src={Cart} alt="cart" />
                 </Link>
