@@ -18,6 +18,7 @@ export default function useUser(){
   const [wishlist, setWishlist] = useState(user.wishlist || [])
   const [address, setAddress] = useState(user.address || [])
   const [error, setError] = useState("")
+  const [bio, setBio] = useState(user.bio || {})
   const [userName, setUserName] = useState("")
   const [ , setGlobalCart] = useContext(UserContext)
 
@@ -42,12 +43,12 @@ export default function useUser(){
     function updateUser(){
       const rest = accounts.filter((item) => item.id !== user.id)
       if(user.id !== undefined){
-        window.localStorage.setItem("accounts", JSON.stringify([...rest, {...user, cart, checkout}]))
-        window.localStorage.setItem("user", JSON.stringify({...user, cart, checkout}))
+        window.localStorage.setItem("accounts", JSON.stringify([...rest, {...user, cart, checkout, bio}]))
+        window.localStorage.setItem("user", JSON.stringify({...user, cart, checkout, bio}))
       } else window.localStorage.removeItem("user")
     }
     updateUser() // update local storage if some data changes
-  },[user, accounts, cart, checkout])
+  },[user, accounts, cart, checkout, bio])
 
 
   function setterAccounts(data) {
@@ -135,6 +136,8 @@ export default function useUser(){
     setUser,
     userName, 
     address,
+    bio,
+    setBio,
     initial,
     cart, 
     wishlist, 

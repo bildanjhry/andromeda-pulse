@@ -35,7 +35,6 @@ function Header() {
     }
     getStep()
   },[location])
-  console.log(step)
 
   return(
     <header className="flex items-center gap-2 h-30">

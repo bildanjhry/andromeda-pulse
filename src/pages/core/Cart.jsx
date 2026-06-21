@@ -18,7 +18,7 @@ import Promo from "@/assets/icons/promo-code-blue.svg"
 import { useNavigate } from "react-router";
 
 export default function Cart(){
-  const {cart, setCart, address} = useUser()
+  const {cart, setCart, bio, address} = useUser()
   const [globalCart, setGlobalCart] = useContext(UserContext)
   const navigate = useNavigate()
 
@@ -29,11 +29,18 @@ export default function Cart(){
   }
 
   function handleCheckout(){
-    if(address.length < 1){
-      alert("Masukan Address dulu")
-      navigate("/my-profiles/address")
+    try{
+      if(address.length < 1){
+        throw new Error("/my-profiles/address")
+      }
+      if(bio.phone === ""){
+        throw new Error("/my-profiles/settings")
+      }
+      navigate("/checkout")
+
+    }catch(err){
+      navigate(err.message)
     }
-    navigate("/checkout")
   }
 
   return(
