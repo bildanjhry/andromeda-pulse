@@ -69,8 +69,8 @@ export default function Address(){
         <h3>Alamat Saya</h3>
         <button 
           onClick={() => setAddAddress(!addAddress)}
-          className="w-[10rem] rounded-xl text-light 
-		      cursor-pointer text-sm h-[38px] main-bg flex items-center gap-1 pt-[1px] justify-center">
+          className="w-40 rounded-xl text-light 
+		      cursor-pointer text-sm h-9.5 main-bg flex items-center gap-1 pt-[1px] justify-center">
           { addAddress ?
             <p>Tampilkan Alamat</p> :
             <>
@@ -91,8 +91,10 @@ export default function Address(){
                 <div className=" w-full border-light bg-white rounded-2xl 
                 py-5 px-5">
                   <header className="flex w-full justify-between items-center">
-                    <div>
-                      <p className="text-h font-[600]">Rumah Utama</p>
+                    <div className="flex items-center gap-1">
+                      <p className="text-h font-semibold">Rumah</p>
+                      {item.isMain && <p className="text-h font-semibold">(Utama)</p>}
+                      {item.isMain && <p className="py-1 px-2 rounded-full text-white text-sm font-semithin relative left-2 bg-(--main-bg)">Utama</p>}
                     </div>
                     <div className="flex gap-2">
                       <button className="cursor-pointer px-1">
@@ -103,13 +105,14 @@ export default function Address(){
                       </button>
                     </div>
                   </header>
-                  <main className=" py-5 flex flex-col gap-3">
-                    <div className="flex flex-col gap-2">
-                      <div className="flex items-center gap-2">
+                  <main className="pt-4 pb-1 flex flex-col gap-3">
+                    <div className="flex flex-col gap-1">
+                      <div className="flex items-center gap-2 text-h">
                         <p>{user.fullname}</p>
                         <p>{item.phone}</p>
                       </div>
                       <p>{item.fulladdress}</p>
+                      <p>{item.city}, <span>{item.province}</span><span> {item.postCode}</span></p>
                     </div>
                   </main>
                 </div>
