@@ -1,4 +1,6 @@
 import { Outlet } from "react-router"
+import useUser from "@/hooks/useUser"
+import moneyFormat from "@/utils/money-format.js"
 
 // component
 import MainLayout from "@/components/layouts/MainLayout.jsx"
@@ -9,7 +11,7 @@ export default function CheckoutLayout(){
       <div className="w-[83%] min-h-40 mt-5 mb-15 flex flex-col gap-4 items-center">
         <Header/>
         <main className="w-full box-border mt-4 flex flex-row justify-between 
-				 min-h-[271px] relative">
+				 min-h-67.75 relative">
           <div className="w-[70%] flex flex-col py-10 px-10 bg-white rounded-2xl border-light">
             <Outlet/>
           </div>
@@ -51,25 +53,31 @@ function Header() {
 }
 
 function Aside(){
+  const { cart } = useUser()
+
   return (
-    <aside className="w-[352px] min-h-[271px] max-h-fit sticky top-35 border-light bg-white 
+    <aside className="w-88 min-h-67.75 max-h-fit sticky top-35 border-light bg-white 
       flex flex-col px-6 py-5 rounded-2xl gap-2">
       <h4>Rinkasan Pesanan</h4>
       <div className="py-3 flex flex-col gap-2 border-b-light">
-        <div className="flex justify-between">
-          <img
-            className="w-10 h-10 rounded-xl" 
-            src={null} alt="product image" />
-          <div className="flex w-[72%] justify-between items-center text-xs">
-            <p>Headphone Wireless Premium</p>
-            <p>x1</p>
+        { cart.map((item, index) => (
+          <div 
+            key={index}
+            className="flex justify-between">
+            <img
+              className="w-10 h-10 rounded-xl" 
+              src={item.image?.path} alt={item.image?.path} />
+            <div className="flex w-[82%] justify-between items-center text-xs">
+              <p>{item.name}</p>
+              <p>x{item.qty}</p>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
       <div className="w-full flex flex-col gap-2 py-3  border-b-light">
         <ul className="flex justify-between items-center">
           <li>Subtotal</li>
-          <li>Rp 450.000</li>
+          <li>{moneyFormat(cart.reduce((acc, item) => acc + (item.price * item.qty),0))[0]}</li>
         </ul>
         <ul className="flex justify-between items-center">
           <li>Ongkir</li>
@@ -79,7 +87,7 @@ function Aside(){
       <div>
         <ul className="flex justify-between items-center mb-5">
           <li className="text-(--text-h)">Total</li>
-          <li className="text-(--text-high) font-semibold">Rp 450.000</li>
+          <li className="text-(--text-high) font-semibold">{moneyFormat(cart.reduce((acc, item) => acc + (item.price * item.qty),0))[0]}</li>
         </ul>
         <p className="text-center relative  text-xs">🔒 Pembayaran aman dan terenkripsi</p>
       </div>

@@ -28,7 +28,6 @@ export default function Cart(){
     setGlobalCart(() => filteredItem)
   }
 
-
   function handleCheckout(){
     if(address.length < 1){
       alert("Masukan Address dulu")
@@ -85,8 +84,8 @@ export default function Cart(){
                       onClick={() => {handleDelete(item.cartId)}}>
                       <img src={Delete} alt="delete product" />
                     </button>
-                    <h4 className="text-(--text-high) font-medium flex mt-[50%]">
-                      {item.price}
+                    <h4 className="text-(--text-high) font-medium flex mt-[40%]">
+                      {moneyFormat(item.price)[0]}
                     </h4>
                   </div>
 

@@ -114,7 +114,7 @@ export default function Confirm(){
                 <img 
                   className="relative bottom-px"
                   src={Lock} alt="payment step" />
-                <p>Bayar {moneyFormat(cart.reduce((acc, item) => acc + item.price * item.qty, 0))[0]} Sekarang</p>
+                <p>Bayar {moneyFormat(cart.reduce((acc, item) => acc + (item.price * item.qty), 0))[0]} Sekarang</p>
               </button>			
             </div>
 
