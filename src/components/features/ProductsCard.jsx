@@ -12,7 +12,6 @@ export default function Card({count = 4, width = "large", params}){
   const { wishlist } = useUser()
   if(params == "WISHLIST"){ products = wishlist }
 
-
   return(
     <div className={classNames(
       `grid gap-3`,
