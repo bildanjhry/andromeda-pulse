@@ -2,18 +2,22 @@ import { Link } from "react-router"
 import classNames from "classnames";
 import moneyFormat from "@/utils/money-format.js"
 import useFetch from "@/hooks/useFetch";
+import useUser from "@/hooks/useUser";
 
 // componets
 import RenderStars from "@/components/ui/RenderStars";
 
-export default function Card({count = 4, width = "large"}){
-  const {data : products} = useFetch("/data/products.json")
+export default function Card({count = 4, width = "large", params}){
+  let {data : products} = useFetch("/data/products.json", params)
+  const { wishlist } = useUser()
+  if(params == "WISHLIST"){ products = wishlist }
+
 
   return(
     <div className={classNames(
       `grid gap-3`,
-      {'grid-cols-2' : count === 2},
-      {'grid-cols-4': count === 4}
+      {'grid-cols-3 3xl:grid-cols-4 large:grid-cols-3' : count === 2},
+      {'grid-cols-4 3xl:grid-cols-5 large:grid-cols-4': count === 4}
     )}>
 
       {products?.map((item, index) => (

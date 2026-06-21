@@ -31,7 +31,7 @@ export default function InfoSection({type}){
 
 function LoginArticle(){
   return(
-    <section className="w-[50%] none md:flex flex-col items-center [background:var(--gradient-bg)] justify-center h-[100%] relative">
+    <section className="w-[50%] none md:flex flex-col items-center [background:var(--gradient-bg)] justify-center h-full relative">
       <img 
         className="w-full h-full absolute bg-center bg-contain"
         src={LoginBg} alt="" />
@@ -65,7 +65,7 @@ function LoginArticle(){
 
 function RegisterArticle(){
   return(
-    <section className="w-[50%] none md:flex flex-col items-center [background:var(--gradient-regis-bg)] justify-center h-[100%] relative">
+    <section className="w-[50%] none md:flex flex-col items-center [background:var(--gradient-regis-bg)] justify-center h-full relative">
       <img 
         className="w-full h-full absolute bg-center bg-contain"
         src={RegisBg} alt="" />

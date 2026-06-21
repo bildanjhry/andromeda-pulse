@@ -9,9 +9,10 @@ export default function MainLayout({children}){
   },[])
 
   return(
-    <div>
+    <div className="">
       <Navbar/>
-      <main className="mt-32 w-full flex justify-center items-center flex-1">
+      <main className="mt-32 w-full flex justify-center 
+      large:w-380 large:justify-self-center min-h-screen flex-1">
         {children}
       </main>
       <Footer/>     

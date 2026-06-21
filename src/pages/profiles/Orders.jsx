@@ -9,7 +9,7 @@ export default function Orders(){
   return(
     <div className="w-[95%] pt-1 h-full">
       <h3>Pesanan Saya</h3>
-      <div className="w-full flex flex-col gap-6 mt-6">
+      <div className="w-full flex flex-col-reverse gap-6 mt-6">
         {data.map((item, index) => (
           <div 
             key={index}

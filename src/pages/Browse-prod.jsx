@@ -166,7 +166,7 @@ export default function BrowseProduct() {
               </Suspense>
             </div>
 
-            <div className="w-[20rem] my-10 grid my-0 mx-auto">
+            <div className="w-[20rem] my-10 grid mx-auto">
               <ActionButton
                 img={false}
                 buttonText={'Muat Lebih Banyak (6 Produk lagi)'}

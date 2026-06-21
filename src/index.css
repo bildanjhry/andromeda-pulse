@@ -7,6 +7,11 @@
   font-style: normal;
 }
 
+@theme {
+  --breakpoint-3xl:1750px;
+  --breakpoint-large:2000px;
+}
+
 :root {
   --text: #6B7280;
   --text-success:#00A63E;
@@ -34,6 +39,8 @@
   --action-bg: #F97316;
   --accent-bg: #1A73E833;
   --social-bg: rgba(244, 243, 236, 0.5); 
+  --gradient-info-1-bg: linear-gradient(to right, #00000099, #00000000);
+  --gradient-info-2-bg: linear-gradient(to right, #1C398ECC, #1C398E00);
   --gradient-bg: linear-gradient(to right, #1A73E8, #193CB8);
   --gradient-regis-bg: linear-gradient(to right, #1447E6, #312C85);
   --gradient-forgot-bg: linear-gradient(to right, #4F39F6, #1C398E);
@@ -158,18 +165,4 @@ p {
 
 .border-b-accent {
   border-bottom: 1px solid var(--accent-border);
-}
-
-.login-bg {
-  background-image:
-    linear-gradient(
-      to right,
-      rgba(26, 115, 232, 0.855),
-      rgba(25, 60, 184, 0.91)
-    ),
-    url('@/assets/bg/login-bg.png');
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }

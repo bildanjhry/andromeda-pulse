@@ -84,7 +84,7 @@ function FormLogin(){
       if(!user.id) throw new Error("Akun tidak ditemukan")
       setterUser(user)
       
-      navigate("/", {}) // navigate to landing
+      navigate("/") // navigate to landing
     } catch(err){
       // error handling
       setErrorLogin({

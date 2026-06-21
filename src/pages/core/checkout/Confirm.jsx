@@ -37,6 +37,7 @@ export default function Confirm(){
         merchantStatus:"Diterima"
       },
     }
+    console.log(formCheckoutProcess)
     setterCheckout(formCheckoutProcess)
     setCart([])
     navigate("/checkout-complete", {state:{ data: formCheckoutProcess}})
@@ -90,6 +91,7 @@ export default function Confirm(){
                 ))}
               </ul>
             </div>
+
 					 <div className="w-full bg-(--accent-bg) mt-3 rounded-xl  flex 
 						text-xs items-start px-4 gap-3 py-4">
               <img 

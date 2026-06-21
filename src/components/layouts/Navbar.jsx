@@ -19,7 +19,7 @@ import search from "@/assets/icons/search-white.svg"
 import Logo from "@/components/ui/Logo"
 import AuthNavbar from "@/components/ui/Auth"
 
-export default function Navbar({notifActions}) {
+export default function Navbar() {
   const { user, userName } = useUser()
   const [globalCart] = useContext(UserContext)
 
@@ -41,12 +41,12 @@ export default function Navbar({notifActions}) {
 
       <section className="flex main-bg justify-center w-full">
         <div className="h-7 text-[12px] flex flex-row justify-between 
-				items-center w-[83%] text-light">
+				items-center w-[83%] text-light large:w-315">
           <div className="w-fit flex gap-1 items-center">
             <img src={location} alt="location" />
             <p>Kirim ke: Jakarta Selatan</p>
           </div>
-          <div className="flex flex-row justify-between w-[32%]">
+          <div className="flex flex-row justify-between w-[32%] ">
             <p className="text-light">
 							📞 0800-1234-5678 (Gratis)
             </p>
@@ -59,7 +59,7 @@ export default function Navbar({notifActions}) {
 
       <section className="w-full h-16 flex justify-center border-b-light ">
         <div className="w-[83%] h-full flex gap-3 border-b-light items-center 
-				justify-self-center">
+				justify-self-center large:w-315">
           <Logo />
           <div id="search" className="w-[45%]">
             <form id="search-input" 
@@ -83,7 +83,7 @@ export default function Navbar({notifActions}) {
           <div className="h-full w-fit flex items-center">
             { !user.id ?
               <div className="flex items-center justify-end w-55">
-              <AuthNavbar/>
+                <AuthNavbar/>
               </div>
               :
               <ul className="h-full flex gap-2 items-center">
@@ -123,7 +123,7 @@ export default function Navbar({notifActions}) {
         </div>
       </section>
 
-      <section className="h-10.25 flex items-center gap-5 w-[83%] justify-self-center ">
+      <section className="h-10.25 flex items-center gap-5 large:w-315 w-[83%] justify-self-center ">
 		    <div className="flex gap-1 items-center h-full px-1 ">
           <img src={hamMenu} alt="category menu list" />
           <select name="cateogry" id="category" className="text-h text-sm">
