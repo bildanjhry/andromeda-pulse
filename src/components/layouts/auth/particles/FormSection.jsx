@@ -80,7 +80,7 @@ function FormLogin(){
       // filtering if data matches
       const user = accounts.filter((item) => {
       	return item.email === data.email && atob(item.password) === data.password
-      })
+      })[0]
       if(!user.length) throw new Error("Akun tidak ditemukan")
       setterUser(user[0])
       

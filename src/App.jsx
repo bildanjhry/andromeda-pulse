@@ -36,6 +36,10 @@ import Products from "@/pages/admin/Products.jsx";
 import Settings from "@/pages/admin/Settings.jsx";
 import CustomersOrders from "@/pages/admin/Orders.jsx"
 
+// protected route
+import ProtectedRoute from "@/routes/ProtectedRoute";
+
+
 const router = createBrowserRouter([
   {
     path:"/",
@@ -69,7 +73,11 @@ const router = createBrowserRouter([
   // my profiles family trees
   {
     path:"/my-profiles",
-    element: <ProfileLayout/>,
+    element: (
+      <ProtectedRoute>
+        <ProfileLayout/>
+      </ProtectedRoute> 
+    ),
     children:[{
       index:true,
       element:<Orders/> // first child

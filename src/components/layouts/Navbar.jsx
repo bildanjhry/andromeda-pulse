@@ -20,7 +20,7 @@ import Logo from "@/components/ui/Logo"
 import AuthNavbar from "@/components/ui/Auth"
 
 export default function Navbar({notifActions}) {
-  const { cart, user, userName } = useUser()
+  const { user, userName } = useUser()
   const [globalCart] = useContext(UserContext)
 
   const {data: categories} = useFetch("/data/categories.json")
@@ -80,42 +80,45 @@ export default function Navbar({notifActions}) {
               </button>
             </form>
           </div>
-          <div className="h-full w-fit">
-            <ul className="h-full flex gap-2 items-center">
-              <li>
-                <Link to={""} className="w-10 h-10 cursor-pointer flex justify-center 
+          <div className="h-full w-fit flex items-center">
+            { !user.id ?
+              <div className="flex items-center justify-end w-55">
+              <AuthNavbar/>
+              </div>
+              :
+              <ul className="h-full flex gap-2 items-center">
+                <li>
+                  <Link to={""} className="w-10 h-10 cursor-pointer flex justify-center 
 								items-center">
-                  <img src={notif} alt="notification" />
-                </Link>
-              </li>
-              <li>
-                { user.id !== undefined ?
+                    <img src={notif} alt="notification" />
+                  </Link>
+                </li>
+                <li>
                   <Link to={"/my-profiles"} className="h-10 min-w-10 justify-center 
                   cursor-pointer flex items-center gap-1">
                     <img src={profile} alt="profile" />
                     <p className="text-h text-sm">{userName}</p>
-                  </Link> :
-                  <AuthNavbar/>
-                }
-              </li>
-              <li>
-                <Link to={"/my-profiles/wishlist"} className="h-10 w-10 cursor-pointer 
+                  </Link>
+                </li>
+                <li>
+                  <Link to={"/my-profiles/wishlist"} className="h-10 w-10 cursor-pointer 
                 flex items-center justify-center">
-                  <img src={wishlist} alt="wishlist" />
-                </Link>
-              </li>
-              <li>
-                <Link to={"/cart"} className="h-10 w-10 cursor-pointer flex items-center 
+                    <img src={wishlist} alt="wishlist" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to={"/cart"} className="h-10 w-10 cursor-pointer flex items-center 
 								justify-center relative">
-                  {globalCart?.length >= 1 && 
+                    {globalCart?.length >= 1 && 
 									<div className="rounded-full bg-(--info-bg) flex items-center justify-center text-light 
 									text-[11px] absolute top-0 left-7 z-2 px-1.5 py-px">
 									  {globalCart.length}
 									</div>}
-                  <img src={Cart} alt="cart" />
-                </Link>
-              </li>
-            </ul>
+                    <img src={Cart} alt="cart" />
+                  </Link>
+                </li>
+              </ul> 
+            }
           </div>
         </div>
       </section>
