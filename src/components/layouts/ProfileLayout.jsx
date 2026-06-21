@@ -62,11 +62,10 @@ export default function ProfileLayout(){
 
 function ListSideMenu({dataMenu, path}){
   const navigate = useNavigate()
-  const { setUser, setCart } = useUser()
   
   function handleLogout(){
     window.localStorage.removeItem("user")
-    navigate("/login")
+   // navigate("/login")
   }
 
   return(

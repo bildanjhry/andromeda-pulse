@@ -8,10 +8,10 @@
         "rating":4.8,
         "ratingTotal":"512",
         "discountPrice":650000,
-        "brand":"soundWave",
+        "brand":"SoundWave",
         "variants":["Hitam", "Biru", "Putih"],
         "isNew":false,
-        "status":["Baru", "Populer"],
+        "status":["flash deals"],
         "image":{
             "path": "/images/products/headphone-prod.svg",
             "alt":"headphone"
@@ -24,14 +24,15 @@
     },
     {
         "id":"2sm",
-        "name":"Smartphone x",
-        "slugs":"smarthone-x-2sm",
-        "price":450000,
-        "discount":"-12%",
-        "rating":4.8,
-        "ratingTotal":"512",
-        "discountPrice":650000,
-        "brand":"phoneX",
+        "name":"Smartphone 5G Ultra",
+        "slugs":"smarthone-5g-ultra-2sm",
+        "price":4200000,
+        "discount":"-16%",
+        "rating":4.6,
+        "ratingTotal":"890",
+        "status":["flash deals"],
+        "discountPrice":5000000,
+        "brand":"PhoneX",
         "variants":["Hitam", "Biru", "Putih"],
         "isNew":false,
         "image":{
@@ -46,13 +47,15 @@
     },
     {
         "id":"3sm",
-        "name":"Smartwatch",
-        "price":450000,
+        "name":"Smartwatch Series 5",
+        "slugs":"smartwatch-series-5-3sm",
+        "price":2800000,
         "discount":"-12%",
-        "rating":4.8,
-        "ratingTotal":"512",
-        "discountPrice":650000,
-        "brand":"soundWave",
+        "rating":4.4,
+        "ratingTotal":"324",
+        "status":["flash deals"],
+        "discountPrice":3500000,
+        "brand":"WristTech",
         "variants":["Hitam", "Biru", "Putih"],
         "isNew":false,
         "image":{
@@ -67,13 +70,14 @@
     },
     {
         "id":"4ta",
-        "name":"Tablet",
-        "price":450000,
-        "discount":"-12%",
+        "name":"Tablet 10.5\" WiFi + 4G",
+        "slugs":"tablet-10.5\"-wifi-+-4g",
+        "price":3200000,
+        "discount":"-20%",
         "rating":4.8,
         "ratingTotal":"512",
-        "discountPrice":650000,
-        "brand":"soundWave",
+        "discountPrice":4000000,
+        "brand":"TabTech",
         "variants":["Hitam", "Biru", "Putih"],
         "isNew":false,
         "image":{
@@ -89,18 +93,20 @@
     },
     {
         "id":"5ba",
-        "name":"Backpack",
+        "name":"Tas Ransel Laptop Waterproof",
+        "slugs":"tas-ransel-laptop-waterproof-5ba",
         "price":450000,
-        "discount":"-12%",
+        "discount":"",
         "rating":4.8,
+        "status":["Baru"],
         "ratingTotal":"512",
-        "discountPrice":650000,
-        "brand":"soundWave",
+        "discountPrice":0,
+        "brand":"UrbanBag",
         "variants":["Hitam", "Biru", "Putih"],
-        "isNew":false,
+        "isNew":true,
         "image":{
             "path": "/images/products/backpack-prod.svg",
-            "alt":"backpack"
+            "alt":"backpack waterproof"
         },
         "isPopuler":false,
         "stocks":45,
@@ -111,18 +117,19 @@
     },
     {
         "id":"6de",
-        "name":"Dress White Floral",
-        "price":450000,
-        "discount":"-12%",
-        "rating":4.8,
-        "ratingTotal":"512",
-        "discountPrice":650000,
-        "brand":"soundWave",
+        "name":"Dress Floral Midi",
+        "slugs":"dress-floral-midi-6de",
+        "price":295000,
+        "discount":"-22%",
+        "rating":4.5,
+        "ratingTotal":"312",
+        "discountPrice":395000,
+        "brand":"FashionID",
         "variants":["Hitam", "Biru", "Putih"],
         "isNew":false,
         "image":{
             "path": "/images/products/dress-prod.svg",
-            "alt":"tablet"
+            "alt":"dress floral"
         },
         "isPopuler":false,
         "stocks":45,
@@ -130,5 +137,174 @@
             "id":"2fa",
             "name":"Fashion"
         }
-    }                  
+    }, 
+    {
+        "id":"7mi",
+        "name":"Minyak Esensial Lavender Set",
+        "slugs":"minyak-esensial-lavender-set-7mi",
+        "price":145000,
+        "discount":"",
+        "rating":4.8,
+        "ratingTotal":"459",
+        "discountPrice":0,
+        "status":["Baru"],
+        "brand":"AromaWell",
+        "variants":["Hitam", "Biru", "Putih"],
+        "isNew":true,
+        "image":{
+            "path": "/images/products/oil-prod.svg",
+            "alt":"essence oil"
+        },
+        "isPopuler":false,
+        "stocks":45,
+        "cat":{
+            "id":"3ru",
+            "name":"Rumah & Dapur"
+        }
+    }, 
+    {
+        "id":"8mi",
+        "name":"Sneakers Sport Runfast",
+        "slugs":"minyak-esensial-lavender-set-7mi",
+        "price":550000,
+        "discount":"-22%",
+        "rating":4.6,
+        "status":["flash deals"],
+        "ratingTotal":"445",
+        "discountPrice":750000,
+        "brand":"SportPro",
+        "variants":["Hitam", "Biru", "Putih"],
+        "isNew":false,
+        "image":{
+            "path": "/images/products/sneaker-prod.svg",
+            "alt":"sneakers"
+        },
+        "isPopuler":false,
+        "stocks":45,
+        "cat":{
+            "id":"5ol",
+            "name":"Olahraga"
+        }
+    },
+    {
+        "id":"9bl",
+        "name":"Blender Portable Mini",
+        "slugs":"blender-portable-mini-9bl",
+        "price":189000,
+        "discount":"",
+        "rating":4.2,
+        "status":["Baru"],
+        "ratingTotal":"567",
+        "discountPrice":0,
+        "brand":"BlendPro",
+        "variants":["Hitam", "Biru", "Putih"],
+        "isNew":true,
+        "image":{
+            "path": "/images/products/blender-prod.svg",
+            "alt":"sneakers"
+        },
+        "isPopuler":false,
+        "stocks":45,
+        "cat":{
+            "id":"3ru",
+            "name":"Rumah & Dapur"
+        }
+    },
+    {
+        "id":"10bu",
+        "name":"Buku \"Atomic Habits\"",
+        "slugs":"Buku-atomic-habits-10bu",
+        "price":89000,
+        "discount":"-19%",
+        "rating":4.9,
+        "status":[],
+        "ratingTotal":"1.245",
+        "discountPrice":110000,
+        "brand":"Gramedia",
+        "variants":["Hitam", "Biru", "Putih"],
+        "isNew":false,
+        "image":{
+            "path": "/images/products/atomic-prod.png",
+            "alt":"atomic book"
+        },
+        "isPopuler":false,
+        "stocks":45,
+        "cat":{
+            "id":"6bu",
+            "name":"Buku & Alat Tulis"
+        }
+    },
+    {
+        "id":"11se",
+        "name":"Serum Vitamin C Brightening",
+        "slugs":"serum-vitamin-c-brightening-11se",
+        "price":185000,
+        "discount":"-26%",
+        "rating":4.6,
+        "status":[],
+        "ratingTotal":"892",
+        "discountPrice":250000,
+        "brand":"GlowLab",
+        "variants":["Hitam", "Biru", "Putih"],
+        "isNew":false,
+        "image":{
+            "path": "/images/products/serum-prod.png",
+            "alt":"serum vitamin c"
+        },
+        "isPopuler":false,
+        "stocks":45,
+        "cat":{
+            "id":"4k3",
+            "name":"Kecantikan"
+        }
+    },
+    {
+        "id":"12ka",
+        "name":"Kaos Polos Premium Cotton",
+        "slugs":"Kaos-polos-premium-cotton-12ka",
+        "price":125000,
+        "discount":"",
+        "rating":4.3,
+        "status":[],
+        "ratingTotal":"678",
+        "discountPrice":0,
+        "brand":"FashionID",
+        "variants":["Hitam", "Biru", "Putih"],
+        "isNew":false,
+        "image":{
+            "path": "/images/products/shirt-prod.png",
+            "alt":"plain shirt"
+        },
+        "isPopuler":false,
+        "stocks":45,
+        "cat":{
+            "id":"2fa",
+            "name":"Fashion"
+        }
+    },
+    {
+        "id":"13sp",
+        "name":"Speaker Bluetooth Portable",
+        "slugs":"Speaker Bluetooth Portable-13sp",
+        "price":320000,
+        "discount":"-29%",
+        "rating":4.4,
+        "status":[],
+        "ratingTotal":"389",
+        "discountPrice":450000,
+        "brand":"SoundWave",
+        "variants":["Hitam", "Biru", "Putih"],
+        "isNew":false,
+        "image":{
+            "path": "/images/products/speaker-prod.png",
+            "alt":"speaker"
+        },
+        "isPopuler":false,
+        "stocks":45,
+        "cat":{
+            "id":"1el",
+            "name":"Elektronik"
+        }
+    }           
+    
 ]

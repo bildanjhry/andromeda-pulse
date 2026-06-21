@@ -59,8 +59,8 @@ export default function Landing(){
                 <ArrowRightButton/>
               </section>
             </header>
-            <Suspense fallback={ <SkeletonCard count={4} total={4}/>}>
-              <ProductsCard/>
+            <Suspense fallback={ <SkeletonCard count={4} total={4} />}>
+              <ProductsCard params={"FLASH_DEALS"}/>
             </Suspense>
           </div>
 
@@ -80,7 +80,7 @@ export default function Landing(){
               </section>
             </header>
             <Suspense fallback={ <SkeletonCard count={4} total={4}/>}>
-              <ProductsCard/>
+              <ProductsCard params={"NEW"}/>
             </Suspense>
           </div>   
 

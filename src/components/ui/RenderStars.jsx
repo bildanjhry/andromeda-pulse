@@ -12,7 +12,7 @@ export default function RenderStars({rating, width}){
       className={classNames(
         {'text-xs': width === "small"},
         {'text-(--text-star)': index < Math.round(rating) },
-        {'text-(--text-light)': index >= Math.round(rating)}
+        {'text-(--border)': index >= Math.round(rating)}
       )}
     />  
   ))

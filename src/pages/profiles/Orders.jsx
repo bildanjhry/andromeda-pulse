@@ -11,7 +11,7 @@ export default function Orders(){
     <div className="w-[95%] pt-1 h-full">
       <h3>Pesanan Saya</h3>
       <div className="w-full flex flex-col-reverse gap-6 mt-6">
-        {data.map((item, index) => (
+        { data.map((item, index) => (
           <div 
             key={index}
             className=" w-full border-light bg-white rounded-2xl 
@@ -26,6 +26,7 @@ export default function Orders(){
                 {item.status?.merchantStatus}
               </div>
             </header>
+            
             {item.products.map((prod, index) => (
               <main 
                 key={index}
@@ -43,6 +44,7 @@ export default function Orders(){
                 </div>
               </main>
             ))}
+
             <footer className="h-12 flex items-center justify-between">
               <div className="flex items-center gap-1">
                 <p>Total:</p>
@@ -52,10 +54,12 @@ export default function Orders(){
           </div>
         ))
         }
+
+        {data.length < 1 &&
         <div className="w-full rounded-xl border-light h-88 mt-2 flex flex-col gap-3 justify-center items-center">
           <LuShoppingBag size={66}/>
           <h2>Kamu tidak punya pesanan apa-apa</h2>
-        </div>
+        </div> }
       </div>
     </div>
   )
