@@ -41,6 +41,7 @@ import CustomersOrders from "@/pages/admin/Orders.jsx"
 
 // protected route
 import ProtectedRoute from "@/routes/ProtectedRoute";
+import BackHome from "./routes/BackHome";
 
 
 const router = createBrowserRouter([
@@ -112,11 +113,11 @@ const router = createBrowserRouter([
   {
     path:"/checkout",
     element: (
-     <ProtectedRoute>
       <CheckoutProvider>
-        <CheckoutLayout/>
+        <BackHome>
+          <CheckoutLayout/>
+        </BackHome> 
       </CheckoutProvider>
-     </ProtectedRoute> 
     ),
     children: [{
       index: true,

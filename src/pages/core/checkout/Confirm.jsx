@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import useUser from "@/hooks/useUser";
 import moneyFormat from "@/utils/money-format.js"
-import { useContext } from "react";
-import { CheckoutContext } from "@/hooks/context/UserContext";
+// import { useContext } from "react";
+// import { CheckoutContext } from "@/hooks/context/UserContext";
 
 // component
 import CompleteCheckout from "@/components/ui/CompleteCheckout";
@@ -14,11 +14,11 @@ import Lock from "@/assets/icons/lock-white.svg"
 
 export default function Confirm(){
   const [complete, setComplete] = useState(false)
-  const [step] = useContext(CheckoutContext)
+  //const [step] = useContext(CheckoutContext)
   const location = useLocation()
   const navigate = useNavigate()
   const [formCheckout, setFormCheckout] = useState()
-  const {address, cart, setCart, user, setterCheckout} = useUser()
+  const { cart, setCart, user, setterCheckout} = useUser()
 
   useEffect(() => {
     function getState(){

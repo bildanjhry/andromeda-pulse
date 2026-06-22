@@ -30,7 +30,6 @@ export default function Deliver(){
   useEffect(() => {
     function getState(){
       if(location.state){
-        console.log(location.state)
         setDelivery(location.state.deliveryMethod)
       }
     }
@@ -64,7 +63,7 @@ export default function Deliver(){
                 placeholder="Masukan Nama Penerima"
                 name="fullname"
                 className="w-full h-11.5 bg-(--input-bg) rounded-xl pl-4 border-light"
-                type="text" id="name" value={user.fullname} 
+                type="text" id="name" value={user?.fullname} 
               />
             </div>
             <div className="flex flex-col gap-2 w-[49%]">
@@ -86,7 +85,7 @@ export default function Deliver(){
               name="email"
               placeholder="Masukan Email Penerima"
               className="w-full h-11.5 bg-(--input-bg) rounded-xl pl-4 border-light"
-              type="email" id="email" value={user.email} 
+              type="email" id="email" value={user?.email} 
             />
           </div>	
           <div className="flex flex-col gap-2 w-full">
@@ -97,7 +96,7 @@ export default function Deliver(){
               placeholder="Alamat kamu"
               readOnly
               className="w-full h-11.5 bg-(--input-bg) rounded-xl pl-4 border-light"
-              type="text" id="address" value={userAddress.fulladdress} 
+              type="text" id="address" value={userAddress?.fulladdress} 
             />
           </div>
           <div className="flex items-center justify-between">
@@ -109,7 +108,7 @@ export default function Deliver(){
                 name="city"
                 placeholder="Kota"
                 className="w-full h-[46px] bg-(--input-bg) rounded-xl pl-4 border-light"
-                type="text" id="city" value={userAddress.city} 
+                type="text" id="city" value={userAddress?.city} 
               />
             </div>
             <div className="flex flex-col gap-2 w-[49%]">
@@ -120,7 +119,7 @@ export default function Deliver(){
                 readOnly
                 name="province"
                 className="w-full h-[46px] bg-(--input-bg) rounded-xl pl-4 border-light"
-                type="text" id="province" value={userAddress.province} 
+                type="text" id="province" value={userAddress?.province} 
               />
             </div>							
           </div>
@@ -133,7 +132,7 @@ export default function Deliver(){
                 name="postCode"
                 placeholder="Kode Pos Penerima"
                 className="w-full h-[46px] bg-(--input-bg) rounded-xl pl-4 border-light"
-                type="number" id="post-code" value={userAddress.postCode} 
+                type="number" id="post-code" value={userAddress?.postCode} 
               />
             </div>
             <div className="flex flex-col gap-2 w-[49%]">

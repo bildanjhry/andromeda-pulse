@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { LuShoppingBag } from "react-icons/lu";
 import useUser from "@/hooks/useUser";
 import moneyFormat from "@/utils/money-format.js"

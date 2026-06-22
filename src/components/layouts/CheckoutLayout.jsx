@@ -1,14 +1,14 @@
-import { Outlet, useLocation } from "react-router"
+import { Outlet, useLocation, useNavigate } from "react-router"
 import useUser from "@/hooks/useUser"
 import moneyFormat from "@/utils/money-format.js"
 import classNames from "classnames"
 
 // component
 import MainLayout from "@/components/layouts/MainLayout.jsx"
-import { useContext, useEffect, useState } from "react"
-import { CheckoutContext } from "@/hooks/context/UserContext"
+import { useEffect, useState } from "react"
 
 export default function CheckoutLayout(){
+
   return(
     <MainLayout>
       <div className="w-[83%] min-h-40 mt-5 mb-15 flex flex-col gap-4 items-center">
@@ -28,13 +28,18 @@ export default function CheckoutLayout(){
 function Header() {
   const location = useLocation()
   const [step, setStep] = useState(location?.state?.step || 1)
+  const {address} = useUser()
+  const navigate = useNavigate()
 
   useEffect(() => {
     function getStep(){
+      if(address.length < 1){
+        navigate("/")
+      }
       setStep(location?.state?.step)
     }
     getStep()
-  },[location])
+  },[location, navigate, address])
 
   return(
     <header className="flex items-center gap-2 h-30">
@@ -94,14 +99,26 @@ function Header() {
 }
 
 function Aside(){
-  const { cart } = useUser()
+  let { cart } = useUser()
+  const location = useLocation()
+  const [cartProduct, setCartProduct] = useState(cart || [])
+
+  useEffect(() => {
+    function handleBuyNow(){
+      if(location?.state?.code === "BUY_NOW" && location?.state?.prod){
+        setCartProduct([location?.state?.prod])
+      }
+    }
+    handleBuyNow()
+  },[location])
+
 
   return (
     <aside className="w-88 min-h-67.75 max-h-fit sticky top-35 border-light bg-white 
       flex flex-col px-6 py-5 rounded-2xl gap-2">
       <h4>Rinkasan Pesanan</h4>
       <div className="py-3 flex flex-col gap-2 border-b-light">
-        { cart.map((item, index) => (
+        { cartProduct.map((item, index) => (
           <div 
             key={index}
             className="flex justify-between">
@@ -118,7 +135,7 @@ function Aside(){
       <div className="w-full flex flex-col gap-2 py-3  border-b-light">
         <ul className="flex justify-between items-center">
           <li>Subtotal</li>
-          <li>{moneyFormat(cart.reduce((acc, item) => acc + (item.price * item.qty),0))[0]}</li>
+          <li>{moneyFormat(cartProduct.reduce((acc, item) => acc + (item.price * item.qty),0))[0]}</li>
         </ul>
         <ul className="flex justify-between items-center">
           <li>Ongkir</li>
@@ -128,7 +145,7 @@ function Aside(){
       <div>
         <ul className="flex justify-between items-center mb-5">
           <li className="text-(--text-h)">Total</li>
-          <li className="text-(--text-high) font-semibold">{moneyFormat(cart.reduce((acc, item) => acc + (item.price * item.qty),0))[0]}</li>
+          <li className="text-(--text-high) font-semibold">{moneyFormat(cartProduct.reduce((acc, item) => acc + (item.price * item.qty),0))[0]}</li>
         </ul>
         <p className="text-center relative  text-xs">🔒 Pembayaran aman dan terenkripsi</p>
       </div>

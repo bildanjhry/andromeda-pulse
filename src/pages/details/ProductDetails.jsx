@@ -34,7 +34,7 @@ export default function ProductDetails(){
   })
   const { category, slugs } = useParams()
   const { user, setterCart } = useUser()
-  const { dataBySlugs : data, dataByCategory} = 
+  const { dataBySlugs : data } = 
   useFetch("/data/products.json", category || '', slugs || '')
   const navigate = useNavigate()
 
@@ -71,15 +71,12 @@ export default function ProductDetails(){
         qty:quantity
       }
 
-      console.log("jalan ini")
-
       switch(code) {
       case "ADD_TO_CART":
         setterCart(dataProduct)
         break;
       case "BUY_NOW":
-        console.log("jalan")
-        navigate("/orders", {state:{ prod:dataProduct }})
+        navigate("/checkout", {state:{code:"BUY_NOW", prod:dataProduct }})
         break;
       case"ADD_TO_WISHLIST":
         break;
@@ -275,12 +272,14 @@ export default function ProductDetails(){
                   order={"left-to-right"}
                   border={"border-(--action-border)"}
                 />
-                <SubmitButton 
+                <ActionButton 
                   img={null} 
                   buttonText={"Beli Sekarang"} 
-                  bg={"bg"}
+                  color={`text-white`} 
+                  bg={"bg-(--action-bg)"} 
                   handleOnclick={() => {buttonActions("BUY_NOW")}}
-                  order={"right-to-left"}
+                  order={"left-to-right"}
+                  border={"border-(--action-border)"}
                 />
                 <ActionButton 
                   img={Wishlist} 

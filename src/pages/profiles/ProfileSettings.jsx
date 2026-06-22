@@ -13,13 +13,13 @@ import { useEffect, useState } from "react"
 // components
 import Alert from "@/components/ui/Alert"
 
-const schema = yup.object({
-  fullName:yup.string().required("Nama lengkap kamu masih kosong"),
-  email:yup.string().required("Email kamu masih kosong"),
-  phone:yup.number().required("Nomor Telepon kamu masih kosong").positive("Ini bukan format yang benar"),
-  date:yup.string().required("Tanggal lahir kamu masih kosong"),
-  gender:yup.string().required("Kelamin kamu masih konsong")
-})
+// const schema = yup.object({
+//   fullName:yup.string().required("Nama lengkap kamu masih kosong"),
+//   email:yup.string().required("Email kamu masih kosong"),
+//   phone:yup.number().required("Nomor Telepon kamu masih kosong").positive("Ini bukan format yang benar"),
+//   date:yup.string().required("Tanggal lahir kamu masih kosong"),
+//   gender:yup.string().required("Kelamin kamu masih konsong")
+// })
 
 export default function ProfileSettings(){
   const {initial, bio, setBio} = useUser("user")  

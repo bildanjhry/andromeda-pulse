@@ -42,8 +42,6 @@ export default function Address(){
     }
   })
 
-  console.log(location)
-
   function onSubmit(data){
     try{
       setEventAdd({
