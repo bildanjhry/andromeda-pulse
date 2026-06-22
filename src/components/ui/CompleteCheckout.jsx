@@ -1,4 +1,6 @@
-import { Link } from "react-router"
+import { Link, useLocation, useNavigate } from "react-router"
+import { useEffect, useState } from "react"
+import moneyFormat from "@/utils/money-format.js"
 
 import MainLayout from "@/components/layouts/MainLayout.jsx"
 
@@ -9,6 +11,20 @@ import ArrowRight from "@/assets/icons/arrow-right-blue.svg"
 import Box from "@/assets/icons/box-white.svg"
 
 export default function CompleteCheckout(){
+  const location = useLocation()
+  const [data, setData] = useState()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    function getData(){
+      if(location?.state?.data?.idCheckout === undefined){
+        navigate("/")
+      }
+      setData(location.state.data)
+    }
+    getData()
+  },[location, navigate])
+
   return(
     <MainLayout>
       <div className="mt-12 mb-24 flex flex-col items-center justify-center w-[50%]">
@@ -25,11 +41,11 @@ export default function CompleteCheckout(){
             <header className="border-b-light pb-4 flex w-full text-sm justify-between items-center">
               <div className="flex flex-col justify-center">
                 <p>Nomer Pesanan</p>
-                <h5 className="text-(--text-high) font-bold">#90832MKH</h5>
+                <h5 className="text-(--text-high) font-bold">#{data?.idCheckout.toUpperCase()}</h5>
               </div>
               <div className="flex flex-col  items-end">
                 <p>Total Pembayaran</p>
-                <h5 className="text-h font-semibold">Rp 450.000</h5>
+                <h5 className="text-h font-semibold">{moneyFormat(data?.grandTotal)[0]}</h5>
               </div>
             </header>
             <main className="mt-4">
@@ -39,8 +55,8 @@ export default function CompleteCheckout(){
                     className="mt-0.5"
                     src={Delivery} alt="" />
                   <div className="flex flex-col ">
-                    <p className="text-sm text-h">JNE Reguler</p>
-                    <p className="text-xs">Estimasi tiba: </p>
+                    <p className="text-sm text-h">{data?.deliveryMethod.split(",")[0]}</p>
+                    <p className="text-xs">Estimasi tiba: {data?.deliveryMethod.split(",")[1]}</p>
                   </div>
                 </li>
                 <li className="flex gap-3 items-start h-10 ">
@@ -48,8 +64,8 @@ export default function CompleteCheckout(){
                     className="mt-0.5"
                     src={Delivery} alt="" />
                   <div className="flex flex-col ">
-                    <p className="text-sm text-h">JNE Reguler</p>
-                    <p className="text-xs">Estimasi tiba: </p>
+                    <p className="text-sm text-h">Alamat Pegiriman</p>
+                    <p className="text-xs">{data?.fullAddress}</p>
                   </div>
                 </li>								
               </ul>

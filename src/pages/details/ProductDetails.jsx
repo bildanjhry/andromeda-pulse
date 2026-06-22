@@ -71,11 +71,14 @@ export default function ProductDetails(){
         qty:quantity
       }
 
+      console.log("jalan ini")
+
       switch(code) {
       case "ADD_TO_CART":
         setterCart(dataProduct)
         break;
       case "BUY_NOW":
+        console.log("jalan")
         navigate("/orders", {state:{ prod:dataProduct }})
         break;
       case"ADD_TO_WISHLIST":

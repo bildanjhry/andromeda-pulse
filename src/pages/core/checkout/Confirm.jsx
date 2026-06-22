@@ -33,6 +33,7 @@ export default function Confirm(){
       idCheckout:user.id.slice(0,4)+cart.length+Date.now().toString(35),
       checkoutDate: new Date().toLocaleString(),
       products:cart,
+      grandTotal:cart.reduce((acc, item) => acc + (item.price*item.qty), 0),
       status:{
         STEP:1,
         message:"Pesanan Diterima",
