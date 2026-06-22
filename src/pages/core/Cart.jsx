@@ -40,7 +40,7 @@ export default function Cart(){
       navigate("/checkout")
 
     }catch(err){
-      navigate(err.message, {state:location.pathname})
+      navigate(err.message, {state:{origin: location.pathname}})
     }
   }
 

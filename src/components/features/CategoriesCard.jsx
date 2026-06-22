@@ -19,7 +19,7 @@ export default function CategoriesCard(){
       <main className="flex flex-row gap-3 flex-wrap w-full h-fit">
         {categories?.filter((val) => val.status !== "navbar").map((item, index) => (
           <Link 
-            to={"/browse-product"}
+            to={"/browse-product/"+item.name}
             key={index}
             className="rounded-lg items-center pt-2 flex flex-col border-light gap-2 
 						bg-(--container-bg) w-49.5 h-34.5 hover:-translate-y-3">

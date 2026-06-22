@@ -6,7 +6,7 @@ export default function ProtectedRoute({children}){
   const location = useLocation()
   const navigate = useNavigate()
 
-  if(!user.id){
+  if(!user?.id){
     navigate("/login", {state:{origin: location.pathname}})	
   }
 

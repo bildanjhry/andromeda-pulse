@@ -81,9 +81,12 @@ function FormLogin(){
       const user = accounts.filter((item) => {
       	return item.email === data.email && atob(item.password) === data.password
       })[0]
-      if(!user.id) throw new Error("Akun tidak ditemukan")
+      if(!user?.id) throw new Error("Akun tidak ditemukan")
       setterUser(user)
-      
+
+      if(location?.state?.origin){
+        return navigate(location.state.origin)
+      }
       navigate("/") // navigate to landing
     } catch(err){
       // error handling
