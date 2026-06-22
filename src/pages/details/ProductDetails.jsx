@@ -280,6 +280,7 @@ export default function ProductDetails(){
                   handleOnclick={() => {buttonActions("BUY_NOW")}}
                   buttonText={"Beli Sekarang"} 
                   order={"right-to-left"}
+                  bg={"bg"}
                 />
                 <ActionButton 
                   img={Wishlist} 
@@ -346,7 +347,7 @@ export default function ProductDetails(){
               </section>
             </header>
 
-            {/* <ProductsCard/> */}
+            <ProductsCard/>
           </div> 
 
         </div>
