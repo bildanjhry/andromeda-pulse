@@ -194,7 +194,7 @@ export default function ProductDetails(){
               <div className="w-full h-30 bg-(--accent-bg) rounded-lg mt-2 px-3 flex flex-col justify-center">
                 <div className="flex flex-row gap-3 items-center">
                   <h1 className="text-(--text-high)">{moneyFormat(data?.price)[0]}</h1>
-                  <p className="text-lg"><s>{moneyFormat(data?.discountPrice)[0]}</s></p>
+                  { data?.discountPrice > 0 && <p className="text-lg"><s>{moneyFormat(data?.discountPrice)[0]}</s></p> }
                   <div className="text-light text-sm bg-(--info-bg) rounded-full flex px-3 py-1">
                     <p>Hemat {data?.discount?.slice(1,(data.discount.length))}</p>
                   </div>
@@ -209,7 +209,7 @@ export default function ProductDetails(){
                   <p 
                     className="text-(--text-high)">{prodVariant.charAt(0).toUpperCase() + prodVariant.slice(1)}</p>
                 </div>
-                <div className="flex flex-row gap-3 w-[100%] mt-2 text-sm items-center">
+                <div className="flex flex-row gap-3 w-full mt-2 text-sm items-center">
                   {data?.variants?.map((item, index) => (
                     <div className="relative" key={index}>
                       <input 
@@ -277,10 +277,10 @@ export default function ProductDetails(){
                 />
                 <SubmitButton 
                   img={null} 
-                  handleOnclick={() => {buttonActions("BUY_NOW")}}
                   buttonText={"Beli Sekarang"} 
-                  order={"right-to-left"}
                   bg={"bg"}
+                  handleOnclick={() => {buttonActions("BUY_NOW")}}
+                  order={"right-to-left"}
                 />
                 <ActionButton 
                   img={Wishlist} 
@@ -319,7 +319,7 @@ export default function ProductDetails(){
 
         <div className="my-20">
           <div className="w-full bg-[white] rounded-lg h-fit flex flex-col">
-            <nav className="flex w-full h-[55px] gap-1 border-b-light text-sm">
+            <nav className="flex w-full h-13.75 gap-1 border-b-light text-sm">
               <button className="border-b-2 border-(--main-border) flex px-6 justify-center items-center">
                 <p className="text-(--text-high)">Deskripsi</p>
               </button>
@@ -330,7 +330,7 @@ export default function ProductDetails(){
                 <p className="">Ulasan</p>
               </button>
             </nav>
-            <div className="min-h-[5rem] w-full flex justify-end items-center">
+            <div className="min-h-20 w-full flex justify-end items-center">
               <article className="w-[98%]">
                   Headphone wireless dengan teknologi noise-cancelling terdepan. Nikmati musik favoritmu tanpa gangguan dengan kualitas suara yang memukau.
               </article>
@@ -339,7 +339,7 @@ export default function ProductDetails(){
           
           <div className="mb-8 w-full mt-10">
             <header className="flex items-center justify-between mt-2">
-              <section className="h-[5rem] flex flex-row items-center gap-2">
+              <section className="h-20 flex flex-row items-center gap-2">
                 <div className="flex flex-row justify-start 
                 w-fit h-full items-center gap-3">
                   <h3 className="">Produk Terkait</h3>
