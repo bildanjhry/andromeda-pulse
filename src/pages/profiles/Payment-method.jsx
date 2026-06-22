@@ -1,10 +1,8 @@
-// component
-import ProfileLayout from "@/components/layouts/ProfileLayout";
 
 export default function PaymentMethod(){
   return(
-    <ProfileLayout>
+    <div className="h-80 rounded-2xl border-light ">
 
-    </ProfileLayout>
+    </div>
   )
 }
