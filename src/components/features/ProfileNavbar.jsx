@@ -2,7 +2,7 @@ import { Link } from "react-router"
 import { useContext } from "react"
 import useUser from "@/hooks/useUser"
 import { UserContext } from "@/hooks/context/UserContext"
-
+import { HiOutlineHome } from "react-icons/hi2";
 import AuthNavbar from "@/components/ui/Auth"
 
 // asset
@@ -22,7 +22,7 @@ export default function ProfileNavbar(){
           <AuthNavbar/>
         </div>
         :
-        <ul className="h-full flex gap-2 items-center">
+        <ul className="h-full w-full justify-between md:justify-start px-4 md:px-0 md:w-fit flex gap-2 items-center">
           <li>
             <Link to={""} className="w-10 h-10 cursor-pointer 
                   flex justify-center items-center">
@@ -33,8 +33,14 @@ export default function ProfileNavbar(){
             <Link to={"/my-profiles"} className="h-10 min-w-10 justify-center 
                   cursor-pointer flex items-center gap-1">
               <img src={profile} alt="profile" />
-              <p className="text-h text-sm">{userName}</p>
+              <p className="text-h text-sm hidden md:visible">{userName}</p>
             </Link>
+          </li>
+					<li>
+            <Link to={"/"} className="h-12 w-12  justify-center 
+            cursor-pointer flex items-center gap-1">
+            <HiOutlineHome size={30}/>
+						</Link>
           </li>
           <li>
             <Link to={"/my-profiles/wishlist"} className="h-10 w-10 cursor-pointer 

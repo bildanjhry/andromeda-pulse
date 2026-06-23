@@ -80,7 +80,7 @@ export default function Navbar() {
               </button>
             </form>
           </div>
-          <div className="h-full fixed w-fit md:flex items-center">
+          <div className="h-full hidden fixed w-fit md:flex items-center">
             { !user.id ?
               <div className="flex items-center justify-end w-55">
                 <AuthNavbar/>
