@@ -19,16 +19,18 @@ import Inside from "@/assets/icons/inside-white.svg"
 import Back from "@/assets/icons/arrow-left-mute.svg"
 import ShowPass from "@/assets/icons/watch-mute.svg"
 import HidePass from "@/assets/icons/watch-hide-mute.png"
+import { LuArrowLeft } from "react-icons/lu";
+import { FaRegPaperPlane } from "react-icons/fa6";
 
 export default function FormSection({type}){
 
   function chooseForm(){
     switch(type){
-    case "login":
+    case "LOGIN":
       return FormLogin()
-    case "register" :
+    case "REGISTER" :
       return FormRegister()
-    case "forgot-pass" :
+    case "FORGOT_PASS" :
       return FormForgotPass()
     default :
       return FormLogin()	
@@ -99,7 +101,7 @@ function FormLogin(){
 
   return (
     <form
-      className="w-[53%] flex flex-col gap-3"
+      className="w-[85%] md:w-[53%] flex flex-col gap-3"
       onSubmit={handleSubmit(onSubmit)} 
       onFocus={() => { 
         if(errorLogin.error){
@@ -109,9 +111,9 @@ function FormLogin(){
           })
         }
       }} >
-      <h1 className="text-h ">Masuk ke Akun</h1>
+      <h1 className="text-h">Masuk ke Akun</h1>
       <p className="relative bottom-4 text-sm ">Belum punya akun?
-        <Link to={"/register"} className="text-[blue]"> Daftar gratis</Link>
+        <Link to={"/register"} className="text-(--text-high)"> Daftar gratis</Link>
       </p>
 
       {errorLogin.error &&
@@ -119,8 +121,7 @@ function FormLogin(){
         <p>{errorLogin.message}</p>
       </Alert>
       }
-      
-      <div className="flex justify-between">
+      <div className="grid grid-cols-2 gap-3 md:flex md:justify-between md:gap-0">
         <AuthButton buttonText={"Google"} />
         <AuthButton buttonText={"Faceboook"} />
       </div>
@@ -148,7 +149,7 @@ function FormLogin(){
         <div className="flex flex-col gap-1">
           <div className="flex justify-between">
             <label htmlFor="password" className="text-h text-sm font-(--font-medium)">Kata sandi</label>
-            <Link className="text-xs text-[blue]" to={"/forgot-pass"}>Lupa kata sandi?</Link>
+            <Link className="text-xs text-(--text-high)" to={"/forgot-pass"}>Lupa kata sandi?</Link>
           </div>
           <div className="relative">
             <img className="absolute p-4" src={Password} alt="" />
@@ -294,7 +295,7 @@ function FormRegister(){
 
   return (
     <form
-      className="w-[53%] flex flex-col gap-2"
+      className="w-[85%] pt-10 md:pt-0 md:w-[53%] flex flex-col gap-2"
       onSubmit={handleSubmit(onSubmit)} 
       onFocus={() => {
         if(registerEvent.event){
@@ -308,24 +309,26 @@ function FormRegister(){
       action="POST">
       <h1 className="text-h">Buat Akun Baru</h1>
       <p className="relative bottom-4 text-sm">Sudah punya akun?
-        <Link to={"/login"} className="text-[blue]"> Masuk disini</Link>
+        <Link to={"/login"} className="text-(--text-high)"> Masuk disini</Link>
       </p>
       { registerEvent.event && 
         <Alert variant={registerEvent.status}>
           <p>{registerEvent.message}</p>
         </Alert>
       }
-      <div className="flex justify-between">
+      <div className="grid grid-cols-2 gap-2 md:flex md:justify-between">
         <AuthButton buttonText={"Daftar via Google"} />
         <AuthButton buttonText={"Daftar via Facebook"} />
       </div>
+
       <div className="flex items-center gap-4 my-5">
         <div className="h-px flex-1 bg-gray-300"></div>
-        <span className="text-gray-500">
+        <span className="text-gray-500 text-sm">
             atau daftar dengan email
         </span>
         <div className="h-px flex-1 bg-gray-300"></div>
       </div>
+
       <div className="flex flex-col gap-3 text-sm">
         <div className="flex flex-col gap-1">
           <label htmlFor="fullname" className="text-h font-(--font-medium)">Nama Lengkap</label>
@@ -431,15 +434,15 @@ function FormForgotPass(){
 
   return (
     <form
-      className="w-[53%] flex flex-col gap-3"
+      className="w-[85%] md:w-[53%] flex flex-col gap-3"
       onSubmit={(e) => {handleSubmit(e)}} 
       action="">
       <Link to={"/login"} className="flex items-center gap-2"> 
-        <img src={Back} alt="" />
-        <p className="text-[14px]">Kembali ke login</p>
+        <LuArrowLeft className="text-(--text-high)" />
+        <p className="text-[14px] text-(--text-high)">Kembali ke login</p>
       </Link>
       <h1>Lupa Kata sandi?</h1>
-      <p className="">
+      <p className="text-sm md:text-md">
 				Tidak perlu khawatir. Masukkan email yang terdaftar dan
 				kami akan mengirimkan tautan untuk membuat kata sandi
 				baru.

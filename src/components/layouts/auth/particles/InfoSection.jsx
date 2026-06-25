@@ -11,11 +11,11 @@ export default function InfoSection({type}){
 
   function handleArticle(){
     switch(type){
-    case "login" :
+    case "LOGIN" :
       return LoginArticle()
-    case "register" :
+    case "REGISTER" :
       return RegisterArticle()
-    case "forgot-pass" :
+    case "FORGOT_PASS" :
       return ForgotPassArticle()
     default:
       return LoginArticle()
@@ -23,15 +23,15 @@ export default function InfoSection({type}){
   }
 
   return (
-    <>
+    <section className="w-full none md:flex flex-col items-center [background:var(--gradient-bg)] justify-center h-full relative">
       { handleArticle() }
-    </>
+    </section>
   )
 }
 
 function LoginArticle(){
   return(
-    <section className="w-[50%] none md:flex flex-col items-center [background:var(--gradient-bg)] justify-center h-full relative">
+    <>
       <img 
         className="w-full h-full absolute bg-center bg-contain"
         src={LoginBg} alt="" />
@@ -59,13 +59,13 @@ function LoginArticle(){
         </article>
         <p className="text-xs">© 2026 BeliMudah. Seluruh hak cipta dilindungi.</p>
       </div>
-    </section>
+    </>
   )
 }
 
 function RegisterArticle(){
   return(
-    <section className="w-[50%] none md:flex flex-col items-center [background:var(--gradient-regis-bg)] justify-center h-full relative">
+    <>
       <img 
         className="w-full h-full absolute bg-center bg-contain"
         src={RegisBg} alt="" />
@@ -102,13 +102,13 @@ function RegisterArticle(){
         </article>
         <p className="text-xs">© 2026 BeliMudah. Seluruh hak cipta dilindungi.</p>
       </div>
-    </section>
+    </>  
   )
 }
 
 function ForgotPassArticle(){
   return(
-    <section className="w-[50%] none md:flex flex-col items-center [background:var(--gradient-forgot-bg)] justify-center h-[100%] relative">
+    <>
       <img 
         className="w-full h-full absolute bg-center bg-contain"
         src={ForgotPassBg} alt="" />
@@ -135,6 +135,6 @@ function ForgotPassArticle(){
         </article>
         <p className="text-xs">© 2026 BeliMudah. Seluruh hak cipta dilindungi.</p>
       </div>
-    </section>
+    </>  
   )
 }
