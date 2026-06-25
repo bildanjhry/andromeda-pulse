@@ -174,7 +174,7 @@ export default function ProductDetails(){
                 <p>{data?.cat?.name}</p>
               </div>
 
-              <h2 className="leading-1 m-0 text-h">{data.name}</h2>
+              <h2 className="leading-8 m-0 text-h">{data.name}</h2>
 
               <div className="flex flex-row items-center gap-2">
                 <div className="flex flex-row">

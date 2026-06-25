@@ -52,8 +52,8 @@ export default function Landing(){
                   <p className="text-sm">Flash Deals</p>
                 </div>
                 <div className="flex flex-row items-center gap-2">
-                  <img src={Watch} alt="" />
-                  <p className="text-h">Berakhir dalam: 0{time.hours} : {time.minutes} : {time.seconds}</p>
+                  <p className="text-h md:flex hidden">Berakhir dalam:</p>
+                  <span className="font-bold text-red-600">0{time.hours} : {time.minutes} : {time.seconds}</span>
                 </div>
               </section>
               <section>

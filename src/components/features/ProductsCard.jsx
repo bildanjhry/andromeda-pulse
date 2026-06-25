@@ -7,20 +7,27 @@ import useUser from "@/hooks/useUser";
 // componets
 import RenderStars from "@/components/ui/RenderStars";
 
-export default function Card({count = 4, width = "large", scroll ="SCROLL", params}){
+export default function Card({
+  count = 4, 
+  width = "LARGE",
+  scroll ="SCROLL", params
+}){
+  
   let {data } = useFetch("/data/products.json", params)
   const { wishlist } = useUser()
   let products = data
 
   switch(params){
   case "FLASH_DEALS":
-    products = data.filter((item) => item?.status).filter((item) => item.status[0] === "flash deals")
+    products = data.filter((item) => item?.status)
+      .filter((item) => item.status[0] === "flash deals")
     break;
   case "WISHLIST":
     products = wishlist
     break;
   case "NEW":
-    products = data.filter((item) => item?.status).filter((item) => item.status[0] === "Baru")
+    products = data.filter((item) => item?.status)
+      .filter((item) => item.status[0] === "Baru")
     break;
   default:
     products
@@ -54,30 +61,42 @@ export default function Card({count = 4, width = "large", scroll ="SCROLL", para
             </div>
           </header>
           
-          <main className="flex flex-col md:pl-5 pl-3 gap-0 mt-3  ">
+          <main className={classNames(
+            {"pl-3 md:pl-3" : scroll === "NO_SCROLL"},
+            {"md:pl-5 pl-3" : scroll === "SCROLL"},
+            "flex flex-col  gap-0 mt-3",
+          )}>
             <p className={classNames(
-              {"text-[11px] pb-0.5": width === "small"},
+              {"text-[11px] md:text-[12px] pb-1": width === "SMALL"},
               "text-xs pb-0.75"
             )}>{item.brand}</p>
             <p className={classNames(
-              "text-h font-medium pb-1 text-sm md:text-md",
-              {"text-[15px] pb-1.5 leading-4.5 w-[90%]": width === "small"}
+              "text-h font-semibold pb-1 text-sm md:text-[15px]",
+              {"text-[15px] md:text-[10px] pb-1.5 leading-4 w-[95%]": width === "SMALL"}
             )}>{item.name}</p>
             <div className="flex items-center md:text-sm text-xs">
               <RenderStars rating={item.rating} width={width}/>
               <p className="pl-2">{item.rating}</p>
               <p className="pl-1">({item.ratingTotal})</p>
             </div>
-            <div className="flex flex-row gap-2 mt-2 items-center">
+
+            <div className={classNames(
+              {"mt-1" : width === "SMALL"},
+              {"mt-2" : width === "LARGE"},
+              "flex flex-row gap-2 items-center",
+            )}>
               <p className={classNames(
                 "text-(--text-high) pt-1 text-sm md:text-lg font-semibold",
+                {"pt-0 md:text-[15px]": width === "SMALL"},
                 {"text-xs pt-0 ": scroll === "NO_SCROLL"}
               )}>{moneyFormat(item?.price)[0]}</p>
-              { item.discountPrice > 0 && <p className={classNames(
+              { item.discountPrice > 0 && 
+              <p className={classNames(
                 "md:text-xs text-xs relative top-px",
-                {"text-[9px]" : width === "small"}
+                {"text-[9px] md:text-sm" : width === "SMALL"}
               )}><s>{moneyFormat(item?.discountPrice)[0]}</s></p> }
             </div>
+
           </main>
         </Link>
       ))}

@@ -83,7 +83,7 @@ export default function BrowseProduct() {
         <main className="flex flex-row mt-2 md:mt-0">
           <aside className="hidden md:flex flex-col gap-4 w-[25%]">
             <div className="h-22 my-4 flex flex-col justify-between">
-              <h4 className="text-h font-[500]">Harga</h4>
+              <h4 className="text-h font-medium">Harga</h4>
               <div className="text-sm w-full flex items-center justify-between">
                 <p>Rp 0</p>
                 <p>Rp 20.000.000</p>
@@ -91,7 +91,7 @@ export default function BrowseProduct() {
             </div>
 
             <div className="h-fit w-full">
-              <h4 className="text-h font-[500]">Merek</h4>
+              <h4 className="text-h font-medium">Merek</h4>
               <ul className="flex flex-col gap-1 mt-2">
                 {brands?.map((item, index) => (
                   <li 
@@ -107,7 +107,7 @@ export default function BrowseProduct() {
             </div>
 
             <div className="my-2 flex flex-col">
-              <h4 className="text-h font-[500]">Rating</h4>
+              <h4 className="text-h font-medium">Rating</h4>
               <ul className="mt-2 flex flex-col gap-1 text-sm">
                 <li className="flex items-center gap-2">
                   <input type="radio" name="rating" id="rating-4" value={4}/>
@@ -146,7 +146,7 @@ export default function BrowseProduct() {
             </div>
 
             <div className="flex flex-col">
-              <h4 className="text-h font-[500]">Ketersediaan</h4>
+              <h4 className="text-h font-medium">Ketersediaan</h4>
               <div className="flex gap-2 items-center mt-2 text-sm">
                 <input className="cursor-pointer" type="checkbox" id="available"/>
                 <label className="cursor-pointer" htmlFor="available">Stok Tersedia</label>
@@ -160,8 +160,9 @@ export default function BrowseProduct() {
               <p>{18} Produk <span className="hidden md:flex">Ditemukan</span></p>
               <div className="flex items-center gap-3">
                 <p className="hidden md:flex">Urutkan:</p>
-                <select name="sorting" id="" className="rounded-lg border-none bg-white text-sm pr-5 pl-2 py-2 
-                flex items-center justify-center text-h ">
+                <select name="sorting" id="" 
+                  className="rounded-lg border-none bg-white text-sm pr-5 pl-2 py-2 
+                  flex items-center justify-center text-h ">
                   <option value="populer">Paling Populer</option>
                   <option value="populer">Paling Populer</option>
                   <option value="populer">Paling Populer</option>  
@@ -171,7 +172,7 @@ export default function BrowseProduct() {
 
             <div className="mt-5">
               <Suspense fallback={<SkeletonCard count={4} total={8}/>}>
-                <ProductsCard width={"small"} scroll={"NO_SCROLL"}/>
+                <ProductsCard width={"SMALL"} scroll={"NO_SCROLL"}/>
               </Suspense>
             </div>
 
@@ -184,7 +185,6 @@ export default function BrowseProduct() {
                 handleOnclick={ () => setLoadMore(true) }
                 order=""
                 border={'border-(--border-main)'}
-
               />
             </div>
 

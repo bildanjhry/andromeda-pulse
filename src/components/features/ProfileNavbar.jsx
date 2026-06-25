@@ -18,7 +18,7 @@ export default function ProfileNavbar(){
   return(
     <div className="h-full w-full md:w-fit flex items-center ">
       { !user.id ?
-        <div className="flex items-center justify-center md:justify-end w-full md:w-55">
+        <div className="flex items-center h-full justify-center md:justify-end w-full md:w-55">
           <AuthNavbar/>
         </div>
         :
