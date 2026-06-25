@@ -10,7 +10,8 @@ export default function useFetch(url, category, slugs){
     async function getData(count = 3) {
       try{
         setIsLoading(true)
-			  // url validation
+        
+			  // guard clause
         if(!url) throw new Error("Url path is not valid")
         if(typeof url !== "string") throw new Error("Url must be a string")
 

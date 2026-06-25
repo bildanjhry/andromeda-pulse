@@ -1,9 +1,12 @@
 import { Link } from "react-router"
 import { useContext } from "react"
-import useUser from "@/hooks/useUser"
 import { UserContext } from "@/hooks/context/UserContext"
 import { HiOutlineHome } from "react-icons/hi2";
 import AuthNavbar from "@/components/ui/Auth"
+import { useSelector } from "react-redux";
+
+// hook
+import useSession from "@/hooks/useSession";
 
 // asset
 import notif from "@/assets/icons/notif-mute.svg"
@@ -12,12 +15,13 @@ import wishlist from "@/assets/icons/wishlist-mute.svg"
 import Cart from "@/assets/icons/cart-mute.svg"
 
 export default function ProfileNavbar(){
-  const { user, userName } = useUser()
-  const [globalCart] = useContext(UserContext)
-
+  const { userName } = useSession()
+  const sessionUser = useSelector(state => state.session.session)
+  const [ globalCart ] = useContext(UserContext)
+  
   return(
     <div className="h-full w-full md:w-fit flex items-center ">
-      { !user.id ?
+      { !sessionUser.id ?
         <div className="flex items-center h-full justify-center md:justify-end w-full md:w-55">
           <AuthNavbar/>
         </div>

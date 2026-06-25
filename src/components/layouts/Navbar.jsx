@@ -1,28 +1,18 @@
 import { Link } from "react-router"
-import { useContext } from "react"
 
-// custom hook
+// hook
 import useFetch from "@/hooks/useFetch.js"
-import useUser from "@/hooks/useUser"
-import { UserContext } from "@/hooks/context/UserContext"
 
 // assets
 import location from "@/assets/icons/location-white.svg"
 import hamMenu from "@/assets/icons/ham-menu-black.svg"
-import notif from "@/assets/icons/notif-mute.svg"
-import profile from "@/assets/icons/profile-mute.svg"
-import wishlist from "@/assets/icons/wishlist-mute.svg"
-import Cart from "@/assets/icons/cart-mute.svg"
 import search from "@/assets/icons/search-white.svg"
 
 // component
 import Logo from "@/components/ui/Logo"
-import AuthNavbar from "@/components/ui/Auth"
 import ProfileNavbar from "@/components/features/ProfileNavbar"
 
 export default function Navbar() {
-  const { user, userName } = useUser()
-  const [globalCart] = useContext(UserContext)
 
   const {data: categories} = useFetch("/data/categories.json")
 

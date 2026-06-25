@@ -11,13 +11,13 @@ const persistReducerAccountsConfig = {
 }
 
 const persistReducerSessionConfig = {
-  key:"user",
+  key:"session",
   storage
 }
 
 const reducer = combineReducers({
   accounts:persistReducer(persistReducerAccountsConfig, accounts),
-  user:persistReducer(persistReducerSessionConfig, session)
+  session:persistReducer(persistReducerSessionConfig, session)
 })
 
 export default reducer

@@ -1,13 +1,16 @@
 import { Link } from "react-router"
 import { useEffect, useRef, useState } from "react"
 import { useForm  } from "react-hook-form"
-import useUser from "@/hooks/useUser"
 import * as yup from "yup"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useLocation, useNavigate } from "react-router"
 import { useDispatch, useSelector } from "react-redux"
 import { createAccount } from "@/redux/reducer/accounts"
-import { createSessionUser } from "@/redux/reducer/session"
+
+
+// hook
+import useSession from "@/hooks/useSession"
+import useUser from "@/hooks/useUser"
 
 // component
 import AuthButton from "@/components/ui/AuthButton.jsx"
@@ -27,7 +30,6 @@ import { FaRegPaperPlane } from "react-icons/fa6";
 
 export default function FormSection({type}){
   const accounts = useSelector(state => state.accounts.accounts)
-
   console.log(accounts)
 
   function chooseForm(){
@@ -54,6 +56,7 @@ function FormLogin(){
 
   const location = useLocation()
   const { setterUser, accounts } = useUser()
+  const { loginRes, setUserData } = useSession()
   const navigate = useNavigate()
   const [errorLogin, setErrorLogin] = useState({
     error:false,
@@ -74,8 +77,6 @@ function FormLogin(){
     }
   })
 
-
-
   // set manually email after success register
   useEffect(() => {
     if(location.pathname === "/login" && location.state){
@@ -85,20 +86,13 @@ function FormLogin(){
 
   function onSubmit(data){
     try{
-      // filtering if data matches
-      const user = accounts.filter((item) => {
-      	return item.email === data.email && atob(item.password) === data.password
-      })[0]
-      if(!user?.id) throw new Error("Akun tidak ditemukan")
-      setterUser(user)
+      setUserData(data)
+      console.log(loginRes)
+      if(loginRes.error) throw new Error(loginRes.message)
 
-      if(location?.state?.origin){
-        return navigate(location.state.origin)
-      }
       navigate("/") // navigate to landing
     } catch(err){
-      // error handling
-      setErrorLogin({
+      setErrorLogin({ // error handling
         error:true,
         message:err.message
       })
