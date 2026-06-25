@@ -16,7 +16,7 @@ import ProductDetails from "@/pages/details/ProductDetails.jsx";
 
 // profiles
 import Orders from "@/pages/profiles/Orders.jsx";
-import ProfileLayout from "@/components/layouts/ProfileLayout.jsx"
+import ProfileLayout from "@/components/layouts/profiles/ProfileLayout.jsx"
 import Address from "@/pages/profiles/Address.jsx"
 import Wishlist from "@/pages/profiles/Wishlist.jsx"
 import ProfileSettings from "@/pages/profiles/ProfileSettings.jsx";
