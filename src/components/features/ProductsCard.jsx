@@ -29,7 +29,7 @@ export default function Card({count = 4, width = "large", params}){
 
   return(
     <div className={classNames(
-      `flex md:grid gap-3 shrink-0 overflow-x-scroll md:overflow-hidden pt-5`,
+      `flex md:grid gap-3 shrink-0 overflow-x-scroll md:overflow-hidden pt-0`,
       {'md:grid-cols-3 3xl:grid-cols-4 large:grid-cols-3' : count === 2},
       {'md:grid-cols-4 3xl:grid-cols-5 large:grid-cols-4': count === 4}
     )}>
