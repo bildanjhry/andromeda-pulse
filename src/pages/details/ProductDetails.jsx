@@ -101,7 +101,8 @@ export default function ProductDetails(){
 
   return(
     <MainLayout>
-      <div className="w-[83%] flex flex-col mt-3">
+      <div className="w-[95%] md:w-[83%] flex flex-col mt-3">
+
         <div className="h-[4.2rem] w-full flex items-center">
           <ul className="h-full flex items-center gap-1 text-sm">
             <li>
@@ -130,9 +131,10 @@ export default function ProductDetails(){
             </li>                        
           </ul>
         </div>
-        <div className="flex flex-row h-fit">
-          <section className="w-[48%] flex flex-col">
-            <div className="rounded-xl overflow-hidden h-151 relative">
+
+        <div className="flex flex-col md:flex-row h-fit">
+          <section className="w-full md:w-[48%] flex flex-col">
+            <div className="rounded-xl overflow-hidden md:h-151 w-full relative">
               { data.discount &&
                 <div className="px-4 py-1 rounded-full bg-(--info-bg) text-light flex absolute 
                 justify-center left-2 top-2">
@@ -165,8 +167,8 @@ export default function ProductDetails(){
             </div>
           </section>
 
-          <section className="w-[52%] flex justify-end">
-            <div className="w-[96%] h-full flex flex-col gap-3">
+          <section className="w-full md:w-[52%] md:mt-0 mt-10 flex justify-end">
+            <div className="md:w-[96%] w-full h-full flex flex-col gap-3">
               <div className="flex gap-1 items-center m-0 text-sm">
                 <p>{data.brand}</p>
                 <p>·</p>
@@ -189,10 +191,11 @@ export default function ProductDetails(){
               </div>
 
               <div className="w-full h-30 bg-(--accent-bg) rounded-lg mt-2 px-3 flex flex-col justify-center">
-                <div className="flex flex-row gap-3 items-center">
+                <div className="flex flex-col items-start md:flex-row md:gap-3 md:items-center relative">
                   <h1 className="text-(--text-high)">{moneyFormat(data?.price)[0]}</h1>
-                  { data?.discountPrice > 0 && <p className="text-lg"><s>{moneyFormat(data?.discountPrice)[0]}</s></p> }
-                  <div className="text-light text-sm bg-(--info-bg) rounded-full flex px-3 py-1">
+                  { data?.discountPrice > 0 && 
+                   <p className="text-lg relative bottom-2 md:bottom-0"><s>{moneyFormat(data?.discountPrice)[0]}</s></p> }
+                  <div className="text-light absolute md:static right-0 top-3 text-sm bg-(--info-bg) rounded-full md:flex px-3 py-1">
                     <p>Hemat {data?.discount?.slice(1,(data.discount.length))}</p>
                   </div>
                 </div>
@@ -262,7 +265,7 @@ export default function ProductDetails(){
                 </div>
               </div>
 
-              <div className="mt-3 grid grid-cols-[43%_43%_9%] w-full justify-between">
+              <div className="mt-3 hidden md:grid grid-cols-[43%_43%_9%] w-full justify-between">
                 <ActionButton 
                   img={Cart} 
                   buttonText={"Tambah ke keranjang"} 
@@ -292,31 +295,31 @@ export default function ProductDetails(){
                 />
               </div>
 
-              <div className="flex  mt-3 w-full justify-between">
-                <div className="flex flex-col items-center justify-center gap-1 h-[73px] 
-                w-48.75 bg-(--content-deep-bg) rounded-lg text-xs">
+              <div className="flex flex-col md:flex-row gap-2 mt-3 w-full justify-between">
+                <div className="flex gap-4 md:flex-col items-center justify-center md:gap-1 h-18.25 
+                w-full md:w-48.75 bg-(--content-deep-bg) rounded-lg text-xs">
                   <img src={Delivery} alt="delivery" />
                   <p className="text-h">Gratis Ongkir</p>
-                  <p>Min. Rp 100.000</p>
+                  <p className="hidden md:flex">Min. Rp 100.000</p>
                 </div>
-                <div className="flex flex-col items-center justify-center gap-1 h-[73px] 
-                w-48.75 bg-(--content-deep-bg) rounded-lg text-xs">
+                <div className="flex gap-4 md:flex-col items-center justify-center md:gap-1 h-18.25 
+                w-full md:w-48.75 bg-(--content-deep-bg) rounded-lg text-xs">
                   <img src={Safe} alt="delivery" />
                   <p className="text-h">Pembayaran Aman</p>
-                  <p>SSL Terenkripsi</p>
+                  <p className="hidden md:flex">SSL Terenkripsi</p>
                 </div>
-                <div className="flex flex-col items-center justify-center gap-1 h-[73px] 
-                w-[195px] bg-(--content-deep-bg) rounded-lg text-xs">
+                <div className="flex gap-4 md:flex-col items-center justify-center md:gap-1 h-18.25 
+                w-full md:w-48.75 bg-(--content-deep-bg) rounded-lg text-xs">
                   <img src={Return} alt="delivery" />
                   <p className="text-h">Retur 30 Hari</p>
-                  <p>Gratis retur</p>
+                  <p className="hidden md:flex">Gratis retur</p>
                 </div>                                
               </div>
             </div>
           </section>
         </div>
 
-        <div className="my-20">
+        <div className="my-5 mdLmy-20">
           <div className="w-full bg-[white] rounded-lg h-fit flex flex-col">
             <nav className="flex w-full h-13.75 gap-1 border-b-light text-sm">
               <button className="border-b-2 border-(--main-border) flex px-6 justify-center items-center">
@@ -329,8 +332,8 @@ export default function ProductDetails(){
                 <p className="">Ulasan</p>
               </button>
             </nav>
-            <div className="min-h-20 w-full flex justify-end items-center">
-              <article className="w-[98%]">
+            <div className="min-h-20 w-full flex justify-center md:justify-end items-center">
+              <article className="w-[90%] py-5 md:py-2 md:w-[98%]">
                   Headphone wireless dengan teknologi noise-cancelling terdepan. Nikmati musik favoritmu tanpa gangguan dengan kualitas suara yang memukau.
               </article>
             </div>
