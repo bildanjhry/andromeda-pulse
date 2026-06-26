@@ -13,6 +13,8 @@ import { LiaBoxOpenSolid } from "react-icons/lia";
 import { LiaTruckSolid } from "react-icons/lia";
 import { SlStar } from "react-icons/sl";
 import { BiEditAlt } from "react-icons/bi";
+import { useDispatch } from "react-redux";
+import { clearSessionUser } from "@/redux/reducer/session";
 
 export default function Content({initial, user}){
   const {data: menus} = useFetch("/data/sidemenu-profiles.json")
@@ -103,9 +105,10 @@ export default function Content({initial, user}){
 
 function ListSideMenu({dataMenu, path}){
   const navigate = useNavigate()
-  
+  const dispatch = useDispatch()
+
   function handleLogout(){
-    window.localStorage.removeItem("user")
+    dispatch(clearSessionUser())
     navigate("/login")
   }
 

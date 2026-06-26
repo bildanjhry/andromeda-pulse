@@ -11,6 +11,9 @@ const reducers = {
   },
   updateSessionUser:function(state, action){
     state.session = {...action.payload}
+  },
+  clearSessionUser:function(state){
+    state.session = {}
   }
 }
 
@@ -21,4 +24,4 @@ const session = createSlice({
 })
 
 export default session.reducer
-export const {createSessionUser, updateSessionUser} = session.actions
+export const {createSessionUser, updateSessionUser, clearSessionUser} = session.actions
