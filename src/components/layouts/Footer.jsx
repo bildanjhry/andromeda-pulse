@@ -15,7 +15,7 @@ import { LuYoutube } from "react-icons/lu";
 
 export default function Footer() {
   return (
-    <div className="w-full primary-bg h-123 flex mt-auto flex-col items-center">
+    <div className="w-full primary-bg h-full md:h-123 flex mt-auto flex-col items-center">
       <section className="w-full py-3 md:py-0 md:h-26.25 border-b-accent flex justify-center ">
         <ul className="w-[95%] md:w-[83%] grid grid-cols-1 gap-3  md:flex justify-between large:w-315">
           <li className="flex gap-2 items-center shrink-0">
@@ -57,8 +57,8 @@ export default function Footer() {
         </ul>
       </section>
 
-      {/* <section className="w-full h-84.5 border-b-accent flex justify-center">
-        <ul className="flex w-[83%] large:w-315 gap-2 justify-between items-center">
+      <section className="w-full h-fit md:h-84.5 border-b-accent flex flex-col md:flex-row justify-center items-center pb-10 md:pb-0">
+        <ul className="flex md:flex-row flex-col gap-1 md:w-[83%] py-8 md:py-0  h-full md:h-fit w-[95%] large:w-315 md:gap-2 justify-between md:items-center">
           <li className="w-60 h-60.5 flex flex-col gap-5">
             <Logo scheme={"dark"}/>
             <p className="text-sm text-accent">Platform belanja online terpercaya dengan ribuan produk pilihan. Belanja mudah, 
@@ -159,9 +159,9 @@ export default function Footer() {
             </div>
           </li>
         </ul>
-      </section> */}
+      </section>
 
-      <section className="flex flex-col md:flex-row py-3 md:py-0 md:items-center gap-1 md:justify-between h-8 md:h-12 w-[90%] md:w-[83%] justify-self-center">
+      <section className="flex flex-col md:flex-row py-3 md:py-0 md:items-center gap-1 md:justify-between h-8 mb-22 md:mb-0 md:h-12 w-[90%] md:w-[83%] justify-self-center">
         <p className="text-(--text-footer-bottom) text-xs">© 2026 BeliMudah. Seluruh hak cipta dilindungi.</p>
         <ul className="flex items-center gap-3 text-xs">
           <li>Kebijakan Privasi</li>
