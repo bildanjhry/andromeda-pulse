@@ -1,46 +1,50 @@
-# Program BeliMudah
+# Program BeliMudah -> Andromeda rebrand(On Going)
 
-Slicing e-commerce target (20 pages).
+Aplikasi e-commerce berbasiskan website dengan menggunakan React Js sebagai External library helper
 
-## First Init: Structure with Layout Components.
-Struktur tree program ini dibangun dengan layout component sehingga setiap page akan dibungkus oleh layout component sendiri yang terdiri dari navbar dan footer. 
+### Link: https://beli-mudah.vercel.app/
 
-### Updated
-Beberapa layout component sebagai structure:
-- MainLayout
-- ProfilesLayout
-- DashboardLayout (admin)
+### Tech Stacks:
+- React Js v19.2.6
+- Vite v8.0.12
+- TailwindCss v4.3.0
+- React Redux v9.3.0
+- Redux persist v6.0.0
+- Yup v1.7.1
+- React Hook Form v7.79.0
 
 ## Data json:
-Beberapa components dibangun secara dimanis sehingga untuk listnya sendiri akan berdasarkan jumlah datanya:
+Beberapa components dibangun secara dimanis sehingga untuk listnya sendiri akan berdasarkan jumlah datanya yang tersipan di directory ```/public/data```
+```text
+/data
+├── brand.json
+├── categories.json
+├── dashboard-menu.json
+├── product.json
+├── sidemenu-profile.json
+```
+Manipulasi data pada aplikasi ini menggunakan Redux perist untuk Read-Write ke local storage
 
-### Side Menu
-```json
-[
-    {
-        "id":"1pe",
-        "name":"Pesanan Saya",
-        "path":"/my-profiles",
-        "icon":"/images/profilesMenu/order-mute.svg",
-        "activeIcon":"/images/profilesMenu/order-blue.svg"        
-    },
-    ...{}
-]
+### Redux's Reducer
+```js
+const persistReducerAccountsConfig = {
+  key:"accounts",
+  storage
+}
+
+const persistReducerSessionConfig = {
+  key:"session",
+  storage
+}
+
+const reducer = combineReducers({
+  accounts:persistReducer(persistReducerAccountsConfig, accounts),
+  session:persistReducer(persistReducerSessionConfig, session)
+})
+
+export default reducer
 ```
 
-### Kategori
-```json
-[
-    {
-        "id":"1te",
-        "name":"TechMaster"
-    },
-    ...{}
-]    
-```
 
-### Tech stacks:
-- React Js v19.2.14
-- TailwindCss v4.3.0
-- Vite v8.0.12
-- Eslint v10.3.0
+
+
