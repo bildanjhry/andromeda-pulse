@@ -25,7 +25,7 @@ Beberapa components dibangun secara dimanis sehingga untuk listnya sendiri akan 
 ```
 Manipulasi data pada aplikasi ini menggunakan Redux perist untuk Read-Write ke local storage
 
-### Redux's Reducer
+### Redux's Reducer:
 ```js
 const persistReducerAccountsConfig = {
   key:"accounts",
@@ -44,6 +44,26 @@ const reducer = combineReducers({
 
 export default reducer
 ```
+
+Dan untuk "realtime" update data cart, program ini menggunakan ```useContext```
+
+### Context Provider:
+```js
+export default function UserProvider({children}){
+  const [globalCart, setGlobalCart] = useState([])
+
+  return(
+    <UserContext.Provider value={[globalCart, setGlobalCart]}>
+      {children}
+    </UserContext.Provider>
+  )
+}
+
+```
+### Preview Mobile's Version:
+![alt text](/src/assets/image.png)
+
+
 
 
 
