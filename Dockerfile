@@ -1,5 +1,14 @@
-FROM nginx
+FROM alpine:latest AS project
+WORKDIR /source
+RUN apk add git
+RUN git clone https://github.com/bildanjhry/koda-b8-react.git .
 
-COPY dist/ user/share/nginx/html
+FROM node:alpine AS builder
+WORKDIR /build
+COPY --from=project /source/ .
+RUN npm install
+RUN npm run build
 
-COPY default.conf /etc/nginx/conf.d/default.conf
+FROM nginx:alpine
+COPY --from=builder /build/dist/ /usr/share/nginx/html
+COPY --from=builder /build/default.conf /etc/nginx/conf.d/default.conf
