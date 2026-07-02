@@ -1,26 +1,24 @@
 name: Adromeda E-commerce CI/CD
 run-name: ${{github.actor}}'s workflow
-on: [push]
+on: push : on : tags: "v*"
+
 jobs:
   build-run-andromeda:
     runs-on: ubuntu-latest
     steps:
-        - name : Build App from Docker Image
-          run : docker build . -t andromeda:latest
+        - name : Checkout Source Code
+          uses: actions/checkout@v6
 
         - name : Login to Container Registry
-        uses: docker/login-action@v2
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          uses: docker/login-action@v4
+          with:
+            registry: ghcr.io
+            username: ${{ github.actor }}
+            password: ${{ secrets.GITHUB_TOKEN }}
 
         - name: Push Docker App to Container Registry
           uses : docker/build-push-action@v7
           with:
             context: .
             push: true
-            run : docker build -t ghcr.io/${{ github.username }}/andromeda:latest
-            tags: ghcr.io/${{ githhub.username }}/andromeda:v1.0.0
-            run : docker push ghcr.io/${{ github.username }}/andromeda:v1.0.0
-          
+            tags: ghcr.io/andromeda:v1.0.0
