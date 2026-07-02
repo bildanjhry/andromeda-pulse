@@ -23,4 +23,4 @@ jobs:
           with:
             context: .
             push: true
-            tags: ghcr.io/andromeda:v1.0.0
+            tags: ghcr.io/andromeda: ${{github.tag_name}}
