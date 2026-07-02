@@ -2,8 +2,8 @@ name: Adromeda E-commerce CI/CD
 run-name: ${{github.actor}}'s workflow
 on: 
   push : 
-    tags:
-     - "v*"
+    tags: 
+    - "v*"
 jobs:
   build-run-andromeda:
     runs-on: ubuntu-latest
