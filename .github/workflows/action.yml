@@ -27,7 +27,11 @@ jobs:
         
         - name: Re Build App
           uses: actions/checkout@v4
+          
+        - name: Install All Deps
           run: npm i
+
+        - name : Build app
           run: npm run build
 
         - name: Upload Artefact
