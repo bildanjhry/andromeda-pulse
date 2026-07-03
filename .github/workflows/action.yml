@@ -27,8 +27,9 @@ jobs:
         
         - name: Re Build App
           uses: actions/checkout@v4
-          
+
         - name: Install All Deps
+          uses: actions/checkout@v7
           run: npm i
 
         - name : Build app
@@ -60,4 +61,20 @@ jobs:
           with: 
             files: | 
               andromeda.zip
-        
+  
+  deploy-image:
+    name: "Deploy image to server"
+    needs: build-run-andromeda
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image and deploy
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{secrets.SSH_HOST}}
+          username: ${{secrets.SSH_USER}}
+          port: ${{secrets.SSH_PORT}}
+          key: ${{secrets.SSH_KEY}}
+          script: |
+            docker pull ghcr.io/${{github.repository}}/andromeda:latest
+            docker rm -f andromeda
+            docker run -d -p 9302:80 --name andromeda ghcr.io/${{github.repository}}/andromeda:latest
