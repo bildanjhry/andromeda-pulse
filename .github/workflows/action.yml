@@ -24,3 +24,36 @@ jobs:
             context: .
             push: true
             tags: ghcr.io/${{ github.repository }}/andromeda:latest
+        
+        - name: Re Build App
+          uses: actions/checkout@v4
+          run: npm i
+          run: npm run build
+
+        - name: Upload Artefact
+          uses: actions/upload-artifact@v7
+          with: 
+            name: build-app-result
+            id: upload-dist
+            path: dist/ 
+
+  release-app:
+    name: Realese ready app
+    needs: build-run-andromeda
+    runs-on: ubuntu-latest
+    steps:
+        - name: Download Artifact
+          uses: actions/download-artifact@v8
+          with:
+            name: build-app-result
+            path: dist/
+        
+        - name: Compress artifact
+          run: zip -r andromeda.zip ./*
+
+        - name: Realese
+          uses: softprops/action-gh-release@v3
+          with: 
+            files: | 
+              andromeda.zip
+        
