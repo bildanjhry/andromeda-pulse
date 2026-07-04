@@ -12,7 +12,7 @@ export default function MainLayout({children}){
   return(
     <div className="relative">
       <Navbar/>
-      <main className="mt-32 w-full flex justify-center 
+      <main className=" w-full flex justify-center 
       large:w-380 large:justify-self-center min-h-screen flex-1">
         {children}
       </main>
