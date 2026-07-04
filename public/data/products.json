@@ -1,9 +1,9 @@
 [
     {
-        "id":"1he",
-        "name":"Headphone Wireless Premium",
-        "slugs":"headphone-wireless-premum-1he",
-        "price":450000,
+        "id":"1re",
+        "name":"React x OffWHite",
+        "slugs":"react-x-offwhite-1re",
+        "price":2500000,
         "discount":"-12%",
         "rating":4.8,
         "ratingTotal":"512",
@@ -13,19 +13,19 @@
         "isNew":false,
         "status":["flash deals"],
         "image":{
-            "path": "/images/products/headphone-prod.svg",
-            "alt":"headphone"
+            "path": "/images/products/nike-shoes-react.png",
+            "alt":"nike shoes react"
         },
         "stocks":45,
         "cat":{
-            "id":"1el",
-            "name":"Elektronik"
+            "id":"1sh",
+            "name":"Sepatu"
         }
     },
     {
-        "id":"2sm",
-        "name":"Smartphone 5G Ultra",
-        "slugs":"smarthone-5g-ultra-2sm",
+        "id":"2am",
+        "name":"Amazon Jumping Rope",
+        "slugs":"amazon-jumping-rope-2am",
         "price":4200000,
         "discount":"-16%",
         "rating":4.6,
@@ -36,7 +36,7 @@
         "variants":["Hitam", "Biru", "Putih"],
         "isNew":false,
         "image":{
-            "path": "/images/products/smartphone-prod.svg",
+            "path": "/images/products/amazon-rope.png",
             "alt":"smartphone"
         },
         "stocks":45,
@@ -46,8 +46,8 @@
         }
     },
     {
-        "id":"3sm",
-        "name":"Smartwatch Series 5",
+        "id":"3le",
+        "name":"Boxing GLoves Kulit",
         "slugs":"smartwatch-series-5-3sm",
         "price":2800000,
         "discount":"-12%",
@@ -59,7 +59,7 @@
         "variants":["Hitam", "Biru", "Putih"],
         "isNew":false,
         "image":{
-            "path": "/images/products/smartwatch-prod.svg",
+            "path": "/images/products/leone-gloves.png",
             "alt":"smartwatch"
         },
         "stocks":45,
@@ -163,9 +163,9 @@
         }
     }, 
     {
-        "id":"8sn",
-        "name":"Sneakers Sport Runfast",
-        "slugs":"sneakers-sport-runfast-8sn",
+        "id":"8ve",
+        "name":"Venum Rashguard",
+        "slugs":"venum-rashguard-8ve",
         "price":550000,
         "discount":"-22%",
         "rating":4.6,
@@ -176,7 +176,7 @@
         "variants":["Hitam", "Biru", "Putih"],
         "isNew":false,
         "image":{
-            "path": "/images/products/sneaker-prod.svg",
+            "path": "/images/products/venum-rashguard.png",
             "alt":"sneakers"
         },
         "isPopuler":false,
