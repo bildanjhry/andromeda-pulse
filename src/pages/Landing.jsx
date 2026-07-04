@@ -9,6 +9,8 @@ import ArrowRightButton from "@/components/ui/ArrowLeftButton.jsx"
 import InfoCards from "@/components/ui/InfoCards"
 import SkeletonCard from "@/components/ui/skeleton/SkeletonCards"
 import Reason from "@/components/ui/Reason"
+import InfoHead from "../components/ui/InfoHead"
+import Slide from "../components/ui/Slide"
 
 // asset
 import Flash from "@/assets/icons/flash-white.svg"
@@ -35,26 +37,21 @@ export default function Landing(){
 
   return (
     <MainLayout>
-      <div className="w-full flex flex-col items-center">
+      <div className="w-full flex flex-col bg-(--base-bg) items-center">
         <Herro/>
-        <div className="w-[95%] md:w-[83%] flex flex-col  justify-center items-center ">
+        <InfoHead/>
+        {/* <Slide/> */}
+        <div className="w-[95%] md:w-[90%] flex flex-col  justify-center items-center ">
 
-          <Suspense fallback={<><h1>Loading...</h1></>}>
+          {/* <Suspense fallback={<><h1>Loading...</h1></>}>
             <CategoriesCard/>
-          </Suspense>
+          </Suspense> */}
 
-          <div className="mb-8 md:w-full w-[95%] ">
-            <header className="flex items-center justify-between mt-4">
+          <div className="mb-8 md:w-full w-[95%] mt-22">
+           
+            <header className="flex items-center justify-between">
               <section className="h-20 flex flex-row items-center gap-3">
-                <div className="rounded-lg bg-(--info-bg) text-light flex jusity-center 
-                w-29.25 h-8 items-center gap-1 px-2">
-                  <img src={Flash} alt="" />
-                  <p className="text-sm">Flash Deals</p>
-                </div>
-                <div className="flex flex-row items-center gap-2">
-                  <p className="text-h md:flex hidden">Berakhir dalam:</p>
-                  <span className="font-bold text-red-600">0{time.hours} : {time.minutes} : {time.seconds}</span>
-                </div>
+                 <p className="text-center text-3xl font-semibold">Flash Deals</p>
               </section>
               <section>
                 <ArrowRightButton/>
@@ -67,14 +64,10 @@ export default function Landing(){
 
           <InfoCards/>
 
-          <div className="mb-8 w-full">
-            <header className="flex items-center justify-between mt-2">
-              <section className="h-20 flex flex-row items-center gap-2">
-                <div className="flex flex-row justify-start 
-                w-fit h-full items-center gap-3">
-                  <img src={Escalate} alt="new product" />
-                  <h3 className="">Produk Terbaru</h3>
-                </div>
+          <div className="mb-8 w-full mt-15">
+            <header className="flex items-center justify-between">
+              <section className="h-20 flex flex-row items-center gap-3">
+                 <p className="text-center text-3xl font-semibold">Produk Terbaru</p>
               </section>
               <section>
                 <ArrowRightButton/>

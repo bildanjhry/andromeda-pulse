@@ -21,7 +21,7 @@ export default function ProfileNavbar(){
   
   return(
     <div className="h-full w-full md:w-fit flex items-center ">
-      { !sessionUser.id ?
+      { sessionUser.id ?
         <div className="flex items-center h-full justify-center md:justify-end w-full md:w-55">
           <AuthNavbar/>
         </div>
@@ -31,13 +31,6 @@ export default function ProfileNavbar(){
             <Link to={""} className="w-10 h-10 cursor-pointer 
                   flex justify-center items-center">
               <img src={notif} alt="notification" />
-            </Link>
-          </li>
-          <li>
-            <Link to={"/my-profiles"} className="h-10 min-w-10 justify-center 
-                  cursor-pointer flex items-center gap-1">
-              <img src={profile} alt="profile" />
-              <p className="text-h text-sm hidden md:flex">{userName}</p>
             </Link>
           </li>
           <li className="visible md:hidden">
@@ -61,6 +54,14 @@ export default function ProfileNavbar(){
 									  {globalCart.length}
 									</div>}
               <img src={Cart} alt="cart" />
+            </Link>
+          </li>
+          <li>
+            <Link to={"/my-profiles"} className="h-10 min-w-10 justify-center 
+                  cursor-pointer flex items-center gap-1">
+              <div className="h-full rounded-full w-full bg-(--main-bg)">
+
+              </div>
             </Link>
           </li>
         </ul> 

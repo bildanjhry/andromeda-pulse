@@ -1,7 +1,7 @@
 [
     {
         "id":"1el",
-        "name":"Elektronik",
+        "name":"Apparel",
         "iconText":"💻",
         "image":{ 
             "path" : "/images/categories/electronic-cat.svg",
@@ -11,7 +11,7 @@
     },
     {
         "id":"2fa",
-        "name":"Fashion",
+        "name":"Gear",
         "iconText":"👗",
         "image":{
             "path": "/images/categories/fashion-cat.svg",
@@ -21,7 +21,7 @@
     },
     {
         "id":"3ru",
-        "name":"Rumah & Dapur",
+        "name":"Sepatu",
         "iconText":"🏠",
         "image": {
             "path":"/images/categories/home-cat.svg",
@@ -31,7 +31,7 @@
     },    
     {
         "id":"4ke",
-        "name":"Kecantikan",
+        "name":"Training",
         "iconText":"💄",
         "image":{ 
             "path":"/images/categories/beauty-cat.svg",
@@ -39,26 +39,7 @@
         },
         "total":7
     },
-    {
-        "id":"5ol",
-        "name":"Olahraga",
-        "iconText":"⚽",
-        "image":{
-            "path" :"/images/categories/sport-cat.svg",
-            "alt":"sports"
-        },
-        "total":3
-    },
-    {
-        "id":"6bu",
-        "iconText":"📚",
-        "name":"Buku & Alat Tulis",
-        "image":{
-            "path":"/images/categories/desk-tools-cat.svg",
-            "alt":"desk tools"
-        },
-        "total":2
-    },
+
     {
         "id":"7pr",
         "iconText":"🔥",

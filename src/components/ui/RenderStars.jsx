@@ -11,8 +11,8 @@ export default function RenderStars({rating, width}){
       icon={solidStar}
       className={classNames(
         {'text-xs': width === "small"},
-        {'text-(--text-star)': index < Math.round(rating) },
-        {'text-(--border)': index >= Math.round(rating)}
+        {'text-(--action-bg)': index < Math.round(rating) },
+        {'text-(--content-bg)': index >= Math.round(rating)}
       )}
     />  
   ))
