@@ -42,8 +42,8 @@ export default function Navbar() {
   return (
     <div className={classNames(
       `flex flex-col w-full h-fit fixed top-0 justify-center 
-      items-center bg-white/0 transition-all duration-300 ease-in-out`,
-      {"bg-white/80 shadow-lg backdrop-blur-xl z-20 backdrop-saturate-150": scrolled === true }
+      items-center z-20 transition-all duration-300 ease-in-out large:w-380 large:justify-self-center`,
+      {"bg-white/80 shadow-lg backdrop-blur-xl backdrop-saturate-150": scrolled === true }
       )}>
       <section className="w-full h-17 flex justify-center  items-center ">
         <div className="w-[95%] md:w-[90%] h-full large:w-315 flex gap-3 items-center 

@@ -15,7 +15,8 @@ import { LuYoutube } from "react-icons/lu";
 
 export default function Footer() {
   return (
-    <div className="w-full primary-bg h-full md:h-123 flex mt-auto flex-col items-center">
+    <div className="w-full bg-(--main-bg) h-full md:h-123 large:w-380 large:justify-self-center 
+    flex mt-auto flex-col items-center">
       <section className="w-full py-3 md:py-0 md:h-26.25 border-b-accent flex justify-center ">
         <ul className="w-[95%] md:w-[83%] grid grid-cols-1 gap-3  md:flex justify-between large:w-315">
           <li className="flex gap-2 items-center shrink-0">
