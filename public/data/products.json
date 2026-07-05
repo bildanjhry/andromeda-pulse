@@ -1,15 +1,15 @@
 [
     {
         "id":"1re",
-        "name":"React x OffWHite",
+        "name":"React x Off-White",
         "slugs":"react-x-offwhite-1re",
         "price":2500000,
         "discount":"-12%",
         "rating":4.8,
         "ratingTotal":"512",
         "discountPrice":650000,
-        "brand":"SoundWave",
-        "variants":["Hitam", "Biru", "Putih"],
+        "brand":"Nike",
+        "variants":["Hitam", "Putih"],
         "isNew":false,
         "status":["flash deals"],
         "image":{
@@ -32,7 +32,7 @@
         "ratingTotal":"890",
         "status":["flash deals"],
         "discountPrice":5000000,
-        "brand":"PhoneX",
+        "brand":"Amazon",
         "variants":["Hitam", "Biru", "Putih"],
         "isNew":false,
         "image":{
@@ -47,7 +47,7 @@
     },
     {
         "id":"3le",
-        "name":"Boxing GLoves Kulit",
+        "name":"Boxing Gloves Alcantara",
         "slugs":"smartwatch-series-5-3sm",
         "price":2800000,
         "discount":"-12%",
@@ -55,7 +55,7 @@
         "ratingTotal":"324",
         "status":["flash deals"],
         "discountPrice":3500000,
-        "brand":"WristTech",
+        "brand":"Leone",
         "variants":["Hitam", "Biru", "Putih"],
         "isNew":false,
         "image":{
@@ -172,8 +172,8 @@
         "status":["flash deals"],
         "ratingTotal":"445",
         "discountPrice":750000,
-        "brand":"SportPro",
-        "variants":["Hitam", "Biru", "Putih"],
+        "brand":"Venum",
+        "variants":["Hitam"],
         "isNew":false,
         "image":{
             "path": "/images/products/venum-rashguard.png",

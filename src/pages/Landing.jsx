@@ -9,8 +9,9 @@ import ArrowRightButton from "@/components/ui/ArrowLeftButton.jsx"
 import InfoCards from "@/components/ui/InfoCards"
 import SkeletonCard from "@/components/ui/skeleton/SkeletonCards"
 import Reason from "@/components/ui/Reason"
-import InfoHead from "../components/ui/InfoHead"
-import Slide from "../components/ui/Slide"
+import InfoHead from "@/components/ui/InfoHead"
+import Slide from "@/components/ui/Slide"
+import InfoSpecial from "@/components/ui/InfoSpecial"
 
 // asset
 import Flash from "@/assets/icons/flash-white.svg"
@@ -47,11 +48,10 @@ export default function Landing(){
             <CategoriesCard/>
           </Suspense> */}
 
-          <div className="mb-8 md:w-full w-[95%] mt-22">
-           
+          <div className="mb-8 md:w-full w-[95%] mt-20">
             <header className="flex items-center justify-between">
-              <section className="h-20 flex flex-row items-center gap-3">
-                 <p className="text-center text-3xl font-semibold">Flash Deals</p>
+              <section className="h-28 flex flex-row items-center gap-3">
+                 <p className="text-center text-5xl font-semibold">Flash Deals</p>
               </section>
               <section>
                 <ArrowRightButton/>
@@ -64,7 +64,7 @@ export default function Landing(){
 
           <InfoCards/>
 
-          <div className="mb-8 w-full mt-15">
+          <div className="mb-8 w-full mt-20">
             <header className="flex items-center justify-between">
               <section className="h-20 flex flex-row items-center gap-3">
                  <p className="text-center text-3xl font-semibold">Produk Terbaru</p>
@@ -74,11 +74,12 @@ export default function Landing(){
               </section>
             </header>
             <Suspense fallback={ <SkeletonCard count={4} total={4}/>}>
-              <ProductsCard params={"NEW"}/>
+              <ProductsCard params={"FLASH_DEALS"}/>
             </Suspense>
           </div>   
-
-          <div className="mb-8 w-full">
+          
+          <InfoSpecial/>
+          {/* <div className="mb-8 w-full">
             <header className="flex items-center justify-between mt-2">
               <section className="h-20 flex flex-row items-center gap-2">
                 <div className="flex flex-row justify-start 
@@ -93,9 +94,9 @@ export default function Landing(){
             <Suspense fallback={ <SkeletonCard count={4} total={4}/>}>
               <ProductsCard/>
             </Suspense>
-          </div>            
+          </div>             */}
 
-          <div className="w-full mb-26">
+          <div className="w-full mt-3 mb-26">
             <Reason/>
           </div>
 

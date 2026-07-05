@@ -9,8 +9,8 @@ import Gi from "../../../public/images/products/gi.png"
 
 export default function Herro(){
   return(
-    <header id="herro" className=" h-screen flex flex-row w-[95%] md:rounded-none rounded-2xl 
-    md:w-full relative justify-center">
+    <header id="herro" className="h-screen 3xl:h-167 flex flex-row w-[95%] md:rounded-none rounded-2xl 
+    md:w-full relative justify-center bg-linear-to-r from-white via-white/60 to-(--primary-bg)/50 ">
       <main className="pt-32 w-[95%] h-full md:w-[90%] flex">
         <section 
         className="flex h-full flex-row justify-between gap-3 w-[50%]">
@@ -32,21 +32,38 @@ export default function Herro(){
             </li>
           </ul>
           <div className="flex flex-col gap-3 mt-5 w-[80%]">
-            <p className="font-bold">NIKE</p>
-            <p className="text-6xl my-4 font-semibold">Kaos Dry-Fit</p>
-            <p className="w-[90%] text-justify">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci atque autem velit doloribus unde a laudantium ea alias ab consequatur ipsam pariatur, omnis quas aut placeat eius culpa ad assumenda!</p>
-            <div className="mt-3 flex flex-col gap-2 mb-4">
-              <ul className="flex gap-3">
+            <div className="flex flex-col gap-3">
+              <p className="font-bold">RAGLAN</p>
+              <p className="text-6xl my-4 font-semibold">Kaos Active Wear</p>
+              <p className="w-[90%] text-sm">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci atque autem velit doloribus unde a laudantium ea alias culpa ad assumenda!</p>
+            </div>
+            <div className="mt-3 flex flex-col gap-2 mb-4 relative">
+                <ul className="flex gap-3 px-4 py-3 h-12 absolute rounded-2xl items-center w-fit">
+                  <li>
+                    <button className="w-6 h-6 rounded-full bg-blue-900">
+                    </button>
+                  </li>
+                  <li>
+                    <button className="w-6 h-6 rounded-full bg-white">
+                    </button>
+                  </li>
+                  <li>
+                    <button className="w-6 h-6 rounded-full bg-black">
+                    </button>
+                  </li>
+                </ul>
+              <ul className="flex gap-3 h-12 pb-3 pt-4 bg-(--light-bg)/20 backdrop-blur-2xl px-4 z-2 
+              rounded-full items-center w-fit">
                 <li>
-                  <button className="w-8 h-4 rounded-full bg-blue-900">
+                  <button className="w-6 h-6 rounded-full bg-blue-900">
                   </button>
                 </li>
                 <li>
-                  <button className="w-8 h-4 rounded-full bg-white">
+                  <button className="w-6 h-6 rounded-full bg-white">
                   </button>
                 </li>
                 <li>
-                  <button className="w-8 h-4 rounded-full bg-black">
+                  <button className="w-6 h-6 rounded-full bg-black">
                   </button>
                 </li>
               </ul>
@@ -56,8 +73,8 @@ export default function Herro(){
             <button className="bg-(--main-bg) shadow-xl w-full h-[50%] rounded-full text-white content-cent text-sm">
                 Beli Sekarang
             </button>
-            <button className="text-(--action-bg) content-cent gap-1 text-sm border-2 border-(--action-bg) rounded-full w-fit px-4 h-[50%]">
-              <MdFavoriteBorder size={20}/>
+            <button className="text-(--action-bg) content-cent gap-1 text-sm rounded-full w-fit p-4 h-[50%]">
+              <MdFavoriteBorder size={30}/>
             </button>
           </div>
           </div>
@@ -71,30 +88,37 @@ export default function Herro(){
               animate={{ opacity: 1, y: 1 }}
                 transition={{
                 type: "spring",
-                stiffness: 120,
-                damping: 18,
+                stiffness: 200,
+                damping: 21,
               }}
             >
-              <p className="absolute text-white text-[9rem] font-extrabold right-0 rotate-90 top-20 -z-2">
-                NIKE
-              </p>
+              <div className="absolute h-fit right-32 w-30 -top-28 ">
+                <p className="text-(--text-mute)/10 text-[13rem] font-extrabold tracking-wide right-0 rotate-90 ">
+                  RAGLAN
+                </p>
+              </div>
             </motion.div>
+            {/* <span className="absolute z-0  h-fit w-fit">
             <motion.div
               initial={{ opacity: 0, y: 800 }}
               animate={{ opacity: 1, y: 500 }}
                 transition={{
                 type: "spring",
                 stiffness: 120,
-                damping: 18,
+                damping: 20,
               }}
             >
-              <p className="absolute text-white text-[9rem] m-0 -left-20 font-extrabold rotate-90 bottom-4 ">
+              <p className="absolute text-(--text-mute)/20
+               text-[9rem] w-fit h-fit -left-20 font-extrabold rotate-90 bottom-0 ">
                 NIKE
               </p>
             </motion.div>
+
+            </span> */}
+            <div class="absolute bottom-35 left-1/3 h-7 w-40 z-20 -translate-x-1/2 rounded-full bg-black/60 blur-md"></div>
             <img 
-            className="h-135"
-            src="/images/products/nike-shirt.png" 
+            className="h-140 -top-20 z-1 absolute"
+            src="/images/products/raglan-comp.png" 
             alt="" />
           </div>
         </section>
