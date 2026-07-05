@@ -41,7 +41,7 @@ export default function Card({
   return(
     <div className={classNames(
       `flex md:grid shrink-0 md:overflow-hidden pt-0 pb-10`,
-      {"overflow-x-scroll md:overflow-hidden gap-3" : scroll === "SCROLL"},
+      {"overflow-x-scroll md:overflow-hidden gap-3.5" : scroll === "SCROLL"},
       {"overflow-x-hidden md:overflow-x-hidden grid grid-cols-2 gap-1.5 justify-between" : scroll === "NO_SCROLL"},
       {'md:grid-cols-3 3xl:grid-cols-4 large:grid-cols-3' : count === 2},
       {'md:grid-cols-4 3xl:grid-cols-5 large:grid-cols-4': count === 4}
@@ -51,10 +51,11 @@ export default function Card({
         <Link
           key={item.id}
           to={`/details/${item.cat?.id}/${item.slugs}`} 
-          className="bg-(--light-bg) relative  md:w-full rounded-4xl h-90 md:h-109 shrink-0 overflow-hidden shadow-md">
-          <header className="w-full flex rounded-3xl items-center justify-center h-[66%] md:h-[68%] md:overflow-hidden relative">
+          className="bg-(--light-bg) relative md:w-full rounded-4xl h-90 md:h-106 shrink-0 overflow-hidden shadow-md">
+          <header className="w-full flex rounded-3xl items-center justify-center h-[66%] md:h-[68%] 
+          md:overflow-hidden relative">
             <img 
-              className="h-[96%] w-[96%] bg-(--content-bg) rounded-3xl object-contain"
+              className="h-[96%] w-[96%] bg-(--base-bg)/90 rounded-3xl object-contain"
               src={item.image?.path} alt={item.image?.alt} />
             <div className={classNames(
               "absolute rounded-full text-sm py-0.5 top-3 left-4 z-1 px-2 text-white",
